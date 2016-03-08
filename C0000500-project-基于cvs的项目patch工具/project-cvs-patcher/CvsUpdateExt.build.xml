@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<project name="MyTask" basedir="." default="use">
+
+	<property name="src.dir" value="src" />
+	<property name="classes.dir" value="classes" />
+	<property name="ant.project.name" value="myTask" />
+	
+	<property name="cvsroot" value=":pserver:wusuirong:123@134.64.86.98:2401/repository" />
+	<!-- ":pserver:wusuirong:wusuirong@localhost:/myrepos" /-->
+	<property name="projectpath" value="antStart" />
+	<property name="passfile" value="cvspass" />
+	<property name="cvs.cmd" value="update -p" />
+	<property name="dest.path" value="patch_dest" />
+	<property name="tmp.dir" value="local" />
+
+	
+	<target name="use" description="Use the Task">
+
+		<taskdef name="cvsExt" classname="org.sherwin.cvspatcher.CvsUpdateExt" classpath="./bin" />
+
+		
+		<cvsExt cvsroot="${cvsroot}" dest="${dest.path}" 
+			command="${cvs.cmd}" branch="head" passfile="${passfile}" fileEncoding="GB2312" tmpdir="${tmp.dir}">
+			<path>
+				<fileset dir="patches_commiting" />
+			</path>
+		</cvsExt>
+	</target>
+
+</project>

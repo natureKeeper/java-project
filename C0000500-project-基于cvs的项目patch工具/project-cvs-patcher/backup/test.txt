@@ -1,0 +1,33 @@
+
+
+------------------				 
+wusuirong
+2009-05-07
+
+-------------------------------------------------------------
+发件人：Ah-Srm-CVS-Server
+发送日期：2009-05-07 15:26:45
+收件人：gongjian@gxlu.com.cn; huangning@gxlu.com.cn; konggaojie@gxlu.com.cn; lk@gxlu.com.cn; wusuirong@gxlu.com.cn; xuegongjian@gxlu.com.cn; zhangchan@gxlu.com.cn; zhoudx@gxlu.com.cn; zhouyishen@gxlu.com.cn; zouxiaochen@gxlu.com.cn
+抄送：
+主题：CVS commit : wusuirong commit at GXLU99
+
+CVS Server:       GXLU99
+CVSROOT:          /repository
+Module:           cots/test/web/cots/service/integration/webservice/iom/configBandWidth/add
+Date of change:   2009-05-07 15:25:43
+Changes by:       wusuirong ()
+
+Log Message:
+
+
+Affected files                                     Old rev       New rev       Branch       
+-----------------------------------------------------------------------------------------
+[cots/test/web/cots/service/integration/webservice/iom/configBandWidth/add]
+ConfigBandWidthProvinceZEndWsdlTestCase.java       1.7           1.8                        
+ConfigBandWidthCityWsdlTestCase.java               1.6           1.7                        
+ConfigBandWidthCountryWsdlTestCase.java            1.4           1.5                        
+ConfigBandWidthProvinceAEndWsdlTestCase.java       1.6           1.7                        
+-----------------------------------------------------------------------------------------
+This message was sent by CVS. Do not reply.
+Message prepared by CVSMailer version: 1.5.2.55
+CVSNT server version: 2.5.3.2382

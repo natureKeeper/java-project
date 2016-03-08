@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<project name="MyTask" basedir="." default="use">
+	
+	<target name="use" description="Use the Task">
+		
+		<taskdef name="patchValidater" classname="org.sherwin.cvspatcher.PatchValidater" classpath="./bin" />
+		
+		<patchValidater branch="head" fileEncoding="GB2312">
+			<commitingBugfixPaths>
+				<fileset dir="./patches_commiting" />
+			</commitingBugfixPaths>
+			<uncommitBugfixPaths>
+				<fileset dir="./patches_uncommit" />
+			</uncommitBugfixPaths>
+		</patchValidater>
+	</target>
+
+</project>

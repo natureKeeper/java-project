@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<project name="MyTask" basedir="." default="use">
+
+	<property name="ant.project.name" value="myTask" />
+	<property name="dest.path" value="patch_dest" />
+
+	<target name="use" description="Use the Task">
+		<taskdef name="patchRemover" classname="org.sherwin.cvspatcher.DeletedPatchRemover" classpath="./bin" />
+
+		<patchRemover dest="${dest.path}" branch="head" fileEncoding="UTF-8">
+			<path>
+				<fileset dir="patches_commiting" />
+			</path>
+			<filterset begintoken="cots/" endtoken="/">
+				<filter token="src" value="src/"/>
+				<filter token="cfg" value="conf/"/>
+				<filter token="web" value="webroot/"/>
+				<filter token="resource/client" value="images/"/>
+				<filter token="build" value="script/"/>
+				<filter token="dest" value="merge/"/>
+			</filterset>
+		</patchRemover>
+	</target>
+
+</project>

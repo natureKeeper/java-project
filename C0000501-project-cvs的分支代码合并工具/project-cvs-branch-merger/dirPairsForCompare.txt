@@ -1,0 +1,8 @@
+# 需要比较的2个目录的列表，2个比较的目录写在同一行上，以|分隔，因为windows不允许|作为文件路径一部分
+E:\dba88\workspace_irm_head\irm-adapter-axis14|E:\dba88\workspace_irm_branch\irm-adapter-axis14
+E:\dba88\workspace_irm_head\irm-common|E:\dba88\workspace_irm_branch\irm-common
+E:\dba88\workspace_irm_head\irm-frontend|E:\dba88\workspace_irm_branch\irm-frontend
+E:\dba88\workspace_irm_head\irm-integration|E:\dba88\workspace_irm_branch\irm-integration
+E:\dba88\workspace_irm_head\irm-process|E:\dba88\workspace_irm_branch\irm-process
+E:\dba88\workspace_irm_head\irm-server|E:\dba88\workspace_irm_branch\irm-server
+E:\dba88\workspace_irm_head\irm-web|E:\dba88\workspace_irm_branch\irm-web

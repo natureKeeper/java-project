@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project CvsTrunkBranchMerger">
+<!--this file was created by Eclipse Runnable JAR Export Wizard-->
+<!--ANT 1.7 is required                                        -->
+<target name="create_run_jar">
+<jar destfile="E:/temp_workspace/tmp/output/cvsMerger.jar" filesetmanifest="mergewithoutmain">
+<manifest>
+<attribute name="Built-By" value="${user.name}"/>
+<attribute name="Main-Class" value="net.sherwin.cvs.view.MainWinSwing"/>
+<attribute name="Class-Path" value="."/>
+</manifest>
+<fileset dir="E:/dba88/workspace_study/CvsTrunkBranchMerger/bin"/>
+<zipfileset excludes="META-INF/*.SF" src="E:/dba88/workspace_study/CvsTrunkBranchMerger/lib/commons-logging-1.0.4.jar"/>
+<zipfileset excludes="META-INF/*.SF" src="E:/dba88/workspace_study/CvsTrunkBranchMerger/lib/log4j-1.2.9.jar"/>
+</jar>
+</target>
+</project>
