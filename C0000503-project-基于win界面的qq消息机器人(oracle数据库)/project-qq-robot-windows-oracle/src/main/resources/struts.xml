@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	
+	
+	<!-- need to move into struts-plugin.xml  -->
+	<!--  bean type="ognl.PropertyAccessor" name="com.irm.type.ExtensionAttributeMap" class="com.irm.type.util.ExtensionAttributeMapPropertyAccessor" />-->
+	<package name="default-package" extends="json-default">
+		<result-types>
+            <result-type name="json" class="org.apache.struts2.json.JSONResult">
+            	<param name="enumAsBean">true</param>
+            	<param name="ignoreHierarchy">false</param>            	
+            </result-type>            
+            <result-type name="xml" class="common.struts2.XmlFreemarkerResult" />
+            <result-type name="workbook" class="common.struts2.WorkbookResult" />
+            <result-type name="string" class="common.struts2.StringResult"/>
+            <result-type name="jxls" class="common.struts2.JxlsResult"/>
+        </result-types>
+		<interceptors>
+			<interceptor name="params" class="common.xwork2.TrimParametersInterceptor"/>
+            <interceptor name="parametersPrepare" class="common.xwork2.ParametersPrepareInterceptor"/>
+            <interceptor name="exception" class="common.xwork2.ExceptionInterceptor"/>
+
+ 			<interceptor-stack name="defaultFileUploadInterceptorStack">
+ 				<interceptor-ref name="exception"/>
+                <interceptor-ref name="alias"/>
+                <interceptor-ref name="servletConfig"/>
+                <interceptor-ref name="i18n"/>
+                <interceptor-ref name="prepare"/>
+                <interceptor-ref name="chain"/>
+<!--                <interceptor-ref name="debugging"/>-->
+<!--                <interceptor-ref name="scopedModelDriven"/>-->
+<!--                <interceptor-ref name="modelDriven"/>-->
+                <interceptor-ref name="fileUpload">
+               		<param name="maximumSize">20971520</param>
+                </interceptor-ref>
+                <interceptor-ref name="checkbox"/>
+                <interceptor-ref name="multiselect"/>
+                <interceptor-ref name="staticParams"/>
+                <interceptor-ref name="actionMappingParams"/>
+                
+                <interceptor-ref name="parametersPrepare" />
+                
+                <interceptor-ref name="params">
+                  <param name="excludeParams">dojo\..*,^struts\..*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError"/>
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+ 			</interceptor-stack>
+ 		<interceptor-stack name="pdfFileUploadInterceptorStack">
+ 				<interceptor-ref name="exception"/>
+                <interceptor-ref name="alias"/>
+                <interceptor-ref name="servletConfig"/>
+                <interceptor-ref name="i18n"/>
+                <interceptor-ref name="prepare"/>
+                <interceptor-ref name="chain"/>
+<!--                <interceptor-ref name="debugging"/>-->
+<!--                <interceptor-ref name="scopedModelDriven"/>-->
+<!--                <interceptor-ref name="modelDriven"/>-->
+                <interceptor-ref name="fileUpload">
+               		<param name="maximumSize">314572800</param>
+                </interceptor-ref>
+                <interceptor-ref name="checkbox"/>
+                <interceptor-ref name="multiselect"/>
+                <interceptor-ref name="staticParams"/>
+                <interceptor-ref name="actionMappingParams"/>
+                
+                <interceptor-ref name="parametersPrepare" />
+                
+                <interceptor-ref name="params">
+                  <param name="excludeParams">dojo\..*,^struts\..*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError"/>
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+ 			</interceptor-stack>
+
+            <interceptor-stack name="defaultInterceptorStack">
+                <interceptor-ref name="exception"/>
+                <interceptor-ref name="alias"/>
+                <interceptor-ref name="servletConfig"/>
+                <interceptor-ref name="i18n"/>
+                <interceptor-ref name="prepare"/>
+                <interceptor-ref name="chain"/>
+<!--                <interceptor-ref name="debugging"/>-->
+<!--                <interceptor-ref name="scopedModelDriven"/>-->
+<!--                <interceptor-ref name="modelDriven"/>-->
+<!--                <interceptor-ref name="fileUpload"/>-->
+                <interceptor-ref name="checkbox"/>
+                <interceptor-ref name="multiselect"/>
+                <interceptor-ref name="staticParams"/>
+                <interceptor-ref name="actionMappingParams"/>
+                
+                <interceptor-ref name="parametersPrepare" />
+                
+                <interceptor-ref name="params">
+                  <param name="excludeParams">dojo\..*,^struts\..*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError"/>
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        
+        <default-interceptor-ref name="defaultInterceptorStack"/>
+        
+	</package>
+	
+	<include file="struts-business.xml"/>
+</struts>

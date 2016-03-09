@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	
+	<!-- 
+	struts2.1.8 必须配置namespace
+	在2.0中一切OK，没有问题，但是在2.1中确出现了No result defined for action的异常，郁闷了好半天，经过多方查找，
+	原来是在2.1中有一个插件struts2-convention-plugin-2.1.8.jar，这个插件是2.1版本中新添加的默认核心包，
+	这个插件是实现Struts2的零配置（稍后会详细解释这个插件的使用），但是这样问题就来了，
+	如果引入就必须引入namespace命名空间，否则就会出现刚才的No result defined for action的异常
+	 -->
+	<package name="business" namespace="/"  extends="default-package">
+	
+		<action name="receiveMessageAction" class="receiveMessageAction">
+            <result name="success" type="freemarker">result.ftl</result>
+		</action>
+	</package>
+	
+</struts>

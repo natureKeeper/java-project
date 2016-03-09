@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN" "http://www.ibatis.com/dtd/sql-map-config-2.dtd">
+	
+<sqlMapConfig>
+
+	<settings
+		cacheModelsEnabled="true"
+		enhancementEnabled="true"
+		lazyLoadingEnabled="false"
+		errorTracingEnabled="true"
+		maxRequests="3000"
+		maxSessions="3000"
+		maxTransactions="3000"
+		useStatementNamespaces="true"
+	/>
+
+	
+	<!-- CLOB: String -->
+	<typeHandler jdbcType="CLOB" javaType="java.lang.String" callback="org.springframework.orm.ibatis.support.ClobStringTypeHandler" />
+	<!-- typeHandler jdbcType="CLOB" javaType="java.lang.String" callback="com.ibatis.sqlmap.engine.type.ClobTypeHandlerCallback" / -->
+	
+	<!-- BLOB: byte[] -->
+	<typeHandler jdbcType="BLOB" javaType="[B" callback="org.springframework.orm.ibatis.support.BlobByteArrayTypeHandler" />
+	<!-- typeHandler jdbcType="BLOB" javaType="[B" callback="com.ibatis.sqlmap.engine.type.BlobTypeHandlerCallback" / -->
+
+	<sqlMap resource="com/asb/cdd/messageproxy/dao/access/model/Message.xml" />
+	
+</sqlMapConfig>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="net.danny.qqmsgagent.dao.MessageMapper">
+  <insert id="create" parameterType="Message">
+		<![CDATA[
+			INSERT INTO T_MESSAGE (
+				ID, VERSION, CREATEDATE, 
+				TYPE, DESTINATION, CONTENT, STATUS, FINISHDATE
+			) VALUES (
+				#{id}, #{version}, #{createDate}, 
+				#{type},#{destination}, #{content}, #{status}, #{finishDate}
+			)
+		]]>
+	</insert>
+	
+	<update id="update" parameterType="Message">
+		<![CDATA[
+			UPDATE T_MESSAGE SET 
+				TYPE = #{type},
+				DESTINATION = #{destination},
+				CONTENT = #{content},
+				STATUS = #{status},
+				CREATEDATE = #{createDate},
+				FINISHDATE = #{finishDate},
+				
+				VERSION=VERSION+1
+			WHERE ID= #{id} AND VERSION= #{version}
+		]]>
+	</update>
+	
+	<sql id="sql_where">
+		<dynamic prepend="WHERE">
+			<isNotNull property="id">
+				<isGreaterThan prepend="AND" property="id" compareValue="0"> ID= #{id}</isGreaterThan>
+			</isNotNull>
+			<isNotNull prepend="AND" property="destination"> DESTINATION = #{destination} </isNotNull>
+			<isNotNull property="status">
+				<isGreaterThan prepend="AND" property="status" compareValue="0"> STATUS= #{status}</isGreaterThan>
+			</isNotNull>
+			<isNotNull property="type">
+				<isGreaterThan prepend="AND" property="type" compareValue="0"> TYPE= #{type}</isGreaterThan>
+			</isNotNull>
+		</dynamic>
+		ORDER BY ID DESC
+	</sql>
+	
+	<sql id="sql_from">
+		FROM T_MESSAGE
+		<include refid="sql_where" />
+	</sql>
+	
+	<select id="find" resultMap="messageResult">
+		<isGreaterThan property="_maxResult" compareValue="0">
+			<![CDATA[ SELECT * FROM ( ]]>		
+			<isGreaterThan property="_skipResult" compareValue="0"><![CDATA[ SELECT ROW_.*, ROWNUM ROWNUM_ FROM ( ]]></isGreaterThan>
+		</isGreaterThan>
+		<![CDATA[ SELECT * ]]>
+		<include refid="sql_from" />
+		<isNotNull property="_orderBy"><![CDATA[ ORDER BY $_orderBy$ ]]></isNotNull>
+		<isGreaterThan property="_maxResult" compareValue="0">
+			<isGreaterThan property="_skipResult" compareValue="0"><![CDATA[ ) ROW_ WHERE ROWNUM <= #{_maxResult}) WHERE ROWNUM_ > #{_skipResult} ]]></isGreaterThan>
+			<isLessEqual property="_skipResult" compareValue="0"><![CDATA[ ) WHERE ROWNUM <= #{_maxResult} ]]></isLessEqual>
+		</isGreaterThan>
+	</select>
+</mapper>

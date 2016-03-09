@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Message">
+	<typeAlias alias="message" type="com.asb.cdd.messageproxy.dao.access.model.Message" />
+	<resultMap id="messageResult" class="message">
+		<result property="id" column="ID" javaType="long" jdbcType="NUMERIC" nullValue="0" />
+		<result property="version" column="VERSION" javaType="int" jdbcType="NUMERIC" nullValue="0" />
+		<result property="createDate" column="CREATEDATE" javaType="date" />
+		<result property="finishDate" column="FINISHDATE" javaType="date" />
+		<result property="type" column="TYPE" javaType="int" jdbcType="NUMERIC" nullValue="0" />
+		<result property="destination" column="DESTINATION" javaType="string" jdbcType="VARCHAR" />
+		<result property="content" column="CONTENT" javaType="string" jdbcType="VARCHAR" />
+		<result property="status" column="STATUS" javaType="int" jdbcType="NUMERIC" nullValue="0" />
+	</resultMap>
+	<sql id="sql_sequence">
+		<![CDATA[
+			SELECT SEQ_T_MESSAGE.NEXTVAL AS ID FROM DUAL
+		]]>
+	</sql>
+	<select id="sequence">
+		<include refid="sql_sequence" />
+	</select>
+
+	<insert id="create" parameterClass="message">
+		<selectKey keyProperty="id" resultClass="int">
+			<include refid="sql_sequence" />
+		</selectKey>
+		<![CDATA[
+			INSERT INTO T_MESSAGE (
+				ID, VERSION, CREATEDATE, 
+				TYPE, DESTINATION, CONTENT, STATUS, FINISHDATE
+			) VALUES (
+				#id#, #version#, #createDate#, 
+				#type#,	#destination#, #content#, #status#, #finishDate#
+			)
+		]]>
+	</insert>
+		
+	<update id="update" parameterClass="message">
+		<![CDATA[
+			UPDATE T_MESSAGE SET 
+				TYPE=#type#,
+				DESTINATION=#destination#,
+				CONTENT=#content#,
+				STATUS=#status#,
+				CREATEDATE = #createDate#,
+				FINISHDATE = #finishDate#,
+				
+				VERSION=VERSION+1
+			WHERE ID=#id# AND VERSION=#version#
+		]]>
+	</update>
+	
+	<sql id="sql_where">
+		<dynamic prepend="WHERE">
+			<isNotNull property="id">
+				<isGreaterThan prepend="AND" property="id" compareValue="0"> ID=#id#</isGreaterThan>
+			</isNotNull>
+			<isNotNull prepend="AND" property="destination"> DESTINATION = #destination# </isNotNull>
+			<isNotNull property="status">
+				<isGreaterThan prepend="AND" property="status" compareValue="0"> STATUS=#status#</isGreaterThan>
+			</isNotNull>
+			<isNotNull property="type">
+				<isGreaterThan prepend="AND" property="type" compareValue="0"> TYPE=#type#</isGreaterThan>
+			</isNotNull>
+		</dynamic>
+		ORDER BY ID DESC
+	</sql>
+	
+	<sql id="sql_from">
+		FROM T_MESSAGE
+		<include refid="sql_where" />
+	</sql>
+	
+	<select id="find" resultMap="messageResult">
+		<isGreaterThan property="_maxResult" compareValue="0">
+			<![CDATA[ SELECT * FROM ( ]]>		
+			<isGreaterThan property="_skipResult" compareValue="0"><![CDATA[ SELECT ROW_.*, ROWNUM ROWNUM_ FROM ( ]]></isGreaterThan>
+		</isGreaterThan>
+		<![CDATA[ SELECT * ]]>
+		<include refid="sql_from" />
+		<isNotNull property="_orderBy"><![CDATA[ ORDER BY $_orderBy$ ]]></isNotNull>
+		<isGreaterThan property="_maxResult" compareValue="0">
+			<isGreaterThan property="_skipResult" compareValue="0"><![CDATA[ ) ROW_ WHERE ROWNUM <= #_maxResult#) WHERE ROWNUM_ > #_skipResult# ]]></isGreaterThan>
+			<isLessEqual property="_skipResult" compareValue="0"><![CDATA[ ) WHERE ROWNUM <= #_maxResult# ]]></isLessEqual>
+		</isGreaterThan>
+	</select>
+	<select id="find_count" parameterClass="java.util.Map" resultClass="int">
+		<![CDATA[ SELECT COUNT(1) ]]>
+		<include refid="sql_from" />
+	</select>
+	
+	<select id="findAll" resultMap="messageResult">
+		<![CDATA[ SELECT * FROM T_MESSAGE ]]>
+		<isNotNull property="_orderBy"><![CDATA[ ORDER BY $_orderBy$ ]]></isNotNull>
+	</select>
+	
+	<select id="findById" parameterClass="long" resultMap="messageResult">
+		<![CDATA[
+			SELECT * FROM T_MESSAGE WHERE ID=#value#
+		]]>
+	</select>
+	
+	<select id="findByIds" parameterClass="java.util.Map" resultMap="messageResult">
+		<![CDATA[
+			SELECT * FROM T_MESSAGE WHERE ID IN
+		]]>
+		<iterate property="ids" open="(" close=")" conjunction=",">
+			#ids[]#
+		</iterate>
+	</select>
+</sqlMap>

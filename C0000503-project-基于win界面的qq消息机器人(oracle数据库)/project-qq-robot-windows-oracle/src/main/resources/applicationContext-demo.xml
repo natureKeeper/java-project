@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	
+	<bean id="messageAccessService" class="com.asb.cdd.messageproxy.dao.access.impl.MessageAccessServiceImpl" parent="abstractNamespaceAccessService">
+	</bean>
+	
+	<bean id="qq2012MsgSender" class="com.asb.cdd.messageproxy.service.impl.Qq2012MsgSender">
+		<property name="command" value="${qq2012.command}" />
+	</bean>
+
+	<bean id="qqMessageSenderDaemon" class="com.asb.cdd.messageproxy.service.util.QqMessageSenderDaemon" init-method="init">
+		<property name="messageAccessService" ref="messageAccessService" />
+		<property name="msgSender" ref="qq2012MsgSender" />
+		<property name="sendMsgOnStartup" value="${qq2012.sender.sendMsgOnStartup}" />
+		<property name="pauseSendingMsg" value="${qq2012.sender.pauseSendingMsg}" />
+		<property name="scanMsgIntervalSeconds" value="${qq2012.sender.scanMsgIntervalSeconds}" />
+	</bean>
+	
+	<bean id="msgReceiver" class="com.asb.cdd.messageproxy.service.impl.MsgReceiverImpl">
+		<property name="msgSegmentSize" value="${receiver.msgSegmentSize}" />
+		<property name="messageAccessService" ref="messageAccessService" />
+	</bean>
+	
+	<bean id="receiveMessageAction" class="com.asb.cdd.messageproxy.web.ReceiveMessageAction">
+		<property name="postEncoding" value="${http.post.encoding}" />
+		<property name="getEncoding" value="${http.get.encoding}" />
+		<property name="msgReceiver" ref="msgReceiver" />
+	</bean>
+	
+</beans>
