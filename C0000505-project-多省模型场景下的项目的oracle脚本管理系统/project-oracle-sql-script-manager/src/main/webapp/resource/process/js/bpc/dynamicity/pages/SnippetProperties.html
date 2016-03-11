@@ -1,0 +1,38 @@
+<!--
+   Licensed Materials - Property of IBM
+   5655-FLW
+   (C) Copyright IBM Corporation 2008. All Rights Reserved.
+   US Government Users Restricted Rights- Use, duplication or disclosure
+   restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+
+<div id="lhtabs" dojoType="dijit.layout.TabContainer" tabPosition="left-h" style="width: 500px; height: 500px">
+    <div id="lhtab1" dojoType="dijit.layout.ContentPane" title="Description">
+        <table class="innerDialog">
+            <tr>
+                <td><label for="name">Name: </label></td>
+                <td><input type="text" size="25" id="name"></td>
+            </tr>
+            <tr>
+                <td><label for="displayName">Display Name: </label></td>
+                <td><input type="text" size="32" id="displayName"></td>
+            </tr>
+            <tr>
+                <td><label for="description">Description: </label></td>
+                <td><input type="text" size="32" id="description"></td>
+            </tr>
+            <tr>
+                <td><label for="documentation">Documentation: </label></td>
+            </tr>
+            <tr>
+                <td colspan="2"><textarea id="documentation" rows=5 cols=50></textarea></td>
+            </tr>
+        </table>
+    </div>
+    <div id="lhtab2" dojoType="dijit.layout.ContentPane" title="Code">
+        <textarea id="code" style="width: 96%; height: 96%; margin: 2%"></textarea>
+    </div>
+</div>
+<button dojoType="dijit.form.Button" type="submit">OK</button>
+<button dojoType="dijit.form.Button" type="button" onclick="dijit.byId('propertiesDialog').propertyManager.cancel();">Cancel</button>
+

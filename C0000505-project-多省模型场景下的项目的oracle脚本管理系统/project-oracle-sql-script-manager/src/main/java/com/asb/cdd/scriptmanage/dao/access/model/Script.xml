@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Script">
+	<typeAlias alias="script" type="com.asb.cdd.scriptmanage.dao.access.model.Script" />
+	<resultMap id="scriptResult" class="script">
+		<result property="id" column="ID" javaType="long" jdbcType="NUMERIC" nullValue="0" />
+		<result property="version" column="VERSION" javaType="int" jdbcType="NUMERIC" nullValue="0" />
+		<result property="name" column="NAME" javaType="string" jdbcType="VARCHAR" />
+		<result property="originName" column="ORIGIN_NAME" javaType="string" jdbcType="VARCHAR" />
+		<result property="memo" column="MEMO" javaType="string" jdbcType="VARCHAR" />
+		<result property="status" column="STATUS" javaType="int" jdbcType="NUMERIC" nullValue="0" />
+		<result property="scriptLocation" column="SCRIPT_LOCATION" javaType="string" jdbcType="VARCHAR" nullValue="0" />
+		<result property="scriptType" column="SCRIPT_TYPE" javaType="int" jdbcType="NUMERIC" nullValue="0" />
+		<result property="taskId" column="TASK_ID" javaType="int" jdbcType="NUMERIC" nullValue="0" />
+		<result property="executeSeq" column="EXEC_SEQ" javaType="long" jdbcType="NUMERIC" nullValue="0" />		
+	</resultMap>
+	<sql id="sql_sequence">
+		<![CDATA[
+			SELECT SEQ_T_SCRIPT.NEXTVAL AS ID FROM DUAL
+		]]>
+	</sql>
+	<select id="sequence">
+		<include refid="sql_sequence" />
+	</select>
+
+	<insert id="create" parameterClass="script">
+		<selectKey keyProperty="id" resultClass="int">
+			<include refid="sql_sequence" />
+		</selectKey>
+		<![CDATA[
+			INSERT INTO T_SCRIPT (
+				ID, VERSION, 
+				NAME, ORIGIN_NAME, MEMO, STATUS, SCRIPT_LOCATION, SCRIPT_TYPE, TASK_ID, EXEC_SEQ
+			) VALUES (
+				#id#, #version#, 
+				#name#,	#originName#, #memo#, #status#, #scriptLocation#, #scriptType#, #taskId#, #executeSeq#
+			)
+		]]>
+	</insert>
+		
+	<update id="update" parameterClass="script">
+		<![CDATA[
+			UPDATE T_SCRIPT SET 
+				NAME=#name#,
+				ORIGIN_NAME=#originName#,
+				MEMO = #memo#,
+				STATUS = #status#,
+				SCRIPT_LOCATION = #scriptLocation#,
+				SCRIPT_TYPE = #scriptType#,
+				TASK_ID = #taskId#,
+				EXEC_SEQ = #executeSeq#,
+				
+				VERSION=VERSION+1
+			WHERE ID=#id#
+		]]>
+	</update>
+	
+	<sql id="sql_where">
+		<dynamic prepend="WHERE">
+			<isNotNull property="id">
+				<isGreaterThan prepend="AND" property="id" compareValue="0"> ID=#id#</isGreaterThan>
+			</isNotNull>
+			<isNotNull prepend="AND" property="name"> NAME like upper('%$name$%') </isNotNull>
+			<isNotNull prepend="AND" property="status"> STATUS = #status# </isNotNull>
+		</dynamic>
+		ORDER BY ID DESC
+	</sql>
+	
+	<sql id="sql_from">
+		FROM T_SCRIPT
+		<include refid="sql_where" />
+	</sql>
+	
+	<select id="find" resultMap="scriptResult">
+		<isGreaterThan property="_maxResult" compareValue="0">
+			<![CDATA[ SELECT * FROM ( ]]>		
+			<isGreaterThan property="_skipResult" compareValue="0"><![CDATA[ SELECT ROW_.*, ROWNUM ROWNUM_ FROM ( ]]></isGreaterThan>
+		</isGreaterThan>
+		<![CDATA[ SELECT * ]]>
+		<include refid="sql_from" />
+		<isNotNull property="_orderBy"><![CDATA[ ORDER BY $_orderBy$ ]]></isNotNull>
+		<isGreaterThan property="_maxResult" compareValue="0">
+			<isGreaterThan property="_skipResult" compareValue="0"><![CDATA[ ) ROW_ WHERE ROWNUM <= #_maxResult#) WHERE ROWNUM_ > #_skipResult# ]]></isGreaterThan>
+			<isLessEqual property="_skipResult" compareValue="0"><![CDATA[ ) WHERE ROWNUM <= #_maxResult# ]]></isLessEqual>
+		</isGreaterThan>
+	</select>
+	<select id="find_count" parameterClass="java.util.Map" resultClass="int">
+		<![CDATA[ SELECT COUNT(1) ]]>
+		<include refid="sql_from" />
+	</select>
+	
+	<select id="findAll" resultMap="scriptResult">
+		<![CDATA[ SELECT * FROM T_SCRIPT ]]>
+		<isNotNull property="_orderBy"><![CDATA[ ORDER BY $_orderBy$ ]]></isNotNull>
+	</select>
+
+	<select id="findById" parameterClass="long" resultMap="scriptResult">
+		<![CDATA[
+			SELECT * FROM T_SCRIPT WHERE ID=#value#
+		]]>
+	</select>
+	
+	<select id="findByIds" parameterClass="java.util.Map" resultMap="scriptResult">
+		<![CDATA[
+			SELECT * FROM T_SCRIPT WHERE ID IN
+		]]>
+		<iterate property="ids" open="(" close=")" conjunction=",">
+			#ids[]#
+		</iterate>
+	</select>
+	
+	<select id="findByTaskIds" parameterClass="java.util.Map" resultMap="scriptResult">
+		<![CDATA[
+			SELECT * FROM T_SCRIPT WHERE TASK_ID IN
+		]]>
+		<iterate property="taskIds" open="(" close=")" conjunction=",">
+			#taskIds[]#
+		</iterate>
+	</select>
+	
+	<select id="findScriptsByConditions" parameterClass="java.util.Map" resultMap="scriptResult">
+		<![CDATA[
+			SELECT S1.* FROM T_SCRIPT S1 WHERE S1.ID IN (
+
+				SELECT DISTINCT(S.ID) FROM T_SCRIPT S, T_TASK T, T_ENVIRONMENT E, R_SCRIPT_ENVIRONMENT SE
+				WHERE 1=1
+		]]>
+		<isNotNull property="issueId_like">
+			<![CDATA[
+				AND S.TASK_ID = T.ID AND T.ISSUE_ID like '%$issueId_like$%'
+			]]>			
+		</isNotNull>
+		<isNotNull property="issueId">
+			<![CDATA[
+				AND S.TASK_ID = T.ID AND T.ISSUE_ID = #issueId#
+			]]>			
+		</isNotNull>
+		<isNotNull property="environmentCode">
+			<isGreaterThan property="environmentStatus" compareValue="0">
+				<![CDATA[
+					AND E.CODE = #environmentCode# AND SE.STATUS = #environmentStatus# 
+					AND E.ID = SE.ENVIRONMENT_ID AND S.ID = SE.SCRIPT_ID
+				]]>
+			</isGreaterThan>
+		</isNotNull>
+		<isGreaterThan property="taskStatus" compareValue="0">
+			<![CDATA[
+				AND S.TASK_ID = T.ID AND T.STATUS = #taskStatus#
+			]]>
+		</isGreaterThan>
+		<isGreaterThan property="scriptStatus" compareValue="0">
+			<![CDATA[
+				AND S.STATUS = #scriptStatus#
+			]]>
+		</isGreaterThan>
+		<![CDATA[
+			)
+		]]>
+	</select>
+	
+	<select id="findScriptsToPlayback" parameterClass="java.util.Map" resultMap="scriptResult">
+		<![CDATA[
+			SELECT S.* FROM T_SCRIPT S, R_SCRIPT_ENVIRONMENT SE
+				WHERE S.ID = SE.SCRIPT_ID
+				AND S.EXEC_SEQ > #execSeq#
+				AND SE.ENVIRONMENT_ID = #environmentId#
+				AND SE.STATUS = 4
+		]]>
+		<isNotNull property="issueId_like">
+			<![CDATA[
+				AND S.TASK_ID = T.ID AND T.ISSUE_ID like '%$issueId_like$%'
+			]]>			
+		</isNotNull>
+		<isNotNull property="issueId">
+			<![CDATA[
+				AND S.TASK_ID = T.ID AND T.ISSUE_ID = #issueId#
+			]]>			
+		</isNotNull>
+		<isNotNull property="environmentCode">
+			<isGreaterThan property="environmentStatus" compareValue="0">
+				<![CDATA[
+					AND E.CODE = #environmentCode# AND SE.STATUS = #environmentStatus# 
+					AND E.ID = SE.ENVIRONMENT_ID AND S.ID = SE.SCRIPT_ID
+				]]>
+			</isGreaterThan>
+		</isNotNull>
+		<isGreaterThan property="taskStatus" compareValue="0">
+			<![CDATA[
+				AND S.TASK_ID = T.ID AND T.STATUS = #taskStatus#
+			]]>
+		</isGreaterThan>
+		<isGreaterThan property="scriptStatus" compareValue="0">
+			<![CDATA[
+				AND S.STATUS = #scriptStatus#
+			]]>
+		</isGreaterThan>
+		<![CDATA[
+			)
+		]]>
+	</select>
+	
+</sqlMap>

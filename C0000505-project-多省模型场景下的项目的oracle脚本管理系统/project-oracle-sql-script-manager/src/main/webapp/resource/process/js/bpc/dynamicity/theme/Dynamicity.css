@@ -1,0 +1,185 @@
+/* BEGIN COPYRIGHT
+ **************************************************************************
+ *
+ * Licensed Materials - Property of IBM
+ * 5655-FLW
+ * (C) Copyright IBM Corporation 2008. All Rights Reserved.
+ * US Government Users Restricted Rights- Use, duplication or disclosure
+ * restricted by GSA ADP Schedule Contract with IBM Corp.
+ *
+ **************************************************************************
+ * END COPYRIGHT */
+
+.insertMarker {
+        width: 10em;
+        height:0em;
+        border: 0.2em solid red;
+        position: absolute;
+        display: block;
+		z-Index: 49;
+}
+
+.floatingContainer {
+	display: block;
+	position: absolute;
+	cursor: hand;
+	z-index: 500;
+	opacity: 0.5;
+	filter:alpha(opacity=50);
+}
+
+.linkHandle {
+        position: absolute;
+		width: 20px;
+		height: 20px;
+	    z-index: 200;
+		border: none;
+	    background-image: url(../images/LinkHandleAnimated.gif);
+		background-position: bottom;
+}
+
+.dijitSlider TD {
+        border:0px none;
+        margin:0px;
+        padding:0px;
+}
+
+.editorSlider {
+		position: relative;
+		margin-left: 20px;
+		margin-right: 20px;
+		width: 200px;
+}			
+
+.iconBubbleProperties {
+	background-image: url(../images/properties.gif);
+}
+
+.iconBubbleBpel {
+	background-image: url(../images/bpel.gif);
+}
+
+.iconBubbleCopy {
+	background-image: url(../images/copy.gif);
+}
+
+.iconBubbleCut {
+	background-image: url(../images/cut.gif);
+}
+
+.iconBubbleDelete {
+	background-image: url(../images/delete.gif);
+}
+
+.iconBubblePaste {
+	background-image: url(../images/paste.gif);
+}
+
+.iconBubbleMigrate {
+	background-image: url(../images/migrate.gif);
+}
+
+.iconBubbleCase {
+   background-image: url(../images/bpelIcons.gif);
+   background-position: -288px;
+}
+
+.iconBubbleOtherwise {
+   background-image: url(../images/bpelIcons.gif);
+   background-position: -304px;
+}
+
+.iconBubbleOnMessage {
+   background-image: url(../images/bpelIcons.gif);
+   background-position: -320px;
+}
+
+.iconBubbleOnAlarm {
+   background-image: url(../images/bpelIcons.gif);
+   background-position: -336px;
+}
+
+
+.iconempty {
+   background-image: url(../images/empty.gif);
+}
+
+.iconinvoke {
+   background-image: url(../images/invoke.gif);
+}
+
+.iconreceive {
+   background-image: url(../images/receive.gif);
+}
+
+.iconreply {
+   background-image: url(../images/reply.gif);
+}
+
+.iconassign {
+   background-image: url(../images/assign.gif);
+}
+
+.iconstaff {
+   background-image: url(../images/staff.gif);
+}
+
+.iconsnippet {
+   background-image: url(../images/javasnippet.gif);
+}
+
+.iconswitch {
+   background-image: url(../images/switch.gif);
+}
+
+.iconpick {
+   background-image: url(../images/pick.gif);
+}
+
+.iconwhile {
+   background-image: url(../images/while.gif);
+}
+
+.iconwait {
+   background-image: url(../images/wait.gif);
+}
+
+.iconsequence {
+   background-image: url(../images/sequence.gif);
+}
+
+.iconscope {
+   background-image: url(../images/scope.gif);
+}
+
+.iconflow {
+   background-image: url(../images/flow.gif);
+}
+
+.iconterminate {
+   background-image: url(../images/terminate.gif);
+}
+
+.iconthrow {
+   background-image: url(../images/throw.gif);
+}
+
+.iconterminate {
+   background-image: url(../images/terminate.gif);
+}
+
+.iconrethrow {
+   background-image: url(../images/rethrow.gif);
+}
+
+.iconcompensate {
+   background-image: url(../images/compensate.gif);
+}
+
+.iconstg {
+   background-image: url(../images/sigthrdgrph_pal.gif);
+}
+
+.iconforeach {
+   background-image: url(../images/forEach_pal.gif);
+}

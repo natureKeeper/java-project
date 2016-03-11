@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN" "http://www.ibatis.com/dtd/sql-map-config-2.dtd">
+	
+<sqlMapConfig>
+
+	<settings
+		cacheModelsEnabled="true"
+		enhancementEnabled="true"
+		lazyLoadingEnabled="false"
+		errorTracingEnabled="true"
+		maxRequests="3000"
+		maxSessions="3000"
+		maxTransactions="3000"
+		useStatementNamespaces="true"
+	/>
+
+	
+	<!-- ENUM NUMERIC -->
+ 	<typeAlias alias="dataType" type="com.platform.type.DataType" />
+	<typeAlias alias="tableType" type="com.irm.type.TableType" />
+	<typeAlias alias="gridPageType" type="com.irm.type.GridPageType" />
+	<typeAlias alias="statementType" type="com.irm.type.StatementType" />
+	<typeAlias alias="multiplicityType" type="com.irm.type.MultiplicityType" />
+	<typeAlias alias="entityTemplateType" type="com.irm.type.EntityTemplateType" />
+	<typeAlias alias="generalQueryDimensionType" type="com.irm.type.GeneralQueryDimensionType" />
+	<typeAlias alias="permissionDimensionType" type="com.irm.type.PermissionDimensionType" />
+	<typeAlias alias="taskDurationUnitType" type="com.irm.type.TaskDurationUnitType" />
+	<typeAlias alias="taskExecutionType" type="com.irm.type.TaskExecutionType" />
+	<typeAlias alias="taskScopeType" type="com.irm.type.TaskScopeType" />
+	<typeAlias alias="taskStatus" type="com.irm.type.TaskStatus" />
+	<typeAlias alias="comparisonMethod" type="com.irm.type.ComparisonMethod" /> <!-- TODO : comment out this line -->
+	<typeAlias alias="comparisonResultType" type="com.irm.type.ComparisonResultType" />
+	<typeAlias alias="comparisonVarianceType" type="com.irm.type.ComparisonVarianceType" />
+<!--	<typeAlias alias="comparisonSource" type="com.irm.type.ComparisonSource" />-->
+	<typeAlias alias="comparisonSourceType" type="com.irm.type.ComparisonSourceType" />
+	<typeAlias alias="comparisonTaskType" type="com.irm.type.ComparisonTaskType" />
+	<typeAlias alias="comparisonRuleType" type="com.irm.type.ComparisonRuleType" />
+	<typeAlias alias="validationAttributeType" type="com.irm.type.ValidationAttributeType" />
+	<typeAlias alias="validationOperatorType" type="com.irm.type.ValidationOperatorType" />
+	<typeAlias alias="validationRuleType" type="com.irm.type.ValidationRuleType" />
+	<typeAlias alias="validationRuleRelationType" type="com.irm.type.ValidationRuleRelationType" />
+	<typeAlias alias="validationStatisticType" type="com.irm.type.ValidationStatisticType" />
+	<typeAlias alias="validationValueType" type="com.irm.type.ValidationValueType" />
+	<typeAlias alias="topoViewType" type="com.irm.type.TopoViewType" />
+	<typeAlias alias="topoLinkType" type="com.irm.type.TopoLinkType" />
+	<typeAlias alias="topoNodeType" type="com.irm.type.TopoNodeType" />
+	<typeAlias alias="topoObjectType" type="com.irm.type.TopoObjectType" />
+	<typeAlias alias="topoEventType" type="com.irm.type.TopoEventType" />	
+	<typeAlias alias="topoViewScenario" type="com.irm.type.TopoViewScenario" />		
+	<typeAlias alias="attributeValidationType" type="com.irm.type.AttributeValidationType" />
+	<typeAlias alias="metadataHierarchyType" type="com.irm.type.MetadataHierarchyType" />
+	<typeAlias alias="spatialFeatureType" type="com.platform.type.SpatialFeatureType" />
+	<typeAlias alias="toolbarButtonAlignmentType" type="com.irm.type.ToolbarButtonAlignmentType" />
+	<typeAlias alias="relationshipChainType" type="com.irm.type.RelationshipChainType" />
+	
+	<typeAlias alias="periodType" type="com.irm.type.PeriodType" />
+	<typeAlias alias="reportAttributeDecoratorType" type="com.irm.type.ReportAttributeDecoratorType" />
+	<typeAlias alias="reportGraphDimensionalityType" type="com.irm.type.ReportGraphDimensionalityType" />
+	<typeAlias alias="reportGraphType" type="com.irm.type.ReportGraphType" />
+	<typeAlias alias="regionHierarchyType" type="com.irm.type.RegionHierarchyType" />
+		
+	<typeAlias alias="namingDataType" type="com.irm.type.NamingDataType" />
+	<typeAlias alias="namingExpressionItemType" type="com.irm.type.NamingExpressionItemType" />
+	<typeAlias alias="namingSpecialHandleType" type="com.irm.type.NamingSpecialHandleType" />
+	<typeAlias alias="namingSequenceUniqueType" type="com.irm.type.NamingSequenceUniqueType" />
+	
+	<typeAlias alias="integrationOperationType" type="com.irm.type.IntegrationOperationType" />
+	<typeAlias alias="integrationResultType" type="com.irm.type.IntegrationResultType" />
+	<typeAlias alias="integrationType" type="com.irm.type.IntegrationType" />
+	<typeAlias alias="modelChangeActionType" type="com.irm.type.ModelChangeActionType" />
+	<typeAlias alias="cutoverType" type="com.irm.type.CutoverType" />
+	<typeAlias alias="metaModelCategoryType" type="com.irm.type.MetaModelCategoryType" />
+	<typeAlias alias="entityHierarchyType" type="com.irm.type.EntityHierarchyType" />
+	<typeAlias alias="attributeTemplateRegex" type="com.irm.type.AttributeTemplateRegex" />
+	
+	<typeAlias alias="dataQualityCatalogType" type="com.irm.model.term.type.DataQualityCatalogType" />
+	<typeAlias alias="dataQualityDataSourceType" type="com.irm.model.term.type.DataQualityDataSourceType" />
+	<typeAlias alias="dataQualityDimensionType" type="com.irm.model.term.type.DataQualityDimensionType" />
+	<typeAlias alias="dataQualityExecuteType" type="com.irm.model.term.type.DataQualityExecuteType" />
+	<typeAlias alias="dataQualityRuleItemType" type="com.irm.model.term.type.DataQualityRuleItemType" />
+	<typeAlias alias="dataQualityRuleType" type="com.irm.model.term.type.DataQualityRuleType" />
+	<typeAlias alias="dataQualityTaskStatus" type="com.irm.model.term.type.DataQualityTaskStatus" />
+	<typeAlias alias="dataQualityRulePolicy" type="com.irm.model.term.type.DataQualityRulePolicy" />
+	
+	<!-- ENUM STRING -->
+	<typeAlias alias="auditLogSeverity" type="com.irm.type.AuditLogSeverity" />
+	
+	<!-- ENUM NUMERIC -->
+	<typeHandler jdbcType="NUMERIC" javaType="dataType" callback="com.platform.type.handler.DataTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="tableType" callback="com.irm.type.handler.TableTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="gridPageType" callback="com.irm.type.handler.GridPageTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="statementType" callback="com.irm.type.handler.StatementTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="multiplicityType" callback="com.irm.type.handler.MultiplicityTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="entityTemplateType" callback="com.irm.type.handler.EntityTemplateTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="generalQueryDimensionType" callback="com.irm.type.handler.GeneralQueryDimensionTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="permissionDimensionType" callback="com.irm.type.handler.PermissionDimensionTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="taskDurationUnitType" callback="com.irm.type.handler.TaskDurationUnitTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="taskExecutionType" callback="com.irm.type.handler.TaskExecutionTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="taskScopeType" callback="com.irm.type.handler.TaskScopeTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="taskStatus" callback="com.irm.type.handler.TaskStatusHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="comparisonMethod" callback="com.irm.type.handler.ComparisonMethodHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="comparisonResultType" callback="com.irm.type.handler.ComparisonResultTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="comparisonVarianceType" callback="com.irm.type.handler.ComparisonVarianceTypeHandler" />
+<!--	<typeHandler jdbcType="NUMERIC" javaType="comparisonSource" callback="com.irm.type.handler.ComparisonSourceHandler" />-->
+	<typeHandler jdbcType="NUMERIC" javaType="comparisonSourceType" callback="com.irm.type.handler.ComparisonSourceTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="comparisonRuleType" callback="com.irm.type.handler.ComparisonRuleTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="comparisonTaskType" callback="com.irm.type.handler.ComparisonTaskTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="validationAttributeType" callback="com.irm.type.handler.ValidationAttributeTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="validationOperatorType" callback="com.irm.type.handler.ValidationOperatorTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="validationRuleType" callback="com.irm.type.handler.ValidationRuleTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="validationRuleRelationType" callback="com.irm.type.handler.ValidationRuleRelationTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="validationStatisticType" callback="com.irm.type.handler.ValidationStatisticTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="validationValueType" callback="com.irm.type.handler.ValidationValueTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="metadataHierarchyType" callback="com.irm.type.handler.MetadataHierarchyTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="attributeValidationType" callback="com.irm.type.handler.AttributeValidationTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="topoViewType" callback="com.irm.type.handler.TopoViewTypeHandler" />	
+	<typeHandler jdbcType="NUMERIC" javaType="topoLinkType" callback="com.irm.type.handler.TopoLinkTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="topoNodeType" callback="com.irm.type.handler.TopoNodeTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="topoObjectType" callback="com.irm.type.handler.TopoObjectTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="topoEventType" callback="com.irm.type.handler.TopoEventTypeHandler" />	
+	<typeHandler jdbcType="NUMERIC" javaType="topoViewScenario" callback="com.irm.type.handler.TopoViewScenarioHandler" />		
+	<typeHandler jdbcType="NUMERIC" javaType="spatialFeatureType" callback="com.platform.type.handler.SpatialFeatureTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="toolbarButtonAlignmentType" callback="com.irm.type.handler.ToolbarButtonAlignmentTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="relationshipChainType" callback="com.irm.type.handler.RelationshipChainTypeHandler" />	
+	<typeHandler jdbcType="NUMERIC" javaType="periodType" callback="com.irm.type.handler.PeriodTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="namingExpressionItemType" callback="com.irm.type.handler.NamingExpressionItemTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="namingSpecialHandleType" callback="com.irm.type.handler.NamingSpecialHandleTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="namingDataType" callback="com.irm.type.handler.NamingDataTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="namingSequenceUniqueType" callback="com.irm.type.handler.NamingSequenceUniqueTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="reportAttributeDecoratorType" callback="com.irm.type.handler.ReportAttributeDecoratorTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="reportGraphDimensionalityType" callback="com.irm.type.handler.ReportGraphDimensionalityTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="reportGraphType" callback="com.irm.type.handler.ReportGraphTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="regionHierarchyType" callback="com.irm.type.handler.RegionHierarchyTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="integrationOperationType" callback="com.irm.type.handler.IntegrationOperationTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="integrationResultType" callback="com.irm.type.handler.IntegrationResultTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="integrationType" callback="com.irm.type.handler.IntegrationTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="cutoverType" callback="com.irm.type.handler.CutoverTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="modelChangeActionType" callback="com.irm.type.handler.ModelChangeActionTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="metaModelCategoryType" callback="com.irm.type.handler.MetaModelCategoryTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="entityHierarchyType" callback="com.irm.type.handler.EntityHierarchyTypeHandler" />
+	<typeHandler jdbcType="NUMERIC" javaType="attributeTemplateRegex" callback="com.irm.type.handler.AttributeTemplateRegexHandler" />
+	
+	<!-- ENUM STRING -->
+	<typeHandler jdbcType="VARCHAR" javaType="auditLogSeverity" callback="com.irm.type.handler.AuditLogSeverityHandler" />
+	
+	<!-- CLOB: String -->
+	<typeHandler jdbcType="CLOB" javaType="java.lang.String" callback="org.springframework.orm.ibatis.support.ClobStringTypeHandler" />
+	<!-- typeHandler jdbcType="CLOB" javaType="java.lang.String" callback="com.ibatis.sqlmap.engine.type.ClobTypeHandlerCallback" / -->
+	
+	<!-- BLOB: byte[] -->
+	<typeHandler jdbcType="BLOB" javaType="[B" callback="org.springframework.orm.ibatis.support.BlobByteArrayTypeHandler" />
+	<!-- typeHandler jdbcType="BLOB" javaType="[B" callback="com.ibatis.sqlmap.engine.type.BlobTypeHandlerCallback" / -->
+	
+
+
+	<sqlMap resource="com/irm/model/system/User.xml" />
+	<sqlMap resource="com/irm/model/system/UserSession.xml" />
+	
+	<sqlMap resource="com/asb/cdd/scriptmanage/dao/access/model/Destination.xml" />
+	<sqlMap resource="com/asb/cdd/scriptmanage/dao/access/model/Environment.xml" />
+	<sqlMap resource="com/asb/cdd/scriptmanage/dao/access/model/ExecuteLog.xml" />
+	<sqlMap resource="com/asb/cdd/scriptmanage/dao/access/model/Script.xml" />
+	<sqlMap resource="com/asb/cdd/scriptmanage/dao/access/model/ScriptDestinationRelation.xml" />
+	<sqlMap resource="com/asb/cdd/scriptmanage/dao/access/model/ScriptEnvironmentRelation.xml" />
+	<sqlMap resource="com/asb/cdd/scriptmanage/dao/access/model/Task.xml" />
+	
+	<sqlMap resource="com/asb/cdd/scriptmanage/dao/access/model/DictEnvironmentStatus.xml" />
+	<sqlMap resource="com/asb/cdd/scriptmanage/dao/access/model/DictExecutePoint.xml" />
+	<sqlMap resource="com/asb/cdd/scriptmanage/dao/access/model/DictScriptStatus.xml" />
+	<sqlMap resource="com/asb/cdd/scriptmanage/dao/access/model/DictScriptType.xml" />
+	<sqlMap resource="com/asb/cdd/scriptmanage/dao/access/model/DictTaskStatus.xml" />
+	
+</sqlMapConfig>

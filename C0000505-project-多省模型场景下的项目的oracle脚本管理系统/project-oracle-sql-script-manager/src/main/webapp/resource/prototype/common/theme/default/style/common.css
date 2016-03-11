@@ -1,0 +1,83 @@
+﻿*{ 
+	padding:0px; margin:0px;
+}
+BODY {
+	margin:0;
+	padding:0;
+	border:none;
+	color:#0D1A35;
+	font-size:12px;
+	text-align:center;
+	background-color:#FFFFFF;
+	font-family:Verdana,Simsun;/*font-family:"trebuchet ms",arial,verdana,monospace;*/	
+	SCROLLBAR-FACE-COLOR:#E2EFFE;
+	SCROLLBAR-ARROW-COLOR:#184582;
+	SCROLLBAR-TRACK-COLOR:#EEF5FC;
+	SCROLLBAR-SHADOW-COLOR:#E2EFFE;
+	SCROLLBAR-3DLIGHT-COLOR:#98C0F4;
+	SCROLLBAR-HIGHLIGHT-COLOR:#E2EFFE;
+	SCROLLBAR-DARKSHADOW-COLOR:#295C9E;
+}
+/*
+CROLLBAR-FACE-COLOR:页面E9F0F4
+SCROLLBAR-ARROW-COLOR:箭头184582
+SCROLLBAR-TRACK-COLOR:底色EEEEEE
+SCROLLBAR-SHADOW-COLOR:下边和右边的内沿E9F0F4
+SCROLLBAR-3DLIGHT-COLOR:上边和左边的外沿CCCCCC
+SCROLLBAR-HIGHLIGHT-COLOR:上边和左边的内沿E9F0F4
+SCROLLBAR-DARKSHADOW-COLOR:下边和右边的外沿688293 2C74D2
+*/
+
+A {
+	color:#4d87ce;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+A:hover {
+	color:#2a65ad;
+}
+
+H1 {
+	font-family:"trebuchet ms","century gothic","arial narrow",arial,sans-serif;
+	font-size:18;
+	text-transform:uppercase;
+	font-weight:bold;
+	border-bottom:1px solid #eeeeee;
+	color:#4a8c04;
+}
+
+
+FIELDSET {
+	border:1 solid #CCC;
+	padding:2;
+}
+
+LEGEND {
+	font-size:12;
+	color:#303;
+	padding-left:10;
+	padding-right:10;
+	font-family:Verdana,Simsun;
+}
+
+LABEL {	
+	cursor:pointer;
+	font-size:12;
+	padding-left:1;
+	padding-right:1;
+	font-family:Verdana,Simsun;
+}
+
+FONT,
+TD {
+	color:#000;
+	font-size:12;
+	font-family:Verdana,Simsun;
+}
+
+.box {
+	width:100%;
+	height:100%;
+	overflow:auto;
+}

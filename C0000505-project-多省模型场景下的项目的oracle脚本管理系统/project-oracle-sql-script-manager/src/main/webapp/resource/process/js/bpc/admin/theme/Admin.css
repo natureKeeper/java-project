@@ -1,0 +1,90 @@
+.dijitSlider TD {
+        border:0px none;
+        margin:0px;
+        padding:0px;
+		white-space: nowrap;
+}
+
+.editorSlider {
+		top: 1em;;
+		position: relative;
+		width: 20em;
+		height: 2em;
+		white-space:nowrap;
+}
+
+span.editorSliderLabel {
+	    top: 1em;
+		margin: 0 0.5em;
+        position: relative;
+		white-space:nowrap;
+}
+
+/* RTL*/
+.dijitRtl .dijitHorizontalSliderIncrementIcon {
+	background-image:url(../../../../js/dojo/dijit/themes/tundra/images/arrowLeft.png); 
+}
+
+/* RTL*/
+.dijitRtl  .dijitHorizontalSliderDecrementIcon { 
+	background-image:url(../../../../js/dojo/dijit/themes/tundra/images/arrowRight.png);
+}
+
+.iconMenuStart {
+	width: 16px;
+	height: 16px;
+	margin: 2px;
+    background-image: url(../../../../js/bpc/admin/images/properties.gif);
+    );
+}
+
+.iconMenuPersons {
+	width: 16px;
+	height: 16px;
+	margin: 2px;
+    background-image: url(../../../../js/bpc/admin/images/properties.gif);
+}
+
+.iconMenuTrash {
+	width: 16px;
+	height: 16px;
+	margin: 2px;
+    background-image: url(../../../../js/bpc/admin/images/properties.gif);
+}
+
+.iconBubbleProperties {
+	background-image: url(../../../../js/bpc/admin/images/properties.gif);
+}
+
+.iconBubbleBpel {
+	background-image: url(../../../../js/bpc/admin/images/bpel.gif);
+}
+
+.iconBubbleStatusBack {
+	background-image: url(../../../../js/bpc/bpel/images/stateBack.gif);
+}
+
+.iconBubbleStatusNext {
+	background-image: url(../../../../js/bpc/bpel/images/stateForward.gif);
+}
+
+.onlineIcon {
+	height: 16px;
+	width: 16px;
+}
+
+.onlineStateIcon {
+	position: absolute;
+	z-index: 230;  
+	height: 16px;
+	width: 16px;
+}
+
+.propertyDialogValue {
+        padding-left: 15px;
+        padding-right: 15px;
+}
+
+.nodeMenuRow td {
+	font-size: 1.2em;
+}

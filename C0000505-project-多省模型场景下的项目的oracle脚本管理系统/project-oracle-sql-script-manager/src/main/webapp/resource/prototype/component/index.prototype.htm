@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>resource</title>
+</head>
+
+<link href="prototype/index.prototype.css" rel="stylesheet" type="text/css"></link>
+
+
+<body style="margin:0;overflow-x:hidden;" scroll="no">
+
+
+
+
+
+
+
+
+<table style="width:100%;height:100%;" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td style="height:50;border-bottom:1 solid #CCC;" colspan="2">
+	Resources
+</td>
+</tr>
+<tr>
+<td style="width:220;border-right:1 solid #CCC;padding:2;" valign="top">
+	<div style="height:100%;width:100%;overflow:auto;text-valign:top;">
+		<input class="bn" type="button" value="Rich Client Road Map" onclick="view('richClientRoadMap.html');" />
+		
+		<strong> dynamic component</strong>
+		<input class="bn" type="button" value="XGrid" onclick="view('prototype/xlist.prototype.htm');" />
+		<input class="bn" type="button" value="XPagination" onclick="view('prototype/xpagination.prototype.htm');" />
+	
+		<strong> static component</strong>
+		<input class="bn" type="button" value="XHtml" onclick="view('prototype/xhtml.prototype.htm');" />
+		<input class="bn" type="button" value="XForm" onclick="view('prototype/xform.prototype.htm');" />		
+		<input class="bn" type="button" value="XButton" onclick="view('prototype/xbutton.prototype.htm');" />
+		<input class="bn" type="button" value="XSplitter" onclick="view('prototype/xslider.prototype.htm');" />
+		<input class="bn" type="button" value="XTab" onclick="view('prototype/xtab.prototype.htm');" />
+		
+		<strong> support</strong>
+		<input class="bn" type="button" value="Ajax support" onclick="view('prototype/support.prototype.htm');" />
+	</div>
+</td>
+<td>
+	<iframe id="content" name="content" frameborder="0" width="100%" height="100%"></iframe>
+</td>
+</tr>
+</table>
+
+
+
+
+
+
+<!-- 
+
+<ul>
+<li>1、一个结合后台组件的分页控件，实现方便的数据分页显示和翻页功能。 
+<li>2、一个支持批量添加的控件，可以自动填入页面上很多不需要用户输入的字段，方便用户的输入。而且可以自动检查必输字段，还可以对用户输入的内容进行校验。 
+<li>3、一个可以通过后台组件灵活配置的 Tree 控件，显示某种层次结构，例如组织机构目录树。 
+<li>4、一个与 table 结合的 Grid 控件，可以将 table 的某一行、列隐藏/显示，也可以改变某一列的宽度。 
+<li>5、一个对于数据的选择、缓存机制，可以将发送到前台的数据缓存起来。 
+<li>6、一个文件上传控件。 
+<li>7、一个支持打印的 JS 库。 
+<li>8、一个创建浮动层的控件。 
+<li>9、一个下拉菜单的控件。 
+<li>10、一个日历控件。 
+<li>11、一个绘图库，可以对 VML 或者 SVG 进行封装后实现。 
+<li>12、一个所见即所得的编辑控件，例如 htmlArea。 
+</ul>
+上面这些控件中的大多数都需要结合后台的 Java 组件的配合才能够发挥最大的效用，因为它们都需要通过后台的组件根据上下文进行配置。
+页面中的数据如果能够与数据库中的数据建立起某种映射/跟踪关系，页面数据的 CRUD 操作可以自动转换为对数据库中数据的 CRUD 操作
+（要结合后台 ORM 框架或者其它某种持久层框架的能力），开发起来就可以达到一种非常流畅的效果，我相信如果实现后会有效地提高开发效率的。
+
+ -->
+
+
+
+
+
+
+
+
+
+</body>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function view(url) {
+	content.location.href = url;
+}
+//-->
+</script>
+</html>
+

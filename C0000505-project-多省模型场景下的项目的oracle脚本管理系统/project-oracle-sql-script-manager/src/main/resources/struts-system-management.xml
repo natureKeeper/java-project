@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	
+	<!-- 
+	struts2.1.8 必须配置namespace
+	在2.0中一切OK，没有问题，但是在2.1中确出现了No result defined for action的异常，郁闷了好半天，经过多方查找，
+	原来是在2.1中有一个插件struts2-convention-plugin-2.1.8.jar，这个插件是2.1版本中新添加的默认核心包，
+	这个插件是实现Struts2的零配置（稍后会详细解释这个插件的使用），但是这样问题就来了，
+	如果引入就必须引入namespace命名空间，否则就会出现刚才的No result defined for action的异常
+	 -->
+	<package name="system-usersession" namespace="/"  extends="default-package">
+	
+		<action name="index" class="com.irm.web.system.management.action.IndexAction">
+            <result name="platforms" type="redirect">main.html</result>
+            <result name="default" type="redirect">desktop.html</result>
+		</action>
+					
+		<action name="login" class="com.irm.web.system.management.action.LoginAction">
+			<result name="success" type="freemarker">system/usersession/login.ftl</result>
+			<result name="index" type="redirect">index.html</result>
+			<result name="relogin" type="freemarker">system/usersession/login.ftl</result>
+		</action>
+		
+		<action name="logout" class="com.irm.web.system.management.action.LogoutAction" method="logout">
+			<result name="success" type="freemarker">system/usersession/login.ftl</result>
+		</action>
+		
+		<action name="kickout" class="com.asb.cdd.scriptmanage.web.KickoutAction">
+			<result name="success" type="freemarker">/system/common/result/kickout.ftl</result>
+		</action>
+			
+	</package>
+	
+
+	<package name="system-management" extends="default-package">
+		<action name="systemMaintainanceAction" class="com.irm.web.system.maintainance.SystemMaintainanceAction">
+            <result name="checkSystemHealth" type="freemarker">system/maintainance/systemState.ftl</result>
+		</action>
+	</package>
+	
+</struts>

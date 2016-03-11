@@ -1,0 +1,1147 @@
+/* BEGIN COPYRIGHT
+ **************************************************************************
+ *
+ * Licensed Materials - Property of IBM
+ * 5655-FLW
+ * (C) Copyright IBM Corporation 2008, 2009. All Rights Reserved.
+ * US Government Users Restricted Rights- Use, duplication or disclosure
+ * restricted by GSA ADP Schedule Contract with IBM Corp.
+ *
+ **************************************************************************
+ * END COPYRIGHT */
+.taskIconDefault {
+	width: 8.1em;
+	height: 8.8em;
+	display: block;
+	position: relative;
+	cursor: pointer;
+	z-index: 100;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.bpelIconDefault {
+	width: 5.7em;
+	height: 6.2em;
+	display: block;
+	position: relative;
+	cursor: pointer;
+	z-index: 100;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.task {
+	display: block;
+	position: absolute;
+	text-align: center;
+	width: 11em;
+	z-index: 80;
+}
+
+.taskCaption {
+	text-align: center;
+	display: block;
+	overflow: hidden;
+	position: relative;
+	background-color: #ededed;
+	/**
+	 * modified by TQ 2011-05-30 for 固定字体大小
+	 */
+	color: #888;
+	padding: 2 0 2 0;
+	font-size: 10px;
+	white-space: normal;
+}
+
+.innerNode {
+	display: block;
+	position: absolute;
+	cursor: pointer;
+	border: 1px solid gray;
+	background-color: #FFFFFF;
+	background-image: url(../images/nodeBackground.gif);
+	background-repeat: repeat-x;
+	color: black;
+	padding: 0.5em 0.5em 0.5em 25px;
+	-moz-border-radius: 0.8em;
+	white-space: nowrap;
+	z-index: 100;
+}
+
+.head {
+	display: block;
+	position: absolute;
+	cursor: pointer;
+	border: 1px solid gray;
+	background-color: #FFFFFF;
+	background-image: url(../images/nodeBackground.gif);
+	background-repeat: repeat-x;
+	color: black;
+	padding: 0.5em 0.5em 0.5em 25px;
+	-moz-border-radius: 0.8em;
+	white-space: nowrap;
+	z-index: 100;
+}
+
+.caseHead {
+	display: block;
+	position: absolute;
+	top: -1em;
+	cursor: pointer;
+	border: 1px solid gray;
+	background-color: #EEEEEE;
+	color: black;
+	white-space: nowrap;
+	padding: 0.3em 0.3em 0.3em 0.3em;
+	z-index: 100;
+}
+
+.iconHead {
+	display: block;
+	position: absolute;
+	top: 0em;
+	left: 5px;
+	cursor: pointer;
+	z-index: 100;
+}
+
+.nodeIcon {
+	position: relative;
+	width: 16px;
+	height: 16px;
+}
+
+.generatedHead {
+	border: 1px solid gray;
+}
+
+.iconAsNode {
+	position: absolute;
+	display: block;
+	z-index: 100;
+}
+
+.link {
+	position: absolute;
+	overflow: hidden;
+	border: none;
+	background-image: url(../images/arrow.gif);
+	background-position: bottom;
+}
+
+.linkCrossBeam {
+	position: absolute;
+	border: none;
+	background-image: url(../images/arrowCrossbeam.gif);
+	background-position: bottom;
+	overflow: hidden;
+}
+
+.linkFlow {
+	position: absolute;
+	border: none;
+	background-image: url(../images/arrowFlow.gif);
+	background-position: bottom;
+}
+
+.linkFlowHandle {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	z-index: 100;
+	border: none;
+	background-image: url(../images/arrowFlowHandle.gif);
+}
+
+.linkFlowCrossBeam {
+	position: absolute;
+	border: none;
+	background-image: url(../images/arrowFlowCrossbeam.gif);
+}
+
+.linkVGreyLight {
+	position: absolute;
+	border: none;
+	background-image: url(../images/linkVGreyLight.gif);
+	background-position: 0px 0px;
+	width: 10px;
+	overflow: hidden;
+	z-index: 50;
+}
+
+.linkHGreyLight {
+	position: absolute;
+	border: none;
+	background-image: url(../images/linkHGreyLight.gif);
+	background-position: 0px 0px;
+	height: 10px;
+	overflow: hidden;
+	z-index: 50;
+}
+
+.linkVArrowGreyLight {
+	position: absolute;
+	border: none;
+	background-image: url(../images/linkVGreyLight.gif);
+	background-position: 0px bottom;
+	width: 10px;
+	overflow: hidden;
+	z-index: 50;
+}
+
+.linkHArrowGreyLight {
+	position: absolute;
+	border: none;
+	background-image: url(../images/linkHGreyLight.gif);
+	background-position: right 0px;
+	height: 10px;
+	overflow: hidden;
+	z-index: 50;
+}
+
+.linkVGreyFat {
+	position: absolute;
+	border: none;
+	background-image: url(../images/linkVGreyFat.gif);
+	background-position: 0px 0px;
+	width: 10px;
+	overflow: hidden;
+	z-index: 50;
+}
+
+.linkHGreyFat {
+	position: absolute;
+	border: none;
+	background-image: url(../images/linkHGreyFat.gif);
+	background-position: 0px 0px;
+	height: 10px;
+	overflow: hidden;
+	z-index: 50;
+}
+
+.linkVArrowGreyFat {
+	position: absolute;
+	border: none;
+	background-image: url(../images/linkVGreyFat.gif);
+	background-position: 0px bottom;
+	width: 10px;
+	overflow: hidden;
+	z-index: 50;
+}
+
+.linkHArrowGreyFat {
+	position: absolute;
+	border: none;
+	background-image: url(../images/linkHGreyFat.gif);
+	background-position: right 0px;
+	height: 10px;
+	overflow: hidden;
+	z-index: 50;
+}
+
+.linkVFaultFat {
+	position: absolute;
+	border: none;
+	background-image: url(../images/linkVFaultFat.gif);
+	background-position: 0px 0px;
+	width: 10px;
+	overflow: hidden;
+	z-index: 50;
+}
+
+.linkHFaultFat {
+	position: absolute;
+	border: none;
+	background-image: url(../images/linkHFaultFat.gif);
+	background-position: 0px 0px;
+	height: 10px;
+	overflow: hidden;
+	z-index: 50;
+}
+
+.linkVArrowFaultFat {
+	position: absolute;
+	border: none;
+	background-image: url(../images/linkVFaultFat.gif);
+	background-position: 0px bottom;
+	width: 10px;
+	overflow: hidden;
+	z-index: 50;
+}
+
+.linkHArrowFaultFat {
+	position: absolute;
+	border: none;
+	background-image: url(../images/linkHFaultFat.gif);
+	background-position: right 0px;
+	height: 10px;
+	overflow: hidden;
+	z-index: 50;
+}
+
+.skipCurveLeft {
+	position: absolute;
+	border: none;
+	background-image: url(../images/skipCurveLeft.gif);
+	background-position: 0px 0px;
+	overflow: hidden;
+	z-index: 50;
+}
+
+.skipCurveRight {
+	position: absolute;
+	border: none;
+	background-image: url(../images/skipCurveRight.gif);
+	background-position: 0px 0px;
+	overflow: hidden;
+	z-index: 50;
+}
+
+.reducedLink {
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	border: none;
+	background-image: url(../images/reducedLink.gif);
+	background-position: center;
+	overflow: hidden;
+	z-index: 51;
+}
+
+.reducedLinkFault {
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	border: none;
+	background-image: url(../images/reducedLinkFault.gif);
+	background-position: center;
+	overflow: hidden;
+	z-index: 51;
+}
+
+.failedLink {
+	position: absolute;
+	background-image: url(../images/linkFailed.gif);
+	background-position: center;
+	cursor: pointer;
+	width: 16px;
+	height: 16px;
+	z-index: 65;
+}
+
+.faultLink {
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	z-index: 110;
+	border: none;
+	background-image: url(../images/faultLink.gif);
+	background-position: center;
+}
+
+.afterWaveFront {
+	background-image: url(../images/nodeBackgroundWF.gif);
+	color: silver;
+	border: 1px solid silver;
+}
+
+.nodeBoxMarked {
+	background-image: url(../images/nodeBackgroundMarked.gif);
+}
+
+.nodeBoxSelected {
+	background-image: url(../images/nodeBackgroundSel.gif);
+}
+
+.sequence {
+	display: block;
+	position: absolute;
+	border: 1px solid black;
+	-moz-border-radius: 0.8em;
+}
+
+.hiddenSequence {
+	display: block;
+	position: absolute;
+}
+
+.scope {
+	display: block;
+	position: absolute;
+	border: 1px solid black;
+	border-top: 3px double black;
+	-moz-border-radius-bottomleft: 0.8em;
+	-moz-border-radius-bottomright: 0.8em;
+}
+
+.scopeWrapper {
+	display: block;
+	position: absolute;
+	border: 1px dotted grey;
+}
+
+.scopeHandler {
+	display: block;
+	position: absolute;
+	border: 1px solid black;
+}
+
+.eventHandler {
+	display: block;
+	position: absolute; //
+	border: 2px solid black;
+	background-color: lightyellow;
+}
+
+.switch {
+	display: block;
+	position: absolute;
+	border: 1px solid black;
+	-moz-border-radius: 0.8em;
+}
+
+.case {
+	display: block;
+	position: absolute;
+}
+
+.decision {
+	display: block;
+	position: absolute;
+	cursor: pointer;
+	border: 1px solid gray;
+	background-color: #FFFFFF;
+	background-image: url(../images/nodeBackground.gif);
+	background-repeat: repeat-x;
+	color: black;
+	padding: 0.5em 0.5em 0.5em 25px;
+	white-space: nowrap;
+	z-index: 100;
+}
+
+.flow {
+	display: block;
+	position: absolute;
+	border: 1px solid gray;
+	border-top: 3px solid blue;
+	border-bottom: 3px solid blue;
+	-moz-border-radius: 0.8em;
+}
+
+.generatedStructure {
+	display: block;
+	position: absolute;
+	border: 1px dashed grey;
+}
+
+.expander {
+	display: block;
+	position: absolute;
+	border: 1px dotted grey;
+}
+
+.overviewFlowFrame {
+	position: absolute;
+	border-top: 1px solid blue;
+	border-bottom: 1px solid blue;
+	border-left: 1px solid grey;
+	border-right: 1px solid grey;
+	overflow: hidden;
+}
+
+.overviewScopeWrapperFrame {
+	position: absolute;
+	border: 1px dotted grey;
+	overflow: hidden;
+}
+
+.overviewDefault {
+	border: 1px solid silver;
+	background: silver;
+}
+
+.overviewInAction {
+	border: 1px solid green;
+	background: green;
+}
+
+.overviewError {
+	border: 1px solid red;
+	background: red;
+}
+
+.overviewSuccess {
+	border: 1px solid blue;
+	background: blue;
+}
+
+.icons {
+	padding: 2px;
+	margin: 1px;
+	border: 1px solid white;
+}
+
+.gatewayIcon {
+	width: 2.7em;
+	height: 2.7em;
+	display: block;
+	position: relative;
+}
+
+.gatewayBox {
+	display: block;
+	position: absolute;
+	z-index: 80;
+}
+
+.startNode {
+	display: block;
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	background-image: url(../images/startnode.gif);
+	z-index: 80;
+}
+
+.endNode {
+	display: block;
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	background-image: url(../images/endnode.gif);
+	z-index: 80;
+}
+
+.linkLabel {
+	display: block;
+	position: absolute;
+	cursor: default;
+	background-color: white;
+	color: #919191;
+	padding: 0.1em;
+	white-space: nowrap;
+	text-align: center;
+	z-index: 70;
+	font-weight: bold;
+}
+
+.linkLabelTaskFlow {
+	display: block;
+	position: absolute;
+	cursor: default;
+	border: 1px solid #919191;
+	background-color: white;
+	color: #919191;
+	padding: 0.1em;
+	white-space: nowrap;
+	text-align: center;
+	z-index: 70;
+	font-weight: bold;
+}
+
+/*
+* subtasks
+*/
+.nodeSubtasks {
+	width: auto;
+	background-color: #EDEDED;
+	position: absolute;
+	padding-bottom: 5px;
+}
+
+.nodeSubtasksCaption {
+	margin: 0 auto;
+	position: relative;
+}
+
+.subtasksRow {
+	position: relative;
+	display: block;
+}
+
+.subtasksOuter {
+	position: relative;
+	display: block;
+	float: left;
+}
+
+.subtaskNode {
+	display: block;
+	position: relative;
+	text-align: center;
+	width: 11em;
+	z-index: 80;
+	padding: 0px 10px;
+	top: 20px;
+	margin: 0 0 20px;
+}
+
+.subtasksFrame {
+	margin: 0.5em;
+	background-color: white;
+	float: left;
+	padding: 0.5em;
+	position: relative;
+}
+
+.subtasksTitle {
+	color: #919191;
+	margin: 0.5em;
+	font-weight: bold;
+	position: relative;
+}
+
+.subtaskLinkLeft {
+	display: block;
+	position: absolute;
+	height: 10px;
+	width: 50%;
+	left: 0px;
+	border-right: 2px solid #919191;
+	border-top: 2px solid #919191;
+	top: 8px;
+}
+
+.subtaskLinkRight {
+	display: block;
+	position: absolute;
+	height: 10px;
+	width: 50%;
+	left: 50%;
+	border-left: 2px solid #919191;
+	border-top: 2px solid #919191;
+	top: 8px;
+}
+
+.subtaskLinkCenter {
+	display: block;
+	position: absolute;
+	height: 12px;
+	width: 50%;
+	left: 50%;
+	margin-top: 3px;
+	border-left: 2px solid #919191;
+}
+
+.subtaskLinkMiddle {
+	display: block;
+	position: absolute;
+	height: 10px;
+	width: 50%;
+	left: 50%;
+	border-left: 2px solid #919191;
+	top: 10px;
+}
+
+.subtaskLinkTop {
+	display: block;
+	position: absolute;
+	height: 2px;
+	width: 100%;
+	background-color: #919191;
+	top: 8px;
+}
+
+/*
+.nodeSubtasks {
+        width: auto;
+        background-color: #EDEDED;
+        position: absolute;
+}
+
+.nodeSubtasksCaption {
+        margin: 0 auto;
+        position: relative;
+}
+
+.subtasksRow {
+        position: relative;
+        display: block;
+}
+
+.subtasksOuter {
+        position: relative;
+        display: block;
+        float: left;
+}
+
+.subtaskNode {
+	display: block;
+	position: relative;
+        text-align:center;
+        width: 11em;
+        z-index: 80;
+        padding: 0px 10px;
+}
+
+.subtasksFrame {
+        margin: 0.5em;
+        background-color: white;
+        float: left;
+        padding: 0.5em;
+        position: relative;
+}
+
+.subtasksTitle {
+        color: #919191;
+        margin: 0.5em;
+        font-weight: bold;
+        position: relative;
+}
+
+.subtaskLinkLeft {
+        display: block;
+        position: relative;
+        height: 10px;
+        width: 50%;
+        margin-right: 50%;
+        border-right: 2px solid #919191;
+        border-top: 2px solid #919191;
+}
+
+.subtaskLinkRight {
+        display: block;
+        position: relative;
+        height: 10px;
+        width: 50%;
+        margin-left: 50%;
+        border-left: 2px solid #919191;
+        border-top: 2px solid #919191;
+}
+
+.subtaskLinkCenter {
+        display: block;
+        position: relative;
+        height: 10px;
+        width: 50%;
+        margin-left: 50%;
+        margin-top: 3px;
+        border-left: 2px solid #919191;
+}
+
+.subtaskLinkMiddle {
+        display: block;
+        position: relative;
+        height: 10px;
+        width: 50%;
+        margin-left: 50%;
+        border-left: 2px solid #919191;
+}
+
+.subtaskLinkTop {
+        display: block;
+        position: relative;
+        height: 2px;
+        width: 100%;
+        background-color: #919191;
+}
+*/ /* 
+* decoration
+*/
+.decoration {
+	border: 1px solid silver;
+	position: absolute;
+}
+
+.aura {
+	position: absolute;
+	z-index: 2;
+}
+
+.statusDecorationBox {
+	position: absolute;
+	text-align: left;
+	overflow: hidden;
+	display: block;
+	background-color: #ededed;
+	color: #000;
+	width: 10em;
+	padding: 0.5em;
+	white-space: normal;
+	z-index: 70;
+}
+
+.frameTitle {
+	position: absolute;
+	color: #919191;
+	z-index: 230;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.frameTitleBpel {
+	position: absolute;
+	color: #919191;
+	z-index: 230;
+}
+
+.frame {
+	position: absolute;
+	border: 2px dashed #919191;
+	background-color: white;
+	z-index: 10;
+}
+
+.activeCaseScopeFrame {
+	position: absolute;
+	background-color: #f8ffeb;
+	border: 2px solid #69b300;
+	z-index: 10;
+}
+
+.inactiveCaseScopeFrame {
+	position: absolute;
+	background-color: #ebf6ff;
+	border: 2px solid #ebf6ff;
+	z-index: 10;
+}
+
+.iconStateBack:hover {
+	background-image: url(../images/stateBack.gif);
+	opacity: 1;
+	filter: alpha(opacity = 100);
+}
+
+.iconStateBack {
+	background-image: url(../images/stateBackDisabled.gif);
+	height: 16px;
+	width: 16px;
+	position: absolute;
+	z-index: 230;
+	opacity: 0.5;
+	filter: alpha(opacity = 50);
+}
+
+.iconStateForward {
+	background-image: url(../images/stateForwardDisabled.gif);
+	height: 16px;
+	width: 16px;
+	position: absolute;
+	z-index: 230;
+	opacity: 0.5;
+	filter: alpha(opacity = 50);
+}
+
+.iconStateForward:hover {
+	background-image: url(../images/stateForward.gif);
+	opacity: 1;
+	filter: alpha(opacity = 100);
+}
+
+.tundra .processViewHeader .dijitHorizontalSliderDecrementIcon {
+	background-image: url('../images/zoomout.gif');
+}
+
+.tundra .processViewHeader .dijitHorizontalSliderIncrementIcon {
+	background-image: url('../images/zoomin.gif');
+}
+
+.migrationBar {
+	position: absolute;
+	background-image: url(../images/migrationBar.gif);
+	height: 4px;
+	z-index: 100;
+	font-size: 1px;
+}
+
+.migrationIcon {
+	background-image: url(../images/migration.gif);
+	height: 16px;
+	width: 16px;
+}
+
+.migrationIconButton {
+	background-image: url(../images/migrationHandle.gif);
+	height: 22px;
+	width: 22px;
+	cursor: pointer;
+	position: absolute;
+	z-index: 231;
+}
+
+.migrationInfoDialog {
+	z-index: 232;
+	background-color: green;
+	position: absolute;
+	white-space: nowrap;
+	border: 3px solid #afcd58;
+}
+
+.migrationInnerTable {
+	white-space: nowrap;
+}
+
+.migrationInnerTable TD {
+	white-space: nowrap;
+}
+
+.migrationInfoDialog .stateIcon {
+	position: relative;
+	float: left;
+}
+
+.migrationVersionNumber {
+	font-weight: bold;
+	padding-right: 20px;
+	font-size: large;
+}
+
+.migrationCloudHole {
+	position: absolute;
+	z-index: 1;
+}
+
+.migrationCloudHoleTop {
+	-moz-border-radius-topleft: 10px;
+	-moz-border-radius-topright: 10px;
+}
+
+.migrationCloudHoleBottom {
+	-moz-border-radius-bottomleft: 10px;
+	-moz-border-radius-bottomright: 10px;
+}
+
+/* 
+ * icons
+ */
+.iconpw {
+	position: absolute;
+	left: 5px;
+	height: 16px;
+	width: 16px;
+}
+
+.handlericon {
+	position: relative;
+	top: 0px;
+	left: 0px;
+	height: 16px;
+	width: 16px;
+}
+
+.iconempty {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: 0px;
+}
+
+.iconinvoke {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -16px
+}
+
+.iconreceive {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -32px;
+}
+
+.iconreply {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -48px;
+}
+
+.iconassign {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -64px;
+}
+
+.iconstaff {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -80px;
+}
+
+.iconsnippet {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -96px;
+}
+
+.iconswitch {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -112px;
+}
+
+.iconpick {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -128px;
+}
+
+.iconwhile {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -144px;
+}
+
+.iconwait {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -160px;
+}
+
+.iconsequence {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -176px;
+}
+
+.iconscope {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -192px;
+}
+
+.iconflow {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -208px;
+}
+
+.iconterminate {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -224px;
+}
+
+.iconthrow {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -240px;
+}
+
+.iconrethrow {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -256px;
+}
+
+.iconcompensate {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -272px;
+}
+
+.iconcase {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -288px;
+}
+
+.iconotherwise {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -304px;
+}
+
+.icononmessage {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -320px;
+}
+
+.icononalarm {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -336px;
+}
+
+.iconstg {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -352px;
+}
+
+.iconforeach {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -368px;
+}
+
+.iconeventhandler {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -384px;
+}
+
+.iconcompensationhandler {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -400px;
+}
+
+.iconfaulthandler {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -416px;
+}
+
+.iconrepeatuntil {
+	background-image: url(../images/BpelIcons.gif);
+	background-position: -432px;
+}
+
+.stateIcon {
+	position: absolute;
+	z-index: 230;
+	height: 16px;
+	width: 16px;
+}
+
+.iconINACTIVE {
+	background-image: url(../images/stateIcons.gif);
+	background-position: 0px;
+}
+
+.iconREADY {
+	background-image: url(../images/stateIcons.gif);
+	background-position: -16px;
+}
+
+.iconRUNNING {
+	background-image: url(../images/stateIcons.gif);
+	background-position: -32px;
+}
+
+.iconSKIPPED {
+	background-image: url(../images/stateIcons.gif);
+	background-position: -48px;
+}
+
+.iconFINISHED {
+	background-image: url(../images/stateIcons.gif);
+	background-position: -64px;
+}
+
+.iconFAILED {
+	background-image: url(../images/stateIcons.gif);
+	background-position: -80px;
+}
+
+.iconTERMINATED {
+	background-image: url(../images/stateIcons.gif);
+	background-position: -96px;
+}
+
+.iconCLAIMED {
+	background-image: url(../images/stateIcons.gif);
+	background-position: -112px;
+}
+
+.iconTERMINATING {
+	background-image: url(../images/stateIcons.gif);
+	background-position: -128px;
+}
+
+.iconFAILING {
+	background-image: url(../images/stateIcons.gif);
+	background-position: -144px;
+}
+
+.iconWAITING {
+	background-image: url(../images/stateIcons.gif);
+	background-position: -160px;
+}
+
+.iconEXPIRED {
+	background-image: url(../images/stateIcons.gif);
+	background-position: -176px;
+}
+
+.iconSTOPPED {
+	background-image: url(../images/stateIcons.gif);
+	background-position: -192px;
+}
+
+.iconSKIP_REQUESTED {
+	background-image: url(../images/stateIcons.gif);
+	background-position: -208px;
+}
+
+.iconPROCESSING_UNDO {
+	background-image: url(../images/stateIcons.gif);
+	background-position: -224px;
+}

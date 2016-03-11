@@ -1,0 +1,289 @@
+
+
+.x_gt_plus {
+	width:16;
+	height:16;
+	cursor:pointer;
+	background:url(../image/xgridtree/grid.gif) -104 -68 no-repeat;
+}
+
+.x_gt_minus {
+	width:16;
+	height:16;
+	cursor:pointer;
+	background:url(../image/xgridtree/grid.gif) -52 -68 no-repeat;
+}
+
+.x_gt_t {
+	width:16;
+	height:16;	
+	background:url(../image/xgridtree/grid.gif) -63 0 no-repeat;
+}
+
+.x_gt_l {
+	width:16;
+	height:16;
+	cursor:pointer;
+	background:url(../image/xgridtree/grid.gif) -42 -16 no-repeat;
+}
+
+.x_gt_more {
+	width:16;
+	height:16;
+	cursor:pointer;
+	background:url(../image/xgridtree/downarrow.gif) 0 0 no-repeat;	
+}
+
+.MTCellLeftDIV {
+	WHITE-SPACE:nowrap;
+	overflow:hidden;
+	padding-right:10;
+}
+
+.loadingDIVLeft {
+	WHITE-SPACE:nowrap;
+	overflow:hidden;
+	height:18;
+	border-bottom:1 solid #ddd;
+	background:#F4F4F4;
+}
+
+.loadingDIVRight {
+	WHITE-SPACE:nowrap;
+	overflow:hidden;
+	height:18;
+	border-bottom:1 solid #ddd;
+	background:#F4F4F4;
+}
+
+
+
+
+
+
+
+
+
+.MTCellRightDIV {
+	WHITE-SPACE:nowrap;
+	overflow:hidden;
+	border-left:1 solid #B0B0A0;
+	font-size:12;
+	height:18;
+}
+
+.MCellTD {
+	font-size:12;
+}
+
+table.MTMainTable {
+	border-collapse:collapse;
+}
+
+.MTItemContainer {
+	font-size:12;
+}
+
+
+
+
+
+
+
+
+/** B panels */
+.MPanel {
+	width:14;
+	height:18;
+	background:url(../image/xgridtree/grid.gif) 0 -102 no-repeat;
+	cursor:pointer;
+}
+
+.MPanelSelected {
+	width:14;
+	height:18;
+	background:url(../image/xgridtree/grid.gif) -52 -102 no-repeat;
+	cursor:pointer;
+}
+
+.PlusPanel {
+	width:20;
+	height:18;
+	background:url(../image/xgridtree/grid.gif) -104 -68 no-repeat;
+	cursor:pointer;
+}
+
+.MinusPanel {
+	width:20;
+	height:18;
+	background:url(../image/xgridtree/grid.gif) -52 -68 no-repeat;
+	cursor:pointer;
+}
+
+.MinusPanelLast {
+	width:20;
+	height:18;
+	background:url(../image/xgridtree/grid.gif) -78 -68 no-repeat;
+	cursor:pointer;
+}
+
+.TLinkPanel {
+	width:20;
+	height:18;
+	background:url(../image/xgridtree/grid.gif) -63 0 no-repeat;
+}
+
+.ILinkPanel {
+	width:20;
+	height:18;
+	background:url(../image/xgridtree/grid.gif) -42 -16 no-repeat;
+}
+
+.LLinkPanel {
+	width:20;
+	height:18;
+	background:url(../image/xgridtree/grid.gif) -26 -68 no-repeat;
+}
+
+.WaitingPanel {
+	width:20;
+	height:18;
+	background:url(../image/xgridtree/indicator_wheel.gif) 2 0 no-repeat;
+}
+
+.HPanel {
+	width:20;
+	height:18;
+}
+
+.PlusPanelLast {
+	width:20;
+	height:18;
+	cursor:pointer;
+	background:url(../image/xgridtree/grid.gif) -130 -68 no-repeat;
+}
+
+.PagePanel {
+	width:20;
+	height:18;
+	cursor:pointer;
+	background:url(../image/xgridtree/downarrow.gif) -53 -119 no-repeat;
+}
+
+.MCellMoreTD {
+	cursor:pointer;
+	font-size:12;
+	font-family:arial;
+}
+
+
+
+
+
+
+
+
+
+
+
+.MPanelTD {
+	border-color:#d0d0c0 #d0d0c0 #d0d0c0 #f0f0f0;
+	border-width:0 1 0 0;
+	border-style:solid solid solid none;
+	background:#F4F9FB;
+}
+
+.MTHeadTR {
+	background:#F4F9FB;
+	position:relative;
+	top:expression(this.offsetParent.scrollTop);
+}
+
+.MTBodyTR {
+
+}
+
+.GHeadLeftDIV {
+	overflow:hidden;	
+	height:19;
+}
+
+.GHeadRightDIV {
+	overflow:hidden;	
+	height:19;
+}
+
+
+
+.GHeaderRightTD {
+	font-size:12;
+	border-top:1 solid #ddd;
+}
+
+.MTBodyLeftTD {
+	height:100;
+	border:solid none solid solid;
+	border-width:1 0 1 1;
+	border-color:#808070 #000 #b0b0a0 #a0a090;
+}
+
+.MTBodyRightTD {
+	height:100;
+	border:solid none solid solid;
+	border-width:0 0 1 0;
+	border-color:#808070 #000 #b0b0a0 #a0a090;
+}
+
+.MTBodyLeftDIV {
+	height:100;
+	border:solid none solid solid;
+	border-width:1 0 1 1;
+	border-color:#808070 #000 #b0b0a0 #a0a090;
+}
+
+.MTBodyRightDIV {
+	height:100;
+	border:solid none solid solid;
+	border-width:0 1 1 1;
+	border-color:#808070 #000 #b0b0a0 #a0a090;
+}
+
+.GPage {
+	border-left:1 solid #d0d0c0;
+}
+
+.MTRowTable {
+}
+
+.MTRowDIV {
+	
+	border-color:#d0d0c0 #d0d0c0 #d0d0c0 #f0f0f0;
+	border-width:0 1 1 0;
+	border-style:none solid solid none;
+}
+
+.MTRowTable {
+}
+
+.MTSingleRowLeftDIV {
+	overflow:hidden;
+	height:18;
+	border-bottom:1 solid #ddd;
+}
+
+.MTSingleRowRightDIV {
+	overflow:hidden;
+	height:18;
+	border-bottom:1 solid #ddd;
+}
+
+.MTPaginationContainer {
+	height:18;
+}
+
+.highlight {
+	background:rgb(255,255,128);
+}
+
+
+

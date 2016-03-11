@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Task">
+	<typeAlias alias="task" type="com.asb.cdd.scriptmanage.dao.access.model.Task" />
+	<resultMap id="taskResult" class="task">
+		<result property="id" column="ID" javaType="long" jdbcType="NUMERIC" nullValue="0" />
+		<result property="version" column="VERSION" javaType="int" jdbcType="NUMERIC" nullValue="0" />
+		<result property="name" column="NAME" javaType="string" jdbcType="VARCHAR" />
+		<result property="createTime" column="CREATETIME" javaType="Date" />
+		<result property="userId" column="USER_ID" javaType="int" jdbcType="NUMERIC" nullValue="0" />
+		<result property="status" column="STATUS" javaType="int" jdbcType="NUMERIC" nullValue="0" />
+		<result property="issueId" column="ISSUE_ID" javaType="string" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="sql_sequence">
+		<![CDATA[
+			SELECT SEQ_T_TASK.NEXTVAL AS ID FROM DUAL
+		]]>
+	</sql>
+	<select id="sequence">
+		<include refid="sql_sequence" />
+	</select>
+
+	<insert id="create" parameterClass="task">
+		<selectKey keyProperty="id" resultClass="int">
+			<include refid="sql_sequence" />
+		</selectKey>
+		<![CDATA[
+			INSERT INTO T_TASK (
+				ID, VERSION, 
+				NAME, CREATETIME, USER_ID, STATUS, ISSUE_ID
+			) VALUES (
+				#id#, #version#, 
+				#name#,	#createTime#, #userId#, #status#, #issueId#
+			)
+		]]>
+	</insert>
+		
+	<update id="update" parameterClass="task">
+		<![CDATA[
+			UPDATE T_TASK SET 
+				NAME=#name#,
+				CREATETIME=#createTime#,
+				USER_ID=#userId#,
+				STATUS=#status#,
+				ISSUE_ID = #issueId#,
+				
+				VERSION=VERSION+1
+			WHERE ID=#id# AND VERSION=#version#
+		]]>
+	</update>
+	
+	<sql id="sql_where">
+		<dynamic prepend="WHERE">
+			<isNotNull property="id">
+				<isGreaterThan prepend="AND" property="id" compareValue="0"> ID=#id#</isGreaterThan>
+			</isNotNull>
+			<isNotNull prepend="AND" property="name"> NAME like upper('%$name$%') </isNotNull>
+			<isNotNull prepend="AND" property="status"> STATUS = #status# </isNotNull>
+			<isNotNull prepend="AND" property="issueId"> ISSUE_ID = #issueId# </isNotNull>
+		</dynamic>
+		ORDER BY ID DESC
+	</sql>
+	
+	<sql id="sql_from">
+		FROM T_TASK
+		<include refid="sql_where" />
+	</sql>
+	
+	<select id="find" resultMap="taskResult">
+		<isGreaterThan property="_maxResult" compareValue="0">
+			<![CDATA[ SELECT * FROM ( ]]>		
+			<isGreaterThan property="_skipResult" compareValue="0"><![CDATA[ SELECT ROW_.*, ROWNUM ROWNUM_ FROM ( ]]></isGreaterThan>
+		</isGreaterThan>
+		<![CDATA[ SELECT * ]]>
+		<include refid="sql_from" />
+		<isNotNull property="_orderBy"><![CDATA[ ORDER BY $_orderBy$ ]]></isNotNull>
+		<isGreaterThan property="_maxResult" compareValue="0">
+			<isGreaterThan property="_skipResult" compareValue="0"><![CDATA[ ) ROW_ WHERE ROWNUM <= #_maxResult#) WHERE ROWNUM_ > #_skipResult# ]]></isGreaterThan>
+			<isLessEqual property="_skipResult" compareValue="0"><![CDATA[ ) WHERE ROWNUM <= #_maxResult# ]]></isLessEqual>
+		</isGreaterThan>
+	</select>
+	<select id="find_count" parameterClass="java.util.Map" resultClass="int">
+		<![CDATA[ SELECT COUNT(1) ]]>
+		<include refid="sql_from" />
+	</select>
+	
+	<select id="findAll" resultMap="taskResult">
+		<![CDATA[ SELECT * FROM T_TASK ]]>
+		<isNotNull property="_orderBy"><![CDATA[ ORDER BY $_orderBy$ ]]></isNotNull>
+	</select>
+
+	<select id="findById" parameterClass="long" resultMap="taskResult">
+		<![CDATA[
+			SELECT * FROM T_TASK WHERE ID=#value#
+		]]>
+	</select>
+	
+	<select id="findByIds" parameterClass="java.util.Map" resultMap="taskResult">
+		<![CDATA[
+			SELECT * FROM T_TASK WHERE ID IN
+		]]>
+		<iterate property="ids" open="(" close=")" conjunction=",">
+			#ids[]#
+		</iterate>
+	</select>
+	
+	<select id="findByIssueIds" parameterClass="java.util.Map" resultMap="taskResult">
+		<![CDATA[
+			SELECT * FROM T_TASK WHERE ISSUE_ID IN
+		]]>
+		<iterate property="issueIds" open="(" close=")" conjunction=",">
+			#issueIds[]#
+		</iterate>
+	</select>
+</sqlMap>

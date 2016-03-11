@@ -1,0 +1,80 @@
+.loader {
+	border:0;	
+	width:24;
+	height:16;
+	background:url(../../image/loader.gif) no-repeat 0 0;
+}
+
+.icon_exception {
+	border:0;	
+	width:32;
+	height:32;
+	background:url(../../image/exception.png) no-repeat 0 0;
+}
+
+.font_exception {
+	color:#A90101;
+	font-size:12;	
+	font-family:Verdana,Simsun;
+}
+
+.span_exception {
+	font-size:12;
+	color:#A90101;
+	padding-left:2;
+	padding-right:2;
+	border:1 solid red;
+	font-family:Verdana,Simsun;
+	background-color:#FF0;	
+}
+
+.exception_container {
+	width:650;
+	height:120;
+	padding:10;
+	font-size:12;
+	color:#A90101;
+	border:1 solid red;	
+	font-family:Verdana,Simsun;
+	filter:alpha(opacity=90)progid:DXImageTransform.Microsoft.Fade(duration=0.2)progid:DXImageTransform.Microsoft.Shadow(color=#777777,direction=135,strength=3);	
+	background:url(../../image/exception.gif) no-repeat 20 20 #FF0;
+}
+
+.exception_updater_container {
+	padding:10;
+	padding-left:60;
+	width:100%;
+	height:100%;	
+	font-size:12;
+	color:#A90101;
+	border:1 solid red;	
+	font-family:Verdana,Simsun;
+	background:url(../../image/exception.gif) no-repeat 15 15 #FF0;
+}
+
+
+
+.info_msg {
+	color:#00F;
+	border:1 solid #00F;
+	background:url(../../image/info.gif) no-repeat 8 8 #C7E4FA;
+}
+
+.error_msg { 
+	color:#FF0;
+	border:1 solid red;
+	background:url(../../image/exception.gif) no-repeat 8 8 #FF0;	
+}
+
+.info_msg      ,
+.error_msg {
+	margin:2;
+	height:50;
+	padding:8;
+	font-size:12;
+	overflow:auto;
+	padding-left:50;	
+	vertical-align:middle;
+	font-family:Verdana,Simsun;
+}
+

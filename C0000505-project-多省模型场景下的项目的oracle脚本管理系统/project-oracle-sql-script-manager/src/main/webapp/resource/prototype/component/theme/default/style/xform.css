@@ -1,0 +1,39 @@
+.x_form {
+	width:100%;	
+	/* border:1 solid #CCC;*/
+}
+.x_form_label ,
+.x_form_field {
+	height:20;	
+	font-size:12;	
+	font-family:Verdana,Simsun;
+}
+.x_form_label {
+	color:#000085;	
+	text-align:right;
+	padding-right:2;
+	/* white-space:nowrap;	
+	background-color:#F7FAFE;*/
+}
+
+.x_form_field {	
+	color:#000000;
+	padding-left:2;	
+	/* border-bottom:1 solid #CCC;*/
+}
+/*
+.x_form_memo {
+	height:20;	
+	font-size:12;
+	color:#000;
+	padding-left:3;
+	font-family:Verdana,Simsun;
+}
+*/
+.x_form_empty {
+	height:20;
+	font-size:12;	
+	color:#000;	
+	font-family:Verdana,Simsun;
+}
+

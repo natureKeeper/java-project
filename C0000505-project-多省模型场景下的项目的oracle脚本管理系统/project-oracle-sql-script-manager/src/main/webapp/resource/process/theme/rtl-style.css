@@ -1,0 +1,226 @@
+/* BEGIN COPYRIGHT
+ **************************************************************************
+ *
+ * Licensed Materials - Property of IBM
+ * 5655-FLW (C) Copyright IBM Corporation 2005, 2009. All Rights Reserved.
+ * US Government Users Restricted Rights- Use, duplication or disclosure
+ * restricted by GSA ADP Schedule Contract with IBM Corp.
+ *
+ **************************************************************************
+ * END COPYRIGHT */
+
+/**************************************************************************
+ * Bpcwebclient and Bpcobserver use common style values!
+ * If you change a value for one client, keep in mind to adapt the 
+ * other one, too!
+ **************************************************************************/
+
+@IMPORT url("./style.css");
+
+* {
+	direction: rtl;
+}
+
+/***************************/
+/* Styles for Login Page   */
+/***************************/
+
+td.login_L {
+	width: 40px;
+}
+
+td.login_R {
+	width: 37px;
+}
+
+
+tr.login_T td.login_L {
+	background-image: url("../images/login_right_top.gif");
+}
+
+tr.login_T td.login_R {
+	background-image: url("../images/login_left_top.gif");
+}
+
+tr.login_M td.login_L {
+	background-image: url("../images/login_right_bg.gif");
+}
+
+tr.login_M td.login_C {
+   	padding-left: 10px;
+	padding-right: 10px;
+}
+
+tr.login_M td.login_R {
+	background-image: url("../images/login_left_bg.gif");
+}
+
+tr.login_B td.login_L {
+	background-image: url("../images/login_right_bottom.gif");
+}
+
+tr.login_B td.login_R {
+	background-image: url("../images/login_left_bottom.gif");
+}
+
+/***************************/
+/* Styles for Menubar      */
+/***************************/
+
+td.menuItem {
+	border-left: 0px;
+	border-right: 1px solid #316AC5;	
+}
+
+/***************************/
+/* Styles for Navigator    */
+/***************************/
+
+td.navigatorSlider {
+	border-right: 0px;
+	/* border-left: 1px solid transparent; not supported in IE6 */
+	border-left: 1px solid #f0f0f0; /* background color of .pageBodyNavigator */
+	/* IE needs 2px */
+	_border-left: 2px solid #f0f0f0; /* background color of .pageBodyNavigator */
+}
+
+div.expanded {
+	padding: 0px;
+	padding-right: 8px;
+}
+
+.toggleCollapsed {
+	background-image: url("../images/plus_rtl.gif");
+}
+
+/***************************/
+/* Styles for Content      */
+/***************************/
+
+.monitorGroup {
+	left: 0px;
+}
+
+/***************************/
+/* Styles for Tabbed Panes */
+/***************************/
+
+div.tabbedPaneNavigator {
+	margin-left: 0px;
+	margin-right: 8px;
+}
+
+/********************/
+/* Styles for Lists */
+/********************/
+
+.list tbody td, .list th 
+{
+	text-align: right;
+}
+
+/****************************/
+/* Styles for Search Pages  */
+/****************************/
+
+.searchPanelFilter th {
+   text-align: right;
+}
+
+.searchSubLabel {
+	margin-right: 20px;
+	margin-left: 0px;
+}
+
+table.searchPropertyTable {
+	text-align: left;
+}
+
+.searchPropertyTable th, .searchPropertyTableHeader {
+	text-align: right;
+}
+
+td.searchListPropertiesSourceButton {
+	text-align: left;
+}
+
+/* styles for search summary */
+
+.summaryTable th {
+	text-align: right;
+}
+
+/*******************************/
+/* Styles for Explorer Details */
+/*******************************/
+
+td.detailsNumberValue {
+	text-align: left;
+}
+
+/***************************/
+/* Styles for Context Help */
+/***************************/
+
+.dispatcherLink {
+	padding-left: 0px;
+	padding-right: 30px;
+}
+
+/***************************/
+/* Styles for Monitor      */
+/***************************/
+
+.svgbox {	
+	left: 0px;
+}
+
+.svgbuttons {
+	left: 0px;	
+}
+
+/********************************/
+/* Styles for Footer and Banner */
+/********************************/
+
+.banner {
+	float: right;
+	background-position: right top;
+}
+
+.banner_left {
+	background: none;
+	width: auto;  
+}
+
+.banner_right {
+	float: right;
+	background-image: url("../images/banner.gif");
+	background-repeat: no-repeat;
+	background-position: right top;
+	height: 27px;
+	width: 1000px;  
+}
+
+.footer_left {
+	float: left;
+	background-image: url("../images/ws.gif");
+	width: 109px;
+	margin-right: 10px;
+}
+
+.footer_right {
+	float: right;
+	background-image: url("../images/ibm.gif");
+	width: 51px;
+}
+
+/**************/
+/* About page */
+/**************/
+
+.aboutLabel {
+	direction: ltr;	
+	unicode-bidi: embed;
+}
+

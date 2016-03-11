@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd" default-lazy-init="true">
+
+	<import resource="classpath:applicationContext-system-properties.xml" />
+	<import resource="classpath:applicationContext-system-datasource.xml" />
+	<import resource="classpath:applicationContext-system-jdbctemplate.xml" />
+	<import resource="classpath:applicationContext-system-ibatis.xml" />	
+	<import resource="classpath:applicationContext-system-access-common.xml" />
+	
+	<import resource="classpath:applicationContext-demo.xml" />
+	
+	<import resource="classpath:applicationContext-system-usersession.xml" />
+	<import resource="classpath:applicationContext-system-cache.xml" />	
+	
+</beans>

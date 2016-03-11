@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	
+	
+	<!-- need to move into struts-plugin.xml  -->
+	<!--  bean type="ognl.PropertyAccessor" name="com.irm.type.ExtensionAttributeMap" class="com.irm.type.util.ExtensionAttributeMapPropertyAccessor" />-->
+	<package name="default-package" extends="json-default">
+		<result-types>
+            <result-type name="json" class="org.apache.struts2.json.JSONResult">
+            	<param name="enumAsBean">true</param>
+            	<param name="ignoreHierarchy">false</param>            	
+            </result-type>            
+            <result-type name="xml" class="common.struts2.XmlFreemarkerResult" />
+            <result-type name="workbook" class="common.struts2.WorkbookResult" />
+            <result-type name="string" class="common.struts2.StringResult"/>
+            <result-type name="jxls" class="common.struts2.JxlsResult"/>
+        </result-types>
+		<interceptors>
+			<interceptor name="params" class="common.xwork2.TrimParametersInterceptor"/>
+            <interceptor name="parametersPrepare" class="common.xwork2.ParametersPrepareInterceptor"/>
+            <interceptor name="exception" class="common.xwork2.ExceptionInterceptor"/>
+            <interceptor name="userSession" class="userSessionInteceptor"/>
+
+ 			<interceptor-stack name="defaultFileUploadInterceptorStack">
+ 				<interceptor-ref name="exception"/>
+ 				<interceptor-ref name="userSession"/>
+                <interceptor-ref name="alias"/>
+                <interceptor-ref name="servletConfig"/>
+                <interceptor-ref name="i18n"/>
+                <interceptor-ref name="prepare"/>
+                <interceptor-ref name="chain"/>
+<!--                <interceptor-ref name="debugging"/>-->
+<!--                <interceptor-ref name="scopedModelDriven"/>-->
+<!--                <interceptor-ref name="modelDriven"/>-->
+                <interceptor-ref name="fileUpload">
+               		<param name="maximumSize">20971520</param>
+                </interceptor-ref>
+                <interceptor-ref name="checkbox"/>
+                <interceptor-ref name="multiselect"/>
+                <interceptor-ref name="staticParams"/>
+                <interceptor-ref name="actionMappingParams"/>
+                
+                <interceptor-ref name="parametersPrepare" />
+                
+                <interceptor-ref name="params">
+                  <param name="excludeParams">dojo\..*,^struts\..*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError"/>
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+ 			</interceptor-stack>
+ 		<interceptor-stack name="pdfFileUploadInterceptorStack">
+ 				<interceptor-ref name="exception"/>
+ 				<interceptor-ref name="userSession"/>
+                <interceptor-ref name="alias"/>
+                <interceptor-ref name="servletConfig"/>
+                <interceptor-ref name="i18n"/>
+                <interceptor-ref name="prepare"/>
+                <interceptor-ref name="chain"/>
+<!--                <interceptor-ref name="debugging"/>-->
+<!--                <interceptor-ref name="scopedModelDriven"/>-->
+<!--                <interceptor-ref name="modelDriven"/>-->
+                <interceptor-ref name="fileUpload">
+               		<param name="maximumSize">314572800</param>
+                </interceptor-ref>
+                <interceptor-ref name="checkbox"/>
+                <interceptor-ref name="multiselect"/>
+                <interceptor-ref name="staticParams"/>
+                <interceptor-ref name="actionMappingParams"/>
+                
+                <interceptor-ref name="parametersPrepare" />
+                
+                <interceptor-ref name="params">
+                  <param name="excludeParams">dojo\..*,^struts\..*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError"/>
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+ 			</interceptor-stack>
+
+            <interceptor-stack name="defaultInterceptorStack">
+                <interceptor-ref name="exception"/>
+                <interceptor-ref name="userSession"/>
+                <interceptor-ref name="alias"/>
+                <interceptor-ref name="servletConfig"/>
+                <interceptor-ref name="i18n"/>
+                <interceptor-ref name="prepare"/>
+                <interceptor-ref name="chain"/>
+<!--                <interceptor-ref name="debugging"/>-->
+<!--                <interceptor-ref name="scopedModelDriven"/>-->
+<!--                <interceptor-ref name="modelDriven"/>-->
+<!--                <interceptor-ref name="fileUpload"/>-->
+                <interceptor-ref name="checkbox"/>
+                <interceptor-ref name="multiselect"/>
+                <interceptor-ref name="staticParams"/>
+                <interceptor-ref name="actionMappingParams"/>
+                
+                <interceptor-ref name="parametersPrepare" />
+                
+                <interceptor-ref name="params">
+                  <param name="excludeParams">dojo\..*,^struts\..*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError"/>
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        
+        <default-interceptor-ref name="defaultInterceptorStack"/>
+        
+      	<global-results>
+			<result name="login" type="redirect">/login.html</result>
+			<result name="main" type="redirect">/main.html</result>
+			<result name="exception" type="freemarker">/system/common/result/exception.ftl</result>
+			<result name="exception.xml" type="xml">/system/common/result/exception.xml.ftl</result>
+			<result name="exception.json" type="freemarker">/system/common/result/exception.json.ftl</result>			
+			<!-- result name="exception.updater" type="freemarker">/system/common/result/exception.updater.ftl</result -->
+			<result name="logout" type="redirect">/logout.html</result>
+			<result name="nopermission" type="freemarker">/system/common/result/nopermission.ftl</result>
+			<result name="toJson" type="json">
+				<param name="root">resultMap</param>
+			</result>
+			<result name="toListJson" type="json">
+				<param name="root">dataList</param>
+			</result>
+			<result name="string" type="string">  
+				<param name="stringName">result</param>  
+          	</result>
+          	<result name="kickout" type="freemarker">/system/usersession/login.ftl</result>
+		</global-results>
+        
+	</package>
+	
+<!--    <include file="example.xml"/>-->
+<!---->
+<!--	<package name="default" extends="default-package">-->
+<!---->
+<!--    </package>-->
+ 
+	<include file="struts-system-management.xml"/>
+	<include file="struts-business.xml"/>
+</struts>

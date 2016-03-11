@@ -1,0 +1,163 @@
+<html>
+<head>
+<title>XPagination</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+
+<link href="./index.prototype.css" rel="stylesheet" type="text/css"></link>
+<link href="../theme/default/style/index.css" rel="stylesheet" type="text/css"></link>
+
+<script language="JavaScript" type="text/JavaScript" src="../../common/script/prototype.js"></script>
+<script language="JavaScript" type="text/JavaScript" src="../script/xpagination.js"></script>
+
+</head>
+
+<body style="margin:0;overflow-x:hidden;" scroll="no">
+	
+	
+	
+	
+	
+	
+	
+<script language="JavaScript" type="text/JavaScript">
+function viewHtml(){
+	$("result").innerHTML = '<xmp>' + $('container').outerHTML + '</xmp>';
+}
+function setPagination() {
+	var p = {};
+	if(''!=$F('count')) {
+		p['count'] = $F('count');
+	}
+	if(''!=$F('index')) {
+		p['index'] = $F('index');
+	}
+	if(''!=$F('length')) {
+		p['length'] = $F('length');
+	}
+	if(''!=$F('size')) {
+		p['size'] = $F('size');
+	}
+	xpagination.set(p);
+}
+</script>
+	
+	
+	
+	
+
+
+<table style="width:100%;height:100%;" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td style="height:30;border-bottom:1 solid #CCC;">
+	<strong>XPagination</strong>
+</td>
+</tr>
+<tr>
+<td>
+
+	<table style="width:100%;height:100%;table-layout:fixed;" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+	<td style="width:100%;border-right:1 solid #CCC;padding:2;" align="center">
+	
+		
+			
+		
+		<div id="container" class="x_pagination_bar"></div>
+	
+			
+		
+		
+	
+		
+		
+		<script language="JavaScript" type="text/JavaScript">
+		<!--
+		function onPagination(p) {
+			$('result').innerHTML = $H(p).toQueryString();
+		}
+		var context = {
+			container: 'container',
+			count: 101,
+			index: 2,
+			size: 10,
+			length: 10,
+			onPaginationHandler: onPagination
+		};
+		var xpagination = new XPagination();
+		xpagination.create(context);
+		//-->	
+		</script>
+	
+	
+	</td>
+	<td style="width:200;" align="center" valign="top">
+		<div class="box" style="padding:2;">		
+			
+			<input type="button" class="bn" value="viewHtml" onclick="viewHtml();" />
+			
+			<br />
+			
+			<table style="width:100%;" cellpadding="0" cellspacing="0" border="0">
+			<form id="fom" name="fom" onsubmit="return false;">
+			<tr>
+			<td class="f">count</td>
+			<td><input id="count" name="count" value="101" /></td>
+			</tr>
+			<tr>
+			<td class="f">index</td>
+			<td><input id="index" name="index" value="2" /></td>
+			</tr>
+			<tr>
+			<td class="f">length</td>
+			<td><input id="length" name="length" value="10" /></td>
+			</tr>
+			<tr>
+			<td class="f">size</td>
+			<td><input id="size" name="size" value="10" /></td>
+			</tr>
+			<tr>
+			<td colspan="2"><input type="button" class="bn" value="xpagination.set" onclick="setPagination();" /></td>
+			</tr>
+			</form>
+			</table>
+			
+			
+		</div>
+	</td>
+	</tr>	
+	</table>
+	
+</td>
+</tr>
+<tr>
+<td style="width:100%;height:70;border-top:1 solid #CCC;">
+	
+	<input type="button" class="bn" value="xpagination.set({count:0, index:1, length:0, size:10});" onclick="eval(this.value);" />
+	<input type="button" class="bn" value="xpagination.set({count:-1, index:2, length:10, size:10});" onclick="eval(this.value);" />
+	<input type="button" class="bn" value="xpagination.set({count:-1, index:1, length:10, size:10});" onclick="eval(this.value);" />
+	
+</td>
+</tr>
+<tr>
+<td style="width:100%;height:100;border-top:1 solid #CCC;">
+
+	<table style="width:100%;height:100%;table-layout:fixed;" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+	<td>
+		<div id="result" style="width:100%;height:100%;overflow:auto;padding:2;table-layout:fixed;">result</div>
+	</td>
+	</tr>
+	</table>
+	
+</td>
+</tr>
+</table>
+
+
+	
+	
+</body>
+</html>
+
+
+

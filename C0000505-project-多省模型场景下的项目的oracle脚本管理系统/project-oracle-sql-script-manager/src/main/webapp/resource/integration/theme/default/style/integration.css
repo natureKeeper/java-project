@@ -1,0 +1,89 @@
+﻿
+BODY {
+	margin:10px;
+	padding:10px;
+	border:none;
+	font-size:12px;
+	/* text-align:center; */
+	background-color:#FFFFFF;
+	font-family:Verdana,Simsun;
+	/*font-family:"trebuchet ms",arial,verdana,monospace;*/	
+}
+A {
+	/* color:#4d87ce;
+	font-weight:bold;
+	text-decoration:none; */
+}
+
+A:hover {
+	color:#2a65ad;
+}
+
+H1 {
+	font-size:18;
+	font-family:Verdana,Simsun;
+	font-weight:normal;
+	/* font-weight:bold;
+	text-transform:uppercase;
+	color:#4a8c04; 
+	border-bottom:1px solid #eeeeee;*/
+}
+
+
+FIELDSET {
+	border:1 solid #CCC;
+	padding:2;
+}
+
+LEGEND {
+	font-size:12;
+	color:#303;
+	padding-left:10;
+	padding-right:10;
+	font-family:Verdana,Simsun;
+}
+
+LABEL {	
+	cursor:pointer;
+	font-size:12;
+	padding-left:1;
+	padding-right:1;
+	font-family:Verdana,Simsun;
+}
+TABLE {
+	border-top:1px solid #000;
+	border-left:1px solid #000;
+}
+FONT,
+TD {
+	
+	color:#000;
+	font-size:12px;
+	font-family:Verdana,Simsun;
+	
+}
+
+TD {
+	padding:1px;
+	border-right:1px solid #000;
+	border-bottom:1px solid #000;
+}
+
+.box {
+	width:100%;
+	height:100%;
+	overflow:auto;
+}
+
+
+.field {
+	font-weight:bold;
+	/*background-color:inherit;*/
+}
+
+UL {
+	margin-top:0;
+}
+LI {
+	font-size:12px;
+}

@@ -1,0 +1,39 @@
+<!--
+   Licensed Materials - Property of IBM
+   5655-FLW
+   (C) Copyright IBM Corporation 2008. All Rights Reserved.
+   US Government Users Restricted Rights- Use, duplication or disclosure
+   restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+
+<div id="lhtabs" dojoType="dijit.layout.TabContainer" tabPosition="left-h" style="width: 500px; height: 500px">
+    <div id="lhtab1" dojoType="dijit.layout.ContentPane" title="Description">
+        <table class="innerDialog">
+            <tr>
+                <td><label for="displayName">Display Name: </label></td>
+                <td><input type="text" size="32" id="displayName"></td>
+            </tr>
+        </table>
+    </div>
+    <div id="lhtab2" dojoType="dijit.layout.ContentPane" title="Details" >
+        <table class="innerDialog" style="width: 96%; height: 21%; margin: 2%">
+            <tr><td><span><b>Expression language: </b></span></td></tr>
+            <tr><td><input type="radio" name="lang" id="java" value="java" checked="true" dojoType="dijit.form.RadioButton"/>
+            <label for="java">Java</label></td></tr>
+            <tr><td><input type="radio" name="lang" id="simple" value="simple" dojoType="dijit.form.RadioButton"/>
+            <label for="simple">Simple</label></td>
+                <td>
+                    <input type="radio" name="simple" id="true" value="true" checked="true" dojoType="dijit.form.RadioButton"/>
+                    <label for="true">True</label>
+                    <input type="radio" name="simple" id="false" value="false" dojoType="dijit.form.RadioButton"/>
+                    <label for="false">False</label>
+                </td>
+                </tr>
+            <tr><td><input type="radio" name="lang" id="xpath" value="xpath" dojoType="dijit.form.RadioButton"/>
+            <label for="xpath">XPath 1.0</label></td></tr>
+        </table>
+        <textarea id="code" style="width: 96%; height: 71%; margin: 2%"></textarea>
+    </div>
+</div>
+<button dojoType="dijit.form.Button" type="submit">OK</button>
+<button dojoType="dijit.form.Button" type="button" onclick="dijit.byId('propertiesDialog').propertyManager.cancel();">Cancel</button>

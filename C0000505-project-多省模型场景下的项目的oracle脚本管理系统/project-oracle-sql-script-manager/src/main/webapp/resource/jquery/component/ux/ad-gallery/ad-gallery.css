@@ -1,0 +1,157 @@
+.ad-gallery,.ad-gallery * {
+	margin: 0;
+	padding: 0;
+}
+
+.ad-gallery .ad-image-wrapper {
+	width: 100%;
+	height: 80%;
+	/*大图与小图之间的间隙*/
+	margin-bottom: 2px;
+	position: relative;
+	overflow: hidden;
+}
+
+.ad-gallery .ad-image-wrapper .ad-next {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 25%;
+	height: 45%;
+	cursor: pointer;
+	display: block;
+	z-index: 100;
+}
+
+.ad-gallery .ad-image-wrapper .ad-prev {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 25%;
+	height: 100%;
+	cursor: pointer;
+	display: block;
+	z-index: 100;
+}
+
+.ad-gallery .ad-image-wrapper .ad-prev,.ad-gallery .ad-image-wrapper .ad-next
+{
+	background: url(img/non-existing.jpg) \9
+
+}
+
+.ad-gallery .ad-image-wrapper .ad-prev .ad-prev-image,.ad-gallery .ad-image-wrapper .ad-next .ad-next-image
+	{
+	background: url(img/ad_prev.png);
+	width: 30px;
+	height: 30px;
+	display: none;
+	position: absolute;
+	top: 47%;
+	left: 0;
+	z-index: 101;
+}
+
+.ad-gallery .ad-image-wrapper .ad-next .ad-next-image {
+	background: url(img/ad_next.png);
+	right: 0;
+	left: auto;
+}
+
+.ad-gallery .ad-image-wrapper .ad-image {
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	z-index: 9;
+	height:95%;
+}
+
+.ad-gallery .ad-image-wrapper .ad-image a img {
+	border: 0;
+}
+
+.ad-gallery .ad-image-wrapper .ad-image .ad-image-description {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	padding: 3px;
+	text-align: left;
+	width: 100%;
+	z-index: 2;
+	background: url(img/opa75.png);
+	color: #000;
+	font-size:13px;
+}
+.ad-gallery .ad-image-wrapper .ad-image .ad-image-description .ad-description-title
+{
+	display: block;
+}
+
+.ad-gallery .ad-info {
+	float: left;
+}
+.ad-gallery .ad-nav {
+	width: 100%;
+	height:15%;
+	position: relative;
+}
+
+.ad-gallery .ad-forward,.ad-gallery .ad-back {
+	position: absolute;
+	top: 0;
+	height: 100%;
+}
+
+.ad-gallery .ad-back {
+	cursor: pointer;
+	width: 13px;
+	left:0px;
+	display: block;
+	background: url(img/ad_scroll_back.png) 0px 22px no-repeat;
+}
+
+.ad-gallery .ad-forward {
+	cursor: pointer;
+	display: block;
+	right: 0px;
+	width: 13px;
+	background: url(img/ad_scroll_forward.png) 0px 22px no-repeat;
+}
+
+.ad-gallery .ad-nav .ad-thumbs {
+	overflow: hidden;
+	width: 90%;
+	margin:auto;
+}
+
+.ad-gallery .ad-thumbs .ad-thumb-list {
+	float: left;
+	width: 9000px;
+	list-style: none;
+}
+
+.ad-gallery .ad-thumbs li {
+	float: left;
+	padding-right: 5px;
+}
+
+.ad-gallery .ad-thumbs li a {
+	display: block;
+}
+
+.ad-gallery .ad-thumbs li a img {
+	border: 2px solid #CCC;
+	display: block;
+	height:100%;
+}
+
+.ad-gallery .ad-thumbs li a.ad-active img {
+	border: 2px solid #616161;
+}
+
+.ad-preloads {
+	position: absolute;
+	left: -9000px;
+	top: -9000px;
+}

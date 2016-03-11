@@ -1,0 +1,54 @@
+﻿
+
+.x_pagination_container {
+	height:22;	
+}
+
+.x_pagination_bar {
+	height:22;
+	width:100%;
+	border:0;
+	color:#303;	
+	font-size:12;
+	border-top:1 solid #98C0F4;
+	font-family:Verdana,Simsun;
+	/*background-image:url(../image/xpagination/x_pagination_bar.gif);*/
+	background-color:#E2EFFE;
+}
+
+.x_pagination_font {
+	color:#000;
+	font-size:12;
+	font-family:Verdana,Simsun;
+}
+
+.x_pagination_jump {
+	height:18;
+	color:#303;
+	font-size:9;
+	border:1 #607BAC solid;
+	font-family:Verdana,Simsun;
+}
+
+.x_pagination_first    		 {background:url(../image/xpagination/x_icon_first.gif          ) no-repeat 0 0;} 
+.x_pagination_back     		 {background:url(../image/xpagination/x_icon_back.gif           ) no-repeat 0 0;}
+.x_pagination_next     		 {background:url(../image/xpagination/x_icon_next.gif           ) no-repeat 0 0;}
+.x_pagination_last     		 {background:url(../image/xpagination/x_icon_last.gif           ) no-repeat 0 0;}
+.x_pagination_first_disabled {background:url(../image/xpagination/x_icon_first_disabled.gif ) no-repeat 0 0;} 
+.x_pagination_back_disabled  {background:url(../image/xpagination/x_icon_back_disabled.gif  ) no-repeat 0 0;}
+.x_pagination_next_disabled  {background:url(../image/xpagination/x_icon_next_disabled.gif  ) no-repeat 0 0;}
+.x_pagination_last_disabled  {background:url(../image/xpagination/x_icon_last_disabled.gif  ) no-repeat 0 0;}
+
+.x_pagination_first          ,
+.x_pagination_back           ,
+.x_pagination_next           ,
+.x_pagination_last           ,
+.x_pagination_first_disabled ,
+.x_pagination_back_disabled  ,
+.x_pagination_next_disabled  ,
+.x_pagination_last_disabled  {
+	cursor:pointer;
+	border:0;
+	width:16;
+	height:16;
+}

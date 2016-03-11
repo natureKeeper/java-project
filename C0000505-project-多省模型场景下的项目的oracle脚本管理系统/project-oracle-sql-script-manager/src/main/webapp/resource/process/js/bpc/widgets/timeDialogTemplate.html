@@ -1,0 +1,231 @@
+<div class="dijitDialog" tabindex="-1" waiRole="dialog" waiState="labelledby-${id}_title" style="visibility:hidden" dojoAttachPoint="dialogBase">
+	<div dojoAttachPoint="titleBar" class="dijitDialogTitleBar" >
+		<span dojoAttachPoint="titleNode" class="dijitDialogTitle" id="${id}_title">
+		${title}
+		</span>
+		<span dojoAttachPoint="closeButtonNode" class="dijitDialogCloseIcon" dojoAttachEvent="onclick: hide">
+		<span dojoAttachPoint="closeText" class="closeText">
+		x
+		</span>
+		</span>
+	</div>
+	<div dojoAttachPoint="headingDiv" class="dialogPanelHelp">
+	__headingDiv_text__
+	</div>
+	<div dojoAttachPoint="containerNode" class="dijitDialogPaneContent">
+		<form>
+			<table class="dialogGrid">
+				<tr>
+					<td valign="top">
+						<span dojoAttachPoint="referenceLabel">
+						__referenceLabel__
+						</span>
+					</td>
+					<td>
+						<table>
+							<tr>
+								<td>
+									<label for="refRadioNow" dojoAttachPoint="refRadioNowLabel" class="hide">
+									__refRadioNowLabel__
+									</label>
+									<span dojoAttachPoint="referenceRadioNow">
+									__refRadioNow__
+									</span>
+								</td>
+								<td>
+									<span dojoAttachPoint="nowLabel">
+									__nowLabel__
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="refRadioRelative" dojoAttachPoint="refRadioRelativeLabel" class="hide">
+									__refRadioRelativeLabel__
+									</label>
+									<span dojoAttachPoint="referenceRadioRelative">
+									__referenceRadioRelative__
+									</span>
+								</td>
+								<td>
+									<table>
+										<tr>
+											<td>
+												<span dojoAttachPoint="relativeToNowLabel">
+												__relativeToNowLabel__
+												</span>
+											</td>
+											<td>
+												<label for="relativeToNowAmount" dojoAttachPoint="relativeToNowAmountLabel" class="hide">
+												__relativeToNowAmountLabel__
+												</label>
+												<span dojoAttachPoint="relativeToNowAmount">
+												</span>
+												<label for="relativeToNowUnit" dojoAttachPoint="relativeToNowUnitLabel" class="hide">
+												__relativeToNowUnitLabel__
+												</label>
+												<span dojoAttachPoint="relativeToNowUnit">
+												</span>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>							
+							<tr>
+								<td>
+									<label for="refRadioDate" dojoAttachPoint="refRadioDateLabel" class="hide">
+									__refRadioDateLabel__
+									</label>
+									<span dojoAttachPoint="referenceRadioDate">
+									__refRadioDate__
+									</span>
+								</td>
+								<td>
+									<table>
+										<tr>
+											<td>
+												<label for "refDate" dojoAttachPoint="referenceDateLabel">
+												__refdateLabel__
+												</label>
+											</td>
+											<td>
+												<span dojoAttachPoint="referenceDateSpan">
+												<input dojoAttachPoint="referenceDate">
+												</span>
+											</td>
+											<td>
+												<label for="refTime" dojoAttachPoint="referenceTimeLabel">
+												__reftimeLabel__
+												</span>
+											</td>
+											<td>
+												<span dojoAttachPoint="referenceTimeSpan">
+												<input dojoAttachPoint="referenceTime">
+												</span>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<br>
+				<tr>
+					<td valign="top">
+						<span dojoAttachPoint="endLabel">
+						__endLabel__
+						</span>
+					</td>
+					<td>
+						<table cellpadding="0" cellspacing="0">
+							<tr>
+								<td>
+									<label for="endRadioBefore" dojoAttachPoint="endRadioBeforeLabel" class="hide">
+									__endRadioBeforeLabel__
+									</label>
+									<span dojoAttachPoint="endRadioBefore">
+									__endRadioBefore__
+									</span>
+								</td>
+								<td>
+									<span dojoAttachPoint="beforeReferenceLabel">
+									__beforeReferenceLabel__
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="endRadioAfter" dojoAttachPoint="endRadioAfterLabel" class="hide">
+									__endRadioAfterLabel__
+									</label>
+									<span dojoAttachPoint="endRadioAfter">
+									__endRadioAfter__
+									</span>
+								</td>
+								<td>
+									<span dojoAttachPoint="afterReferenceLabel">
+									__afterReferenceLabel__
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="endRadioRelative" dojoAttachPoint="endRadioRelativeLabel" class="hide">
+									__endRadioRelativeLabel__
+									</label>
+									<span dojoAttachPoint="endRadioRelative">
+									__endRadioRelative__
+									</span>
+								</td>
+								<td>
+									<table>
+										<tr>
+											<td>
+												<span dojoAttachPoint="relativeToReferenceLabel">
+												__relativeToReferenceLabel__
+												</span>
+											</td>
+											<td>
+												<label for="relativeToReferenceAmount" dojoAttachPoint="relativeToReferenceAmountLabel" class="hide">
+												__relativeToReferenceAmountLabel__
+												</label>
+												<span dojoAttachPoint="relativeToReferenceAmount">
+												</span>
+												<label for="relativeToReferenceUnit" dojoAttachPoint="relativeToReferenceUnitLabel" class="hide">
+												__relativeToReferenceUnitLabel__
+												</label>
+												<span dojoAttachPoint="relativeToReferenceUnit">
+												</span>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="endRadioDate" dojoAttachPoint="endRadioDateLabel" class="hide">
+									__endRadioDateLabel__
+									</label>
+									<span dojoAttachPoint="endRadioDate">
+									__endRadioDate__
+									</span>
+								</td>
+								<td>
+									<table>
+										<tr>
+											<td>
+												<label  for="endDate" dojoAttachPoint="endDateLabel">
+												__enddateLabel__
+												</label>
+											</td>
+											<td>
+												<span dojoAttachPoint="endDateSpan">
+												<input dojoAttachPoint="endDate">
+												</span>
+											</td>
+											<td>
+												<label for ="endTime" dojoAttachPoint="endTimeLabel">
+												__endtimeLabel__
+												</label>
+											</td>
+											<td>
+												<span dojoAttachPoint="endTimeSpan">
+												<input dojoAttachPoint="endTime">
+												</span>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+			<div class="commandBarDialog">
+				<input dojoAttachPoint="okButton" />
+				<input dojoAttachPoint="cancelButton" />
+			</div>
+		</form>
+	</div>
+</div>

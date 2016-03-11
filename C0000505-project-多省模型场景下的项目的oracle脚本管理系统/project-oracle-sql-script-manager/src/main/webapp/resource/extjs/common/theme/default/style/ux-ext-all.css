@@ -1,0 +1,21 @@
+.lee-form-item {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+.left-form-item-border {
+	border-left: 1px solid #cccccc;
+}
+.top-form-item-border {
+	border-top: 1px solid #cccccc;
+}
+.normal-form-item-border {
+	border-right: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+}
+.lee-form-field-border {
+	background:transparent none;
+	border: 0px;
+}
+.x-panel-footer{
+	background-color: #DFE8F6;
+}

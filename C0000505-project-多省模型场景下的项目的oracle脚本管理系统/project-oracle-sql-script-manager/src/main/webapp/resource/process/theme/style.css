@@ -1,0 +1,2347 @@
+/* BEGIN COPYRIGHT
+ **************************************************************************
+ *
+ * This sample file is provided AS IS and may be used,
+ * executed, copied and modified without royalty payment by customer
+ * (a) for its own instruction and study,
+ * (b) in order to develop applications designed to run with an IBM
+ * WebSphere product, either for customer's own internal use or for
+ * redistribution by customer, as part of such an application, in
+ * customer's own products."
+ *
+ * Product 5655-FLW,  (C) COPYRIGHT International Business Machines Corp., 2005, 2009
+ * All Rights Reserved * Licensed Materials - Property of IBM
+ **************************************************************************
+ * END COPYRIGHT */
+
+/**************************************************************************
+ * Bpcwebclient and Bpcobserver use common style values!
+ * If you change a value for one client, keep in mind to adapt the
+ * other one, too!
+ **************************************************************************/
+
+/***************************/
+/* General Styles          */
+/***************************/
+
+* {
+	font-size: 1em; 
+	font-family: Verdana, Helvetica, sans-serif;
+}
+
+HTML {
+	overflow: hidden;
+	font-size: 100.01%;
+}
+
+BODY {
+	background-color: #FFFFFF;
+	color: #000000;
+	padding: 0px;
+	margin: 0px;
+	overflow: hidden;
+	font-size: 0.7em;
+}
+
+FORM {
+	padding: 0px;
+	margin: 0px;
+}
+
+TABLE {
+	border-collapse: collapse;
+	/* IE has default values for this... */
+	margin: 0px;
+	padding: 0px;
+}
+
+TH {
+	background-image: url("../images/table_header.gif");
+	background-repeat: repeat;
+	COLOR: #666666;
+}
+
+TH a:visited {
+	color: #023689;
+}
+
+TD {
+	padding: 0px;
+}
+
+IMG {
+	border: none;
+}
+
+INPUT, .listInput, textarea, 
+.tundra div.dijitTextBox, 
+.tundra div.dijitComboBox, 
+.tundra div.dijitSpinner,
+.tundra button.dijitButtonNode {
+	border-top: 1px solid #336699;
+	border-right: 1px solid #8cb1d1;
+	border-bottom: 1px solid #8cb1d1;
+	border-left: 1px solid #336699;
+}
+
+.listInput {
+   margin: 4px;
+   text-align: right;
+   vertical-align: middle;
+   width: 3em;
+}
+
+.readonly {
+	background-color: transparent;
+	border: 0px;
+}
+
+.button, .messageDataButton, .listButton, .tundra button.dijitButtonNode {
+	background-image: url("../images/button_bg.gif");
+	background-repeat: repeat-x;
+	overflow: visible; /* for IE to honour padding */
+	vertical-align: middle;
+	width: auto;
+	padding: 1px 3px;
+	margin: 4px;
+}
+
+.button, .messageDataButton {
+	min-height: 1.5em;
+}
+
+/* make invisible, does not work for IE */
+.listButton[disabled] {
+	border: 0px;
+	background-color: transparent;
+	background-image: none;
+	color: #d1d9e8;
+}
+
+.hiddenButton {
+	display: none;
+}
+
+.checkbox {
+	padding: 0px;
+	margin: 0px;
+	width: 1.2em;
+	height: 1.2em;
+	border: 0px;
+}
+
+table.radioBox {
+	border: 1px solid silver;
+	margin: 0px;
+	margin-bottom: 5px;
+	white-space: nowrap;
+}
+
+table.radioBox td {
+	/* for IE */
+	padding: 0px;
+	padding-right: 5px;
+	padding-bottom: 1px;
+}
+
+.radio input, .radioBox input {
+	vertical-align: -30%;
+	/* for IE */
+	border: 0px;
+}
+
+.valueNumber {
+	text-align: right;
+}
+
+span.inlineHelp {
+	color: #666666;
+}
+
+/* h:messages, h:message 
+	infoClass="info" warnClass="warning" errorClass="error" fatalClass="fatal" */
+tr.fatal, span.fatal, 
+tr.error, span.error,
+tr.warning, span.warning
+{
+	color: red;
+}
+tr.info, span.info
+{
+	color: #316AC5;
+}
+
+
+/***************************/
+/* Styles for Page         */
+/***************************/
+
+.page {
+	width: 100%;
+	height: 100%;
+}
+
+div.page {
+	overflow: auto;
+}
+
+table.page {
+	overflow: hidden;
+}
+
+/***************************/
+/* Styles for Login Page   */
+/***************************/
+
+.login {
+	width: 100%;
+	height: 100%;
+}
+
+td.login {
+	vertical-align: middle;
+}
+
+div.loginPanel {
+	/* center IE */
+	text-align: center;
+}
+
+table.loginPanel {
+	/* center Mozilla */
+	margin-left: auto;
+	margin-right: auto;
+}
+
+tr.login_T {
+	height: 15px;
+}
+
+tr.login_M {
+	height: 215px;
+}
+
+tr.login_B {
+	height: 22px;
+}
+
+td.login_L {
+	width: 37px;
+}
+
+td.login_C {
+	width: 40em;
+}
+
+td.login_R {
+	width: 40px;
+}
+
+
+tr.login_T td.login_L {
+	background-image: url("../images/login_left_top.gif");
+}
+
+tr.login_T td.login_C {
+	background-image: url("../images/login_top_bg.gif");
+}
+
+tr.login_T td.login_R {
+	background-image: url("../images/login_right_top.gif");
+}
+
+tr.login_M td.login_L {
+	background-image: url("../images/login_left_bg.gif");
+}
+
+tr.login_M td.login_C {
+	color: #666666;
+	padding-left: 10px;
+	padding-right: 40px;
+	padding-top: 6px;
+	padding-bottom:7px;
+	vertical-align: top;
+	text-align: center;
+}
+
+tr.login_M td.login_R {
+	background-image: url("../images/login_right_bg.gif");
+}
+
+tr.login_B td.login_L {
+	background-image: url("../images/login_left_bottom.gif");
+}
+
+tr.login_B td.login_C {
+	background-image: url("../images/login_bottom_bg.gif");
+}
+
+tr.login_B td.login_R {
+	background-image: url("../images/login_right_bottom.gif");
+}
+
+.loginTitle {
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+.loginText {
+	margin-bottom: 10px;
+}
+
+.loginForm {
+	margin-top: 10px;
+}
+
+table.loginValues {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+	padding: 5px;
+}
+
+.loginValues td {
+	padding: 2px;
+}
+
+.loginField {
+}
+
+.loginValue input {
+	width: 12em;
+}
+
+
+/***************************/
+/* Styles for Menubar      */
+/***************************/
+
+tr.menubar td.page {
+	height: auto;
+}
+
+div.menubar {
+	background-color: #CECBE7;
+	width: 100%;
+	border-bottom: 1px solid silver;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+table.menuContainer {
+	margin: 6px -2px;
+	width: auto;
+}
+
+td.menuItem {
+	padding-left: 10px;
+	padding-right: 10px;
+	border-left: 1px solid #316AC5;
+	white-space: nowrap;
+}
+
+td.menuitem a {
+	color:	#316AC5;
+	text-decoration: none;
+}
+
+td.menuitem a:visited {
+	color:	#316AC5;
+}
+
+td.menuitem A:hover {
+	color:	#316AC5;
+	text-decoration: underline;
+}
+
+/***************************/
+/* Styles for Page Body    */
+/***************************/
+
+table.pageBody {
+	width: 100%;
+	height: 100%;
+	border: 1px solid white;
+	overflow: hidden;
+}
+
+.pageBody td {
+	vertical-align: top;
+}
+
+td.pageBodyNavigator {
+	background-color: #f0f0f0;
+	height: auto;
+}
+
+td.navigatorSlider {
+	width: 8px;
+	z-index: 150;
+	background-color: #f0f0f0; /* background color of .pageBodyNavigator */
+	/* border-right: 1px solid transparent; not supported in IE6 */
+	border-right: 1px solid #f0f0f0; /* background color of .pageBodyNavigator */
+	/* IE needs 2px */
+	_border-right: 2px solid #f0f0f0; /* background color of .pageBodyNavigator */
+}
+
+td.pageBodyContent {
+	height: auto;
+	width: auto;
+}
+
+/***************************/
+/* Styles for Navigator    */
+/***************************/
+
+.navigator {
+	z-index: 100;
+	overflow: hidden;
+}
+
+div.navigatorSlider {
+	width: 8px;
+}
+
+.navigatorTitle {
+	background-image: url("../images/process_open.gif");
+	background-repeat: repeat-x;
+}
+
+.taskNavigatorTitle {
+	background-image: url("../images/task_open.gif");
+	background-repeat: repeat-x;
+}
+
+.navigatorFrame {
+	background: white;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+	border: 1px solid silver;
+	width: 100%; /* needed for IE7 */
+}
+
+.tabbedPane .navigatorTitle td, .tabbedPane .taskNavigatorTitle td	{
+	padding: 4px;
+}
+
+table.navigatorPane {
+	width: 100%;	/* ok firefox! */
+}
+
+.navigatorTitleNested {
+	padding-right: 2px;
+	padding-left: 2px;
+	padding-bottom: 1px;
+	padding-top: 0px;
+}
+
+div.expanded {
+	background-color: white;
+	padding-left: 8px;
+}
+
+div.expanded div {
+	overflow: hidden;
+}
+
+div.expanded table {
+	table-layout: fixed;
+}
+
+div.expanded td {
+	padding: 0px;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+.navigatorLink {
+	color:#316AC5;
+	text-decoration: none;
+}
+
+.navigatorLink:visited {
+	color:black;
+}
+
+.expanded a:visited {
+	color:#316AC5;
+}
+
+.navigatorLink:hover {
+	color:#316AC5;
+	text-decoration: underline;
+}
+
+.navigation arrow {
+	text-align: right;
+	width: 100%;
+	white-space: nowrap;
+}
+
+.collapsed {
+	display: none;
+	margin: 2px 0px 2px 10px;
+	overflow: hidden;
+	white-space: nowrap;
+	width: 100%;
+	position: relative;
+}
+
+.toggleExpanded {
+	background-color: transparent;
+	background-image: url("../images/minus.gif");
+	background-repeat: no-repeat;
+	width:10px;
+	height:10px;
+	background-position: center center;
+}
+
+.toggleCollapsed {
+	background-color: transparent;
+	background-image: url("../images/plus.gif");
+	background-repeat: no-repeat;
+	background-position: center center;
+	width:10px;
+	height:10px;
+}
+
+/***************************/
+/* Styles for Help		 */
+/***************************/
+
+.help {
+	width: 15em;
+}
+
+/***************************/
+/* Styles for Content		*/
+/***************************/
+
+.content {
+	z-index: 100;
+}
+
+/* Tables included in the content section */
+
+.content th
+{
+	white-space:nowrap;
+	background-color: #d1d9e8;
+	color: black;
+}
+
+tr.normal {
+	background-color: transparent;
+}
+
+tr.hover {
+	background-color: silver ;
+}
+
+/* Styles for Content Panels */
+
+.panelContainer {
+	background-image: url("../images/paneltitle.gif");
+	background-repeat: repeat-x;
+}
+
+.panelContainer td {
+	padding: 4px;
+}
+
+.panelTitle {
+	color:#666666;
+	padding-top: 3px;
+	white-space: nowrap;
+	height: 3em;
+}
+
+.panelTitle a {
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+.panelHelp {
+	color:#666666;
+	text-decoration: none;
+	padding: 0px 5px;
+	margin-bottom: 20px;
+}
+
+.panelHelpPane {
+	padding: 0px 5px;
+	margin-bottom: 20px;
+	margin-top: 10px;
+}
+
+.panelGroup {
+	padding: 0px 3px 10px;
+}
+
+.monitorGroup {
+	margin: 10px;
+	display: block;
+	position: relative;
+	top: 0px;
+	left: 0px;
+}
+
+.panelSubTitle {
+	border-bottom: 1px solid silver;
+	padding: 0px 2px;
+	margin-top:	20px;
+	margin-bottom: 10px;
+}
+
+.panelContent {
+	padding: 0px 2px;
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+/* hack: not for IE */
+*[class="panelContent"] {
+	width: auto;
+}
+
+/* Styles for Commandbar	*/
+
+.commandbar {
+	font-family: Verdana,sans-serif;
+	text-decoration: none;
+	padding-left: 5px;
+	padding-right: 5px;
+	background-image: url("../images/table_bg.gif");
+	padding-bottom: 5px;
+	white-space: nowrap;
+}
+
+.commandbarSearch {
+	margin: 0px;
+}
+
+/****************************/
+/* Styles for Error Details */
+/****************************/
+
+.errorPage {
+	margin: 10px;
+	border: 1px solid silver;
+}
+
+.errorLink {
+	padding: 5px;
+	margin-bottom: 10px ;
+}
+
+.errorLink a {
+	padding: 5px;
+	text-decoration: none;
+	color: black;
+	background-color: #eaf1ff;
+	border-top: 1px solid #8cb1d1;
+	border-right: 1px solid #8cb1d1;
+	border-bottom: 1px solid #336699;
+	border-left: 1px solid #336699;
+}
+
+.errorLink a:visited {
+	text-decoration: none;
+}
+
+.errorDetails {
+	padding: 2px;
+	width: 100%;
+}
+
+.errorDetailsHeader {
+	font-weight: bold;
+	background-color:#d1d9e8;
+	font-weight: bold;
+	padding: 0px 2px;
+}
+
+.errorDetailsStack
+{
+	padding: 2px;
+}
+
+.errorDetailsStack table
+{
+	border: 0;
+}
+
+.errorDetailsStack td
+{
+	padding: 0px;
+}
+
+.errorDetailsMessage
+{
+	padding: 2px;
+	color: red;
+	white-space: nowrap;
+}
+
+.errorDetailsMessage a
+{
+	color: red;
+}
+
+.errors, .messages
+{
+	margin-bottom: 5px;
+}
+
+.errors td, .messages td
+{
+	padding: 0px;
+	white-space: nowrap;
+}
+
+span.errors, .errors td
+{
+	color: red;
+}
+
+/***************************/
+/* Styles for Tabbed Panes */
+/***************************/
+
+div.tabbedPane {
+	padding: 5px;
+	background-color: rgb(230, 230, 230);
+}
+
+div.tabbedPaneNavigator {
+	padding: 0px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 8px;			/* slider on the right is 8px */
+	background-color: #f0f0f0; /* background color of .pageBodyNavigator */
+}
+
+table.tabbedPane {
+	width: 100%;
+}
+
+.tabbedPane td {
+	padding: 0px;
+}
+
+/* tab header */
+
+div.tabHeader {
+	padding: 0px 20px;
+}
+
+/*
+ * hack: not for IE
+ * IE works fine without this.
+ * Mozilla/Firefox do not change border-bottom correctly for selection
+ * circumvention until mozilla bug 258377 is fixed
+ */
+table[class="tabHeader"] {
+	border-collapse: separate;
+	border-spacing: 0px;
+}
+
+.tabHeader td {
+	padding: 5px 10px;
+	text-align: center;
+	vertical-align: middle;
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+	border: 1px solid rgb(230, 230, 230);
+	-moz-border-radius-topleft: 8px;
+	-moz-border-radius-topright: 8px;
+	overflow: hidden;
+}
+
+.tabHeader td.selectedTab {
+	background-color: white;
+	border-bottom: none;
+}
+
+td.selectedTab a {
+	color: black;
+}
+
+td.selectedTab a:visited {
+	color: black;
+}
+
+.selectedTab .helpLink {
+	display: inline;
+}
+
+.selectedTab .inactiveHelpLink {
+	display: none;
+}
+
+.tab .helpLink {
+	display: none;
+}
+
+.tab .inactiveHelpLink {
+	display: inline;
+	opacity: 0.3;
+	filter: alpha(opacity=30);
+}
+
+.tabHeader td.tab {
+	background-color: rgb(247, 247, 247);
+	color: #999999;
+}
+
+.tabHeader td.tab a:visited {
+	color: #999999;
+}
+
+.tabHeader td.tab a:hover {
+	color: black;
+}
+
+.tabHeader a {
+	color: #999999;
+	text-decoration: none;
+	background-color: transparent;
+}
+
+.tabbedPaneNavigator .tabHeader a {
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+.tabbedPaneNavigator .tabHeader td.selectedTab a {
+	color: #666666;
+}
+
+.tabHeader a:active {
+	outline: none;
+	-moz-outline: none;
+}
+
+/* Pane enclosing the individual tab panes */
+
+div.tabPane {
+	background-color: white;
+	padding: 5px;
+	-moz-border-radius: 8px;
+	/* IE only */
+	_width: 100%;
+}
+
+/*
+.tabPane table {
+	margin-top: 5px;
+}
+*/
+
+div.tabPaneNested {
+	background-color: white;
+	width: 100%;
+	-moz-border-radius: 8px;
+}
+
+/* tabbed pane in pane */
+
+div.paneNested {
+	width: 100%;
+}
+
+table.paneNested {
+	width: 100%;
+}
+
+/* tab header simple */
+
+div.tabHeaderSimple {
+	padding: 0px;
+	background-color: rgb(230, 230, 230);
+	border: 1px solid white;
+	-moz-border-radius-topleft: 8px;
+	-moz-border-radius-topright: 8px;
+}
+
+div.tabHeaderProcess {
+	background-color: rgb(239,245,233);
+}
+
+div.tabHeaderTask {
+	background-color: rgb(239,242,250);
+}
+
+.tabHeaderSimple td {
+	padding: 5px 10px;
+	text-align: center;
+	vertical-align: middle;
+	color: black;
+	cursor: pointer;
+	border: none;
+}
+
+.tabHeaderSimple td.selectedTab a {
+	text-decoration: none;
+}
+
+.tabHeaderSimple td.selectedTab a:visited {
+	color: black;
+}
+
+.tabHeaderSimple td.tab {
+	color: #999999;
+}
+
+.tabHeaderSimple td.tab a:visited {
+	color: #999999;
+}
+
+.tabHeaderSimple td.tab a:hover {
+	color: black;
+}
+
+.tabHeaderSimple a {
+	color: #999999;
+	background-color: transparent;
+}
+
+.tabHeaderSimple a:active {
+	outline: none;
+	-moz-outline: none;
+}
+
+/* Pane enclosing the individual tab panes */
+
+div.tabPaneSimple {
+	background-color: white;
+	width: 100%;
+	-moz-border-radius: 0px 0px 8px 8px;
+}
+
+/********************/
+/* Styles for Lists */
+/********************/
+
+.listHeader
+{
+	white-space:nowrap;
+}
+
+.list
+{
+	margin-bottom: 0px;
+	background: rgb(247, 247, 247) ;
+	white-space: nowrap;
+	width: 100%;
+}
+
+.list tbody td, .list th
+{
+	text-align: left;
+	vertical-align: middle;
+	padding: 3px 6px;
+	white-space: nowrap;
+	font-weight: normal;
+}
+
+.list tfoot td
+{
+	padding: 0px;
+	margin: 0px;
+}
+
+.list tfoot div
+{
+	margin-top: 5px;
+	background-color: #d1d9e8;
+}
+
+.list tfoot div select
+{
+	vertical-align: middle;
+}
+
+.list a
+{
+	text-decoration: none;
+	color: #316AC4;
+}
+
+.list a:visited
+{
+	text-decoration: none;
+	color: #316AC4;
+}
+
+.list a:hover
+{
+	text-decoration: underline;
+	color: #316AC4;
+}
+
+.listCompact
+{
+	width: auto;
+}
+
+/***************************/
+/* Styles for Sorting      */
+/***************************/
+
+.ascending {
+	background-color: transparent;
+	background-image: url(../images/Sort_ascend2.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	border: 0px;
+}
+
+.descending {
+	background-color: transparent;
+	background-image: url(../images/Sort_desc2.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	border: 0px;
+}
+
+.unsorted {
+	background-color: transparent;
+	background-image: url(../images/Sort_none.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	border: 0px;
+}
+
+/****************************/
+/* Styles for Search Pages  */
+/****************************/
+
+div.searchMessages {
+	padding: 0px 6px;
+}
+
+.searchMessages td {
+	padding: 2px;
+	white-space:nowrap;
+}
+
+span.searchErrors {
+	white-space:nowrap;
+	color: red;
+	padding-left : 4px;
+	padding-right: 4px;
+}
+
+span.searchScriptMessage {
+	white-space:normal;
+	color:red;
+	visibility:hidden;
+}
+
+table.searchNavigation {
+	margin: 10px 20px;
+}
+
+.searchNavigation a {
+	color: #316AC5;
+	background-color: white;
+	text-decoration: none;
+}
+
+.searchNavigation a:visited {
+	color: #316AC5;
+}
+
+.searchNavigation a:hover {
+	color:	#316AC5;
+	text-decoration: underline;
+}
+
+.searchPanel {
+	width: auto;
+}
+
+table.searchPane {
+	white-space:nowrap;
+	border: 0;
+	width: 100%;
+}
+
+.searchPanel td, .searchPane td {
+	padding: 5px;
+}
+
+table.searchPanelBox {
+	border: 1px solid silver;
+	background-color: #f7f7f7;
+}
+
+div.searchPanelFilter {
+	border: 1px solid silver;
+}
+
+table.searchPanelFilter {
+	white-space:nowrap;
+	border: 0;
+}
+
+td.searchPanelLabel, td.searchPanelFilterLabel {
+	width: 14em;
+	white-space: normal;
+}
+
+td.searchPanelLabel span.searchLabel {
+	white-space: nowrap;
+}
+
+td.searchPanelFilterMiddle {
+	padding: 0px 0px;
+	vertical-align: middle;
+}
+
+td.searchPanelFilterBottom {
+	vertical-align: bottom;
+}
+
+table.searchPanelFilterBox {
+	border: 1px solid silver;
+}
+
+table.searchPanelFilterDate {
+	margin-top: 5px;
+}
+
+td.searchPanelFilterDate {
+	padding: 0px;
+	color: #666666;
+}
+
+td.searchPanelFilterDateSummary {
+	padding: 0px 5px;
+}
+
+.searchPanelFilter th {
+	text-align: left;
+}
+
+.searchPanelFilter textarea {
+	width: 40em;
+}
+
+td.searchPanelFilterLists {
+	padding: 0px;
+	width: 50%;
+}
+
+td.searchPanelFilterListsAuto {
+	padding: 0px;
+	width: auto;
+}
+
+td.searchPanelFilterValue {
+	padding-top: 5px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	vertical-align: middle;
+}
+
+table.searchPanelHelp {
+	padding: 0px;
+	width: 100%;
+}
+
+td.searchPanelHelp {
+	padding: 4px 20px;
+	white-space: normal;
+	color: #666666;
+}
+
+div.searchPanelHelp {
+	width: 20em;
+}
+
+.searchLabel {
+	color: black;
+}
+
+.searchSubLabel {
+	margin-left: 20px;
+	margin-right: 0px;
+}
+
+table.searchPropertyTable {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	text-align: right;
+}
+
+.searchPropertyTable th, .searchPropertyTableHeader {
+	padding: 2px 4px;
+	background-color: transparent;
+	text-align: left;
+	font-weight: normal;
+	color: black;
+}
+
+.searchPropertyTable td {
+	vertical-align: middle;
+	padding: 2px 4px;
+}
+
+select.searchListBox {
+	max-height: 12em;
+}
+
+select.searchListBoxWidth {
+	width: 100%;
+	/* 100% does not work for IE so set fixed width */
+	_width: 15em;
+}
+
+/* list columns, order by */
+
+table.searchListPropertiesBox {
+	background-color: #f7f7f7;
+	border: 1px solid silver;
+}
+
+table.searchListPropertiesSubBox {
+	border: 1px solid silver;
+	background-color: white;
+	margin: 5px 10px;
+}
+
+td.searchListProperties {
+	white-space: nowrap;
+	padding: 4px;
+}
+
+tr.searchButtonsCentered td.searchListProperties {
+	height: 2em;
+}
+
+select.searchListPropertiesSelect {
+	width: 16em;	/* see width of input.searchListPropertiesInput */
+	height: 16em;
+	overflow: auto;
+}
+
+.searchListOrder select.searchListPropertiesSelect {
+	height: 12em;
+}
+
+td.searchListOrderTarget select.searchListPropertiesSelect {
+	width: 23em;
+	height: 8em;
+}
+
+td.searchListActionsTarget select.searchListPropertiesSelect {
+	height: 14em;
+}
+
+td.searchListPropertiesSourceButton {
+	text-align: right;
+	vertical-align: bottom;
+}
+
+table.searchListPropertiesInput td {
+	padding: 2px 0px;
+}
+
+input.searchListPropertiesInput {
+	width: 16em;	/* see width of select.searchListPropertiesSelect */
+}
+
+tr.searchButtonsCentered td, td.searchButtonsCentered {
+	padding: 0px;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+td.searchSeparator {
+	width: 2em;
+}
+
+td.searchValues	{
+	width: 20em;
+	white-space: nowrap;
+}
+
+select.searchValues	{
+	width: 100%;
+}
+
+table.searchRadio td {
+	white-space: nowrap;
+	padding: 2px 4px;
+}
+
+.searchRadio input {
+	vertical-align: -30%;
+	/* for IE */
+	border: 0px;
+}
+
+.searchRadioHelp input {
+	visibility: hidden;
+}
+
+table.searchWarning {
+	margin-bottom: 10px;
+	color: red;
+	border: 1px solid red;
+}
+
+/* styles for search summary */
+
+.summary {
+	width: 100%;
+}
+
+.summary, .summary td {
+	color: #666666;
+}
+
+.summaryContainer {
+	margin-bottom: 10px;
+}
+
+div.summaryTitle {
+	border: 1px solid silver;
+	background: rgb(247, 247, 247);
+	padding: 5px;
+	margin-bottom: 10px;
+}
+
+div.summaryTitle a {
+	color: black;
+	text-decoration:none;
+}
+
+div.summaryTitle img {
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+div.summaryTitleProcess {
+	background-color: rgb(239,245,233);
+}
+
+div.summaryTitleTask {
+	background-color: rgb(239,242,250);
+}
+
+td.summaryValue {
+	white-space: normal;
+}
+
+td.summaryValueList {
+	padding: 0px;
+}
+
+td.summaryListColumns {
+	padding: 0px;
+}
+
+.summaryListColumns td {
+	padding: 1px 0px;
+}
+
+td.summaryListColumnsProperties {
+	vertical-align: middle;
+}
+
+table.summaryListColumnsProperties {
+	margin: 10px 30px;
+}
+
+table.summaryListColumnsProperties>span {
+	margin-bottom: 10px;
+}
+
+table.summaryListColumnsProperties td {
+	padding: 4px;
+}
+
+a.summaryListColumn, a:visited.summaryListColumn {
+	padding: 1px;
+	cursor: text;
+	color:	#316AC5;
+	text-decoration: none;
+}
+
+a.summaryListColumn:hover {
+	text-decoration: underline;
+}
+
+a.summaryListColumnLink, a:visited.summaryListColumnLink {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.summaryTable {
+	border: 1px solid silver;
+}
+
+.summaryTable th {
+	border: 1px solid silver;
+	padding: 2px 4px;
+	background-color: transparent;
+	text-align: left;
+	font-weight: normal;
+	color: black;
+}
+
+.summaryTable td {
+	border: 1px solid silver;
+	padding: 4px;
+}
+
+/*******************************/
+/* Styles for Popup Dialogs    */
+/*******************************/
+
+.popup {
+	display: block;
+	position: absolute;
+}
+
+.pTD {
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader;
+	padding: 1px;
+}
+
+.greyout {
+	display: block;
+	position: absolute;
+	border: none ;
+	padding: 0px;
+	background-color: #000000;
+	z-index: 100;
+	opacity: 0.1;
+	filter: alpha(opacity=10);
+}
+
+.commandbarDialog {
+	background-image: url("../images/table_bg.gif");
+	background-repeat: repeat-x;
+	margin-top: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.dialogPanelContainer {
+	background-image: url("../images/paneltitle.gif");
+	background-repeat: repeat-x;
+	border: 1px solid silver;
+	white-space: nowrap;
+}
+
+form.dialogPanelContainer {
+	background-image: none;
+	border: none;
+}
+
+.dialogPanelContainer input {
+	margin-left: 3px;
+	margin-right: 2px;
+}
+
+.dialogPanelTitle {
+	color: #666666;
+	padding-top: 3px;
+	height: 3em;
+}
+
+.dialogPanelTitle a {
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+.dialogPanelHelp {
+	color: #666666;
+	padding: 0px 5px;
+	margin-bottom: 20px;
+}
+
+.dialogPanelGroup {
+	padding: 0px 3px 10px;
+}
+
+.dialogPanelGroup td {
+	padding: 2px;
+}
+
+.dialogLabel {
+	white-space: nowrap;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.dialogGrid {
+	width: 50%;
+}
+
+
+/*******************************/
+/* Styles for Dojo Dialogs    */
+/*******************************/
+
+/* see .dialogPanelContainer */
+.tundra div.dijitDialog {
+	background-image: url("../images/paneltitle.gif");
+	background-repeat: repeat-x;
+	border: 1px solid silver;
+	white-space: nowrap;
+}
+
+.tundra div.dijitDialogTitleBar {
+	background: none;
+	margin-bottom: 10px;
+}
+
+/* see .dialogPanelTitle */
+.tundra span.dijitDialogTitle {
+	color: #666666;
+	padding-top: 3px;
+}
+
+/* see .dialogPanelTitle a */
+.tundra span.dijitDialogTitle {
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+.tundra span.dijitDialogTitle {
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+.tundra .dialogPanelHelp {
+	margin-bottom: 5px;
+}
+
+.tundra .dijitDialog div.dijitDialogPaneContent {
+	border: none;
+	padding: 10px;
+}
+
+div.dijitInputField input {
+	/* for IE6 */
+	line-height: 1.5em;
+}
+
+.tundra .dialogGrid {
+	width: auto;
+	margin-bottom: 10px;
+}
+
+.tundra .dialogGrid td {
+	padding: 2px;
+	white-space: nowrap;
+}
+
+/*******************************/
+/* Styles for Explorer Details */
+/*******************************/
+
+.details
+{
+	width: 100%;
+}
+
+div.details
+{
+	margin-bottom: 20px;
+}
+
+table.details
+{
+	width: 100%;
+}
+
+table.detailsInput
+{
+	margin-top: 10px;
+}
+
+td.detailsProperty
+{
+	width: 15em;
+	white-space: nowrap;
+	padding: 1px;
+}
+
+td.detailsProperty span
+{
+	/* needed for IE */
+	white-space: nowrap;
+}
+
+td.detailsPropertyBold
+{
+	width: 15em;
+	white-space: nowrap;
+	padding: 1px;
+	font-weight: bold;
+}
+
+td.detailsValue
+{
+	color: #666666;
+	padding: 1px;
+}
+
+td.detailsValueBold
+{
+	color: #666666;
+	padding: 1px;
+	font-weight: bold;
+}
+
+td.detailsNumberValue {
+	text-align: right;
+}
+
+table.detailsReports
+{
+	width: 100%;
+	margin: 5px;
+	border: 1px solid silver;
+	background: rgb(247, 247, 247) ;
+
+}
+
+table.detailsReports td {
+	padding: 3px 6px;
+}
+
+.details a
+{
+	text-decoration: none;
+	color: #316AC4;
+}
+
+.details a:visited
+{
+	text-decoration: none;
+	color: #316AC4;
+}
+
+.details a:hover
+{
+	text-decoration: underline;
+	color: #316AC4;
+}
+
+/* setting for list on tabbed pane */
+
+.tabPane .list th, .tabPane .list tfoot div
+{
+	background-color: #eaf1ff;
+}
+
+.tabPane .listButton[disabled] {
+	color: #eaf1ff;
+}
+
+/* Styles for Message Data */
+
+.messageData
+{
+	border: 1px solid silver;
+	color: black;
+}
+
+.messageData table
+{
+	width: 100%;
+}
+
+table.messageData td, table.messageData th {
+	padding: 4px;
+}
+
+.messageData th
+{
+	font-weight: normal;
+	background-color: white;
+}
+
+.messageDataOutput
+{
+	color: #666666;
+}
+
+input.messageDataOutput {
+	width: 20em;
+}
+
+.messageDataValidInput
+{
+	color: black;
+}
+
+.messageDataInvalidInput
+{
+	color: red;
+}
+
+input.messageDataValidInput {
+	width: 20em;
+}
+
+input.messageDataInvalidInput
+{
+	background-color: #ff9999;
+	color: black;
+	width: 20em;
+}
+
+div.messageView {
+	padding: 5px;
+	background-color: rgb(230, 230, 230);
+}
+
+div.messageViewTab {
+	background-color: white;
+	padding: 10px 5px;
+	-moz-border-radius: 8px;
+	/* IE only */
+	_width: 100%;
+}
+
+/***************************/
+/* Work Item Admin         */
+/***************************/
+
+.workItemDetails table {
+	width: 100%;
+}
+
+td.workItemDetailsProperty {
+	width: 15em;
+	color: black;
+}
+
+td.workItemDetailsPropertyCreate {
+	width: 12em;
+	color: black;
+}
+
+td.workItemDetailsValue
+{
+	color: black;
+}
+.workItemDetailsValue input, .workItemDetailsValue select {
+	width: 15em;
+}
+
+.workItemDetailsValue select {
+	overflow: auto;
+}
+
+/***************************/
+/* Styles for Context Help */
+/***************************/
+
+.helpIcon {
+	border: 0px solid white;
+}
+
+.dispatcherLink {
+	padding-left: 30px;
+	padding-right: 0px;
+	padding-bottom: 30px;
+}
+
+/***************************/
+/* Styles for Customization*/
+/***************************/
+
+td.customize {
+	vertical-align: top;
+	width: 50%;
+}
+
+.customizeAction {
+	color:#666666;
+	font-weight: bold;
+}
+
+.customizeHelp {
+	color:#666666;
+	text-decoration: none;
+}
+
+.customizeContent input {
+	vertical-align: middle;
+	border: 0px;
+}
+
+.customizeContent select {
+	margin: 8px;
+}
+
+div.customizeNavigator {
+	overflow: visible;
+}
+
+
+/***************************/
+/* Styles for Monitor      */
+/***************************/
+
+.svgbox {
+	border: 1px solid black;
+	overflow: none;
+	position: absolute;
+	display: block;
+	top: 10px;
+	left: 44px;
+}
+
+.svgbuttons {
+	position: absolute;
+	display: block;
+	top: 10px;
+	left: 0px;
+	z-index: 50;
+}
+
+.svgicon {
+	margin: 2px 2px 2px 2px
+}
+
+/***************************/
+/* Styles for Date/Time	   */
+/***************************/
+.radioButton {
+	border-width: 0px;
+	border-style: none;
+	padding:0px;
+	margin:0px;
+}
+
+.radioLabel {
+	vertical-align: middle;
+	padding-top: 5px;
+}
+
+.radioLabelBold {
+	vertical-align: middle;
+	padding-top: 5px;
+	font-weight: bold;
+}
+
+.radioExplanation {
+	padding-top: 0px;
+	padding-bottom: 30px;
+}
+
+td.timeFilter {
+	width: auto;
+	padding: 5px 0px;
+}
+
+table.timeFilterValue {
+	margin-top: -5px;
+	white-space: nowrap;
+}
+
+.timeInput	{
+	border: none;
+	text-align: justify;
+	padding: 0;
+	margin: 0;
+}
+
+.timeInputHidden	{
+	border: none;
+	text-align: justify;
+	padding: 0;
+	margin: 0;
+	vertical-align: middle;
+	width: 20em;
+}
+
+.timeFrame	{
+	border-width: thin;
+	border-style: inset;
+	margin: 0;
+	direction: ltr;
+}
+
+.timeFrameSummary	{
+	border: none;
+}
+
+.datePattern	{
+	font-size: 100%;
+	text-align: center;
+	margin-top: -5px;
+}
+
+.addbox	{
+	border: none;
+	margin: -1px -5px;
+	display: block;
+}
+
+.add	{
+	border-width: 2px;
+	border-style: ridge;
+	margin: 0;
+	padding: 0;
+	display: block;
+}
+
+.sub	{
+	border-width: 2px;
+	border-style: ridge;
+	margin: 0;
+	padding: 0;
+	display: block;
+}
+
+.svgInfo {
+	margin-left: 20px;
+	height: 100px;
+	overflow: auto;
+}
+
+.svgInfo td {
+		padding: 2px;
+}
+
+.hide {
+	display: none;
+}
+table.panelSubContainerBox {
+	margin: 4px;
+}
+
+table.panelSubContainer {
+	width: 100%;
+	border: 1px solid silver;
+}
+
+td.panelSubContainerLabel {
+	width: 35em;
+}
+
+td.panelSubContainer {
+	border: none;
+	padding: 4px;
+
+}
+
+/***************************/
+/* Styles for Banner       */
+/***************************/
+
+tr.banner td.page {
+	height: 30px;
+}
+
+.banner {
+	float: left;
+	background-image: url("../images/banner_bg.gif");
+	background-repeat: no-repeat;
+	overflow: visible;
+	border-bottom: 3px solid #8C96B5;
+	width: 100%;
+	height: 27px;
+}
+
+.banner_left {
+	float: left;
+	background-image: url("../images/banner.gif");
+	background-repeat: no-repeat;
+	height: 27px;
+	width: 1000px;
+}
+
+.banner_right {
+}
+
+/***************************/
+/* Styles for Footer       */
+/***************************/
+
+tr.footer td.page {
+	height: 25px;
+}
+
+.footer {
+	background-image: url("../images/footer_bg.gif");
+	height: 25px;
+	overflow: visible;
+	width: 100%;
+}
+
+.footer_left {
+	float: left;
+	background-image: url("../images/ibm.gif");
+	height: 25px;
+	width: 51px;
+}
+
+.footer_right {
+	float: right;
+	background-image: url("../images/ws.gif");
+	background-repeat: no-repeat;
+	height: 25px;
+	width: 109px;
+	margin-right: 10px;
+}
+
+/***************************/
+/* Styles for Variables    */
+/***************************/
+
+.variablesLabel label {
+	padding: 2px;
+}
+
+table.variablesDetails {
+	margin-bottom: 10px;
+}
+
+td.variablesDetails {
+	padding: 2px 5px;
+	white-space: nowrap;
+	vertical-align: middle;
+}
+
+td.variables {
+	padding: 5px;
+	white-space: nowrap;
+}
+
+div.variablesBox {
+	padding: 5px;
+	border: 1px solid silver;
+	background-color: #f7f7f7;
+}
+
+table.variablesBox {
+	border: 1px solid silver;
+	background-color: white;
+}
+
+td.variablesButton {
+	vertical-align: bottom;
+}
+
+/***************************/
+/*     styles for BPC observer     */
+/***************************/
+
+/* Styles for Search Pages	*/
+.searchSelectOneMenu {
+	width: auto;
+}
+
+.searchSelectOneRadio	{
+	margin: 50px 0px 0px 0px;
+}
+
+.filterInput {
+	padding: 0px;
+	margin: 0px;
+	border: 1px solid silver;
+}
+
+.filterLink {
+	text-decoration: none;
+	color: black;
+}
+
+.show {
+	display: inline;
+}
+
+.boldRadio {
+	font-weight: bold;
+	vertical-align: middle;
+	margin-bottom: 30px;
+}
+
+.explanation {
+	font-weight: bold;
+	margin-bottom: 5px;
+	margin-top: 20px;
+}
+
+.inputLabel {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.inactiveText {
+	color: gray;
+}
+
+.parameterCheckBox {
+	margin-bottom: 30px;
+	margin-top: 20px;
+}
+
+.parameterCheckBoxThreshold {
+	margin-bottom: 30px;
+	margin-top: 5px;
+}
+
+.saveReport {
+	margin-bottom: 30px;
+	margin-top: 5px;
+}
+
+.editLink {
+	padding-left: 30px;
+	padding-right: 0px;
+	padding-top: 3px;
+	padding-bottom: 30px;
+}
+
+.filterImage {
+	margin-top: -5px;
+	vertical-align: middle;
+}
+
+.panelGroupLeftMargin {
+	margin-left: 70px;
+	margin-right: 0px;
+}
+
+div.expandedWide {
+	white-space: nowrap;
+	margin-left: 10px;
+	margin-right: 0px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+
+	overflow: hidden;
+	position: relative;
+}
+
+div.collapsedWide {
+	display: none ;
+}
+
+.wrapValue {
+	white-space: normal;
+}
+
+/* Tables in Tabbed Pane    */
+.pane {
+	width: 100%;
+}
+
+.block {
+	height: 24px;
+}
+
+.graphContent {
+	margin-bottom: 20px;	
+}
+
+.graphContainer {
+	width: 40em;
+	height: 30em;
+}
+
+.graphLegend {
+	width: 40em;
+}
+
+table.graphRadio {
+	margin-left:30px;
+	margin-right:30px;
+}
+
+/* Sections */
+
+div.section {
+	padding: 0px;
+}
+
+div.sectionTitle {
+	padding: 0px;
+}
+
+div.sectionTitleSeparator {
+	border-bottom: 1px solid silver;
+	margin-bottom: 10px;
+}
+
+td.sectionTitle {
+	padding:2px;
+	height: 100%;
+	overflow:hidden;
+	white-space:nowrap;
+}
+
+.sectionEmbedded {
+	color:#666666;
+}
+
+/*******************************/
+/* Styles for Correlation Sets */
+/*******************************/
+
+table.correlationDetails {
+	margin-bottom: 10px;
+}
+
+.correlationSetsBox {
+	margin-top: 10px;
+	border: 1px solid silver;
+}
+
+table.correlationSets td {
+	white-space: normal;
+	vertical-align: top;
+}
+
+tr.correlationSets {
+	border-bottom: 1px solid white;
+}
+
+table.correlationProperties {
+	margin-bottom: 10px;
+}
+
+.correlationSetName {
+	width: 15em;
+	overflow: hidden;
+}
+
+.correlationPropName {
+	width: 15em;
+	overflow: hidden;
+}
+
+.correlationPropJavaType {
+	width: 10em;
+	overflow: hidden;
+}
+
+.correlationPropXSDType {
+	width: 10em;
+	overflow: hidden;
+}
+
+span.correlationSetTitleName {
+	color: #666666;
+}
+
+span.correlationSetTitleUninitialized {
+	color: red;
+}
+
+span.correlationSetHelp {
+	color: #666666;
+}
+
+input.correlationCopy {
+	border: none;
+}
+
+.correlationPropValues
+{
+        background-color: rgb(247, 247, 247); 
+        border: none;
+}
+
+/****************************/
+/* Styles for Absence Pages  */
+/****************************/
+
+.absencePanel {
+	width: auto;
+}
+
+.absencePanel td {
+	padding: 4px;
+}
+
+table.absencePanel {
+	white-space:nowrap;
+}
+
+table.absenceInner {
+	width: 100%;
+	padding: 0px;
+}	
+
+td.absenceLabel {
+	padding: 0px;
+	width: 14em;
+	white-space: normal;
+}
+
+td.absenceLabelInner {
+	padding: 0px;
+	width: 14em;
+	white-space: normal;
+}
+
+div.absencePanelBox  {
+	border: 1px solid silver;
+	margin-bottom: 20px;
+}
+
+table.absencePanelBox {
+	border: 1px solid silver;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+td.absencePanelHelp {
+	padding: 4px 20px;
+	white-space: normal;
+	color: #666666;
+}
+
+.absenceLabel {
+	color: black;
+}
+
+select.absenceListBox {
+	max-height: 12em;
+	width: 100%;
+	/* 100% does not work for IE so set fixed width */
+	_width: 15em;
+	margin-bottom: 10px;
+}
+
+table.absenceRadio td {
+	white-space: nowrap;
+	padding: 2px 4px;
+}
+
+.absenceRadio input {
+	vertical-align: -30%;
+	/* for IE */
+	border: 0px;
+}
+
+.absenceRadioHelp input {
+	visibility: hidden;
+}
+
+.absenceMarginBottom {
+	padding-bottom: 20px; 
+	margin-bottom: 20px;
+	width: 100%; 
+	_width: auto;
+/*	font-size: 15px; */
+}

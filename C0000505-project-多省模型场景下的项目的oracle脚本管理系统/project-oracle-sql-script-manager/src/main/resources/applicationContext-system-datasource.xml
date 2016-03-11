@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+	default-lazy-init="true">
+
+	<bean id="targetDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="${jdbc.driverClassName}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="initialPoolSize" value="${jdbc.initialPoolSize}" />
+		<property name="minPoolSize" value="${jdbc.minPoolSize}" />
+		<property name="maxPoolSize" value="${jdbc.maxPoolSize}" />
+		<property name="acquireIncrement" value="${jdbc.acquireIncrement}" />
+		<property name="idleConnectionTestPeriod" value="120" />
+		<property name="maxIdleTime" value="120" />
+		<property name="autoCommitOnClose" value="false" />
+	</bean>
+	<!--bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.C3P0NativeJdbcExtractor" lazy-init="true" /-->
+	<bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.P6SpyC3P0NativeJdbcExtractor" lazy-init="true" />
+	<!--bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor" lazy-init="true" /-->
+
+	<!-- <bean id="targetDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"> -->
+	<!-- <property name="driverClassName" value="${jdbc.driverClassName}" /> -->
+	<!-- <property name="url" value="${jdbc.url}" /> -->
+	<!-- <property name="username" value="${jdbc.username}" /> -->
+	<!-- <property name="password" value="${jdbc.password}" /> -->
+	<!-- <property name="maxActive" value="20" /> -->
+	<!-- <property name="maxIdle" value="10" /> -->
+	<!-- <property name="minIdle" value="2" /> -->
+	<!-- </bean> -->
+	<!-- <bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.CommonsDbcpNativeJdbcExtractor" lazy-init="true" /> -->
+
+	<!-- <bean id="targetDataSource" class="org.springframework.jndi.JndiObjectFactoryBean"> -->
+	<!-- <property name="jndiName" value="${jdbc.jndiName}" /> -->
+	<!-- <property name="jndiTemplate" ref="jndiTemplate" /> -->
+	<!-- </bean> -->
+
+	<!-- <bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.JBossNativeJdbcExtractor" lazy-init="true" /> -->
+	<!-- <bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.WebLogicNativeJdbcExtractor" lazy-init="true" /> -->
+	<!-- <bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.WebSphereNativeJdbcExtractor" lazy-init="true" /> -->
+
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy">
+		<property name="targetDataSource" ref="p6spyDataSource" />
+	</bean>
+	
+	<!-- comment out if use p6spy,and close upper setting -->
+	<bean id="p6spyDataSource" class="com.p6spy.engine.spy.P6DataSource">
+		<constructor-arg ref="targetDataSource" />
+	</bean>
+
+	<!-- <bean id="dataSourceProxy" class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy"> -->
+	<!-- <constructor-arg> -->
+	<!-- <ref bean="dataSource"/> -->
+	<!-- </constructor-arg> -->
+	<!-- </bean> -->
+
+</beans>

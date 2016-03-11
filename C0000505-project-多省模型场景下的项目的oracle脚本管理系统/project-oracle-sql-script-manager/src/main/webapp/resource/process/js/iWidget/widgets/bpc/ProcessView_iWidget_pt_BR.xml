@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+5655-FLW
+(C) Copyright IBM Corporation 2008, 2009. All Rights Reserved.
+US Government Users Restricted Rights- Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+
+<iw:iwidget name="ProcessView" xmlns:iw="http://www.ibm.com/xmlns/prod/iWidget" iScope="ProcessView" supportedModes="view">
+    <!-- default style value, it can be overwritten-->
+    <iw:resource uri="ProcessView.js"/>
+    
+    <iw:eventDescription id="com.ibm.widget.ActionRequestedDescription" payloadType="JSON"
+      lang="en" description="O usuário solicitou uma ação a ser executada em uma tarefa manual."
+     />
+
+    <iw:eventDescription id="com.ibm.widget.FocusChangedDescription" payloadType="JSON"
+      lang="en" description="O usuário focou em outra tarefa manual ou o foco foi removido."
+     />
+
+    <iw:eventDescription id="com.ibm.widget.OpenDescription" payloadType="JSON"
+      lang="en" description="Abra a estrutura ou o status do processo para um processo ou para uma tarefa a fazer que esteja associada ao processo."
+     />
+
+    <iw:eventDescription id="com.ibm.widget.CloseDescription" payloadType="JSON"
+      lang="en" description="Feche a estrutura ou o status do processo."
+     />
+
+    <iw:eventDescription id="com.ibm.widget.TabChangedDescription" payloadType="JSON"
+     lang="en" description="O usuário alternou para outra guia ou fechou a última guia."
+    />
+    
+    <!-- published events -->
+    <iw:event id="com.ibm.widget.ActionRequested" eventDescName="com.ibm.widget.ActionRequestedDescription" published="true"/>
+    <iw:event id="com.ibm.widget.FocusChanged" eventDescName="com.ibm.widget.FocusChangedDescription" published="true"/>
+    
+    <!-- received events -->
+    <iw:event id="com.ibm.widget.TabChanged" eventDescName="com.ibm.widget.TabChangedDescription" handled="true" onEvent="onTabChanged"/>
+    <iw:event id="com.ibm.widget.Open" eventDescName="com.ibm.widget.OpenDescription" handled="true" onEvent="onOpen"/>
+    <iw:event id="com.ibm.widget.Close" eventDescName="com.ibm.widget.CloseDescription" handled="true" onEvent="onClose"/>
+    
+    <iw:content mode="view">
+        <![CDATA[
+        	<div id="_IWID_ProcessView"></div>   
+        ]]>
+    </iw:content>
+    
+</iw:iwidget>

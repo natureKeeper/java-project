@@ -1,0 +1,25 @@
+<div class="processViewContainer" dojoAttachPoint="listContainer">
+
+<DIV class="processViewHeader" dojoAttachPoint="listHeader">
+    <div class="iconShowDetails iconShowDetailsSel" dojoAttachPoint="detailsIcon" ></div>
+    <div class="iconStateRefresh" dojoAttachPoint="refreshIcon" ></div>
+	<div dojoType="dijit.form.HorizontalSlider" dojoAttachPoint="zoomSlider" class="editorSlider" name="style"
+		value="10"
+		maximum="14"
+		minimum="3"
+		discreteValues="12"
+		showButtons="true"
+		intermediateChanges="false"		
+		style="float: right">
+		
+		<div dojoType="dijit.form.HorizontalRule" container="bottomDecoration" count=12 style="height:5px"></div>
+	</div>
+</DIV>
+<DIV dojoAttachPoint='scrollContainer' class="scrollContainer">
+	<DIV dojoAttachPoint="root" class="base"
+	><DIV dojoAttachPoint="linkSpheres" class="linkSphere"
+	></DIV><DIV dojoAttachPoint="decorations" class="decorations"
+	></DIV></DIV>
+</DIV>
+</div>
+

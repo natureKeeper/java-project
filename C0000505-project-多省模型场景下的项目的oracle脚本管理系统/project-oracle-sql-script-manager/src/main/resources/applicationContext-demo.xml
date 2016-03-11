@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	
+	
+	
+	<bean id="taskAccessService" class="com.asb.cdd.scriptmanage.dao.access.impl.TaskAccessServiceImpl" parent="abstractNamespaceAccessService">
+	</bean>
+	
+	<bean id="scriptAccessService" class="com.asb.cdd.scriptmanage.dao.access.impl.ScriptAccessServiceImpl" parent="abstractNamespaceAccessService">
+	</bean>
+	
+	<bean id="destinationAccessService" class="com.asb.cdd.scriptmanage.dao.access.impl.DestinationAccessServiceImpl" parent="abstractNamespaceAccessService">
+	</bean>
+	
+	<bean id="environmentAccessService" class="com.asb.cdd.scriptmanage.dao.access.impl.EnvironmentAccessServiceImpl" parent="abstractNamespaceAccessService">
+	</bean>
+	
+	<bean id="logAccessService" class="com.asb.cdd.scriptmanage.dao.access.impl.LogAccessServiceImpl" parent="abstractNamespaceAccessService">
+	</bean>
+	
+	<bean id="scriptDestinationRelationAccessService" class="com.asb.cdd.scriptmanage.dao.access.impl.ScriptDestinationRelationAccessServiceImpl" parent="abstractNamespaceAccessService">
+	</bean>
+	
+	<bean id="scriptEnvironmentRelationAccessService" class="com.asb.cdd.scriptmanage.dao.access.impl.ScriptEnvironmentRelationAccessServiceImpl" parent="abstractNamespaceAccessService">
+	</bean>
+	
+	
+	<bean id="dictEnvironmentStatusAccessService" class="com.asb.cdd.scriptmanage.dao.access.impl.DictEnvironmentStatusAccessServiceImpl" parent="abstractNamespaceAccessService">
+	</bean>
+	<bean id="dictExecutePointAccessService" class="com.asb.cdd.scriptmanage.dao.access.impl.DictExecutePointAccessServiceImpl" parent="abstractNamespaceAccessService">
+	</bean>
+	<bean id="dictScriptStatusAccessService" class="com.asb.cdd.scriptmanage.dao.access.impl.DictScriptStatusAccessServiceImpl" parent="abstractNamespaceAccessService">
+	</bean>
+	<bean id="dictScriptTypeAccessService" class="com.asb.cdd.scriptmanage.dao.access.impl.DictScriptTypeAccessServiceImpl" parent="abstractNamespaceAccessService">
+	</bean>	
+	<bean id="dictTaskStatusAccessService" class="com.asb.cdd.scriptmanage.dao.access.impl.DictTaskStatusAccessServiceImpl" parent="abstractNamespaceAccessService">
+	</bean>
+	
+	
+	<bean id="scriptBigDataAccessService" class="com.asb.cdd.scriptmanage.service.impl.BigDataFsAccessServiceImpl" init-method="init">
+		<property name="storagePath" value="${script.storagePath}" />
+	</bean>
+	
+	<bean id="logBigDataAccessService" class="com.asb.cdd.scriptmanage.service.impl.BigDataFsAccessServiceImpl" init-method="init">
+		<property name="storagePath" value="${log.storagePath}" />
+	</bean>
+	
+	<bean id="releasePackageBigDataAccessService" class="com.asb.cdd.scriptmanage.service.impl.BigDataFsAccessServiceImpl" init-method="init">
+		<property name="storagePath" value="${release.storagePath}" />
+	</bean>
+	
+	<bean id="taskScriptManagementService" class="com.asb.cdd.scriptmanage.service.impl.TaskScriptManagementServiceImpl" >
+		<property name="scriptBigDataAccessService" ref="scriptBigDataAccessService" />
+		<property name="taskAccessService" ref="taskAccessService" />
+		<property name="scriptAccessService" ref="scriptAccessService" />
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+		<property name="scriptDestinationRelationAccessService" ref="scriptDestinationRelationAccessService" />
+		<property name="scriptEnvironmentRelationAccessService" ref="scriptEnvironmentRelationAccessService" />
+		<property name="destinationAccessService" ref="destinationAccessService" />
+		<property name="environmentAccessService" ref="environmentAccessService" />
+		<property name="userAccessService" ref="userAccessService" />
+		<property name="sqlScriptExecutor" ref="sqlScriptExecutor" />
+		<property name="logManagementService" ref="logManagementService" />
+		<property name="scriptManagementService" ref="scriptManagementService" />
+		<property name="taskManagementService" ref="taskManagementService" />
+		<property name="messageNotifyService" ref="messageNotifyService" />
+		<property name="releasePackageBigDataAccessService" ref="releasePackageBigDataAccessService" />
+	</bean>
+
+	
+	<bean id="scriptEnvironmentRelationManagementService" class="com.asb.cdd.scriptmanage.service.impl.ScriptEnvironmentRelationManagementServiceImpl" >
+		<property name="scriptEnvironmentRelationAccessService" ref="scriptEnvironmentRelationAccessService" />
+		<property name="logManagementService" ref="logManagementService" />
+		<property name="environmentAccessService" ref="environmentAccessService" />
+		<property name="dictEnvironmentStatusAccessService" ref="dictEnvironmentStatusAccessService" />
+	</bean>
+	
+	<bean id="scriptManagementService" class="com.asb.cdd.scriptmanage.service.impl.ScriptManagementServiceImpl" >
+		<property name="scriptBigDataAccessService" ref="scriptBigDataAccessService" />
+		<property name="scriptAccessService" ref="scriptAccessService" />
+		<property name="dictScriptStatusAccessService" ref="dictScriptStatusAccessService" />
+		<property name="taskScriptManagementService" ref="taskScriptManagementService" />
+	</bean>
+	
+	<bean id="environmentManagementService" class="com.asb.cdd.scriptmanage.service.impl.EnvironmentManagementServiceImpl" >
+		<property name="environmentAccessService" ref="environmentAccessService" />
+	</bean>
+	
+	<bean id="taskManagementService" class="com.asb.cdd.scriptmanage.service.impl.TaskManagementServiceImpl" >
+		<property name="taskAccessService" ref="taskAccessService" />
+		<property name="dictTaskStatusAccessService" ref="dictTaskStatusAccessService" />
+	</bean>
+	
+	<bean id="dictionaryViewHelper" class=" com.asb.cdd.scriptmanage.web.util.DictionaryViewHelper" >
+		<property name="dictEnvironmentStatusAccessService" ref="dictEnvironmentStatusAccessService" />
+		<property name="dictExecutePointAccessService" ref="dictExecutePointAccessService" />
+		<property name="dictScriptStatusAccessService" ref="dictScriptStatusAccessService" />
+		<property name="dictScriptTypeAccessService" ref="dictScriptTypeAccessService" />
+		<property name="dictTaskStatusAccessService" ref="dictTaskStatusAccessService" />
+	</bean>
+	
+	
+	<bean id="sqlScriptExecutor" class="com.asb.cdd.scriptmanage.service.impl.SqlScriptExecutor" init-method="init">
+		<property name="sqlplusPath" value="${sqlplus.path}" />
+		<property name="sqlplusEnvEncoding" value="${sqlplus.env.encoding}" />
+		<property name="sqlplusOutputEncoding" value="${sqlplus.output.encoding}" />
+		<property name="sqlTmpPath" value="${script.tmp.path}" />
+	</bean>
+	
+	<bean id="executeSqlTask" class="com.asb.cdd.scriptmanage.service.impl.ExecuteSqlTask" >		
+		<property name="taskScriptManagementService" ref="taskScriptManagementService" />
+		<property name="userSessionManagementService" ref="userSessionManagementService" />
+		
+		<property name="username" value="${background.executeSql.task.username}" />
+		<property name="password" value="${background.executeSql.task.password}" />
+	</bean>
+	
+	<bean id="backgroundExecutor" class=" com.asb.cdd.scriptmanage.service.impl.BackgroundExecutorImpl" init-method="init">
+		<property name="tasks">
+			<list>
+				<ref bean="executeSqlTask" />
+			</list>
+		</property>
+		<property name="interval" value="${background.executeSql.thread.exec.interval}" />
+		<property name="delay" value="${background.executeSql.thread.delayBeforeRunning}" />
+		<property name="turnOn" value="${background.executeSql.thread.runOnStartup}" />
+	</bean>
+	
+	<bean id="logManagementService" class="com.asb.cdd.scriptmanage.service.impl.LogManagementServiceImpl" >
+		<property name="fileContentEncoding" value="${log.file.encoding}" />
+		<property name="logAccessService" ref="logAccessService" />
+		<property name="logBigDataAccessService" ref="logBigDataAccessService" />
+	</bean>
+	
+	<bean id="issueTaskQueryService" class="com.asb.cdd.scriptmanage.service.impl.IssueTaskQueryServiceImpl" >
+		<property name="taskAccessService" ref="taskAccessService" />
+		<property name="taskScriptManagementService" ref="taskScriptManagementService" />
+	</bean>
+	
+	<bean id="issueTaskQueryService2" class="com.asb.cdd.scriptmanage.service.impl.IssueTaskQueryServiceImpl2" >
+		<property name="scriptManagementService" ref="scriptManagementService" />
+		<property name="environmentManagementService" ref="environmentManagementService" />
+		<property name="taskManagementService" ref="taskManagementService" />
+		<property name="dictionaryViewHelper" ref="dictionaryViewHelper" />
+		<property name="scriptEnvironmentRelationManagementService" ref="scriptEnvironmentRelationManagementService" />
+		<property name="taskScriptManagementService" ref="taskScriptManagementService" />
+	</bean>
+	
+	<bean id="messageNotifyService" class="com.asb.cdd.scriptmanage.service.impl.MessageNotifyServiceQqImpl" >
+		<property name="baseUrl" value="${notify.qq.url}" />
+		<property name="serviceEncoding" value="${notify.qq.encoding}" />
+		<property name="userAccessService" ref="userAccessService" />
+	</bean>
+	
+	<!-- 后台定时任务脚本状态扫描 begin -->
+	<bean id="checkAbnormalScriptTask" class="com.asb.cdd.scriptmanage.service.impl.CheckAbnormalScriptTask" >		
+		<property name="taskScriptManagementService" ref="taskScriptManagementService" />
+		<property name="userSessionManagementService" ref="userSessionManagementService" />
+		<property name="messageNotifyService" ref="messageNotifyService" />
+		
+		<property name="username" value="${background.checkAbnormalScript.task.username}" />
+		<property name="password" value="${background.checkAbnormalScript.task.password}" />
+	</bean>
+	
+	<bean id="checkAbnormalScriptTaskExecutor" class=" com.asb.cdd.scriptmanage.service.impl.BackgroundExecutorImpl" init-method="init">
+		<property name="tasks">
+			<list>
+				<ref bean="checkAbnormalScriptTask" />
+			</list>
+		</property>
+		<property name="interval" value="${background.checkAbnormalScript.thread.exec.interval}" />
+		<property name="delay" value="${background.checkAbnormalScript.thread.delayBeforeRunning}" />
+		<property name="turnOn" value="${background.checkAbnormalScript.thread.runOnStartup}" />
+	</bean>
+	<!-- 后台定时任务脚本状态扫描 end -->
+	
+	<bean id="dateUtil" class="com.asb.cdd.scriptmanage.service.util.DateUtil" init-method="init">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	
+</beans>

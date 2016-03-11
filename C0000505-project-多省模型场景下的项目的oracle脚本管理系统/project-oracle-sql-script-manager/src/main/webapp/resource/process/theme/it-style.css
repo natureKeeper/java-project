@@ -1,0 +1,22 @@
+/* BEGIN COPYRIGHT
+ **************************************************************************
+ *
+ * Licensed Materials - Property of IBM
+ * 5655-FLW (C) Copyright IBM Corporation 2006, 2009. All Rights Reserved.
+ * US Government Users Restricted Rights- Use, duplication or disclosure
+ * restricted by GSA ADP Schedule Contract with IBM Corp.
+ *
+ **************************************************************************
+ * END COPYRIGHT */
+ 
+ /* Style sheet for language related style changes */
+
+/****************************/
+/* Styles for Search Pages  */
+/****************************/
+
+select.searchListBoxWidth {
+    /* 100% does not work for IE so set fixed width */
+    _width: 18em;
+}
+

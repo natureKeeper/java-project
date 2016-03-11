@@ -1,0 +1,167 @@
+﻿
+.x_background {
+	background-color:#DDE8F8;
+}
+
+.x_banner_bar {
+	height:35;
+	border-bottom:1 solid #98C0F4;
+	background:url(../image/bg_banner.gif) #2A4B88;	
+}
+
+.x_banner_font {
+	color:#FFF;
+	font-size:18;
+	font-weight:bold;
+	white-space:nowrap;
+	font-family:STXinwei,Verdana,Simsun;
+}
+
+
+
+.x_font_name   ,
+.x_font_label   ,
+.x_font_loading ,
+.x_font_content {	
+	font-size:12;
+	font-family:Verdana,Simsun;
+}
+
+.x_font_name {
+	color:#3A47C0;
+	font-weight:bold;
+}
+
+.x_font_label {
+	color:#000085;	
+}
+
+.x_font_content {
+	color:#000;
+}
+
+.x_font_loading {
+	color:#159F87;
+}
+
+.x_loading_container {
+	font-size:12;
+	font-family:Verdana,Simsun;
+	background-color:#FF0;
+	border:1px solid red;
+	padding:2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.x_text              ,
+.x_text_readonly     ,
+.x_select            ,
+.x_select_readonly   ,
+.x_textarea          ,
+.x_textarea_readonly {	
+	width:100%;	
+	font-size:12;
+	font-family:Verdana,Simsun;	
+}
+
+.x_text          ,
+.x_select        ,
+.x_text_readonly {
+	height:18;	
+}
+
+.x_text     ,
+.x_select   ,
+.x_textarea {
+	color:#222E43;
+	border:1 solid #607BAC;	
+	background-color:#FFFFFF;
+	star:expression(this.readOnly=0);
+}
+
+.x_text_readonly     ,
+.x_select_readonly   ,
+.x_textarea_readonly {	
+	color:#415883;
+	border:1 #607BAC solid;	/*border:1 #E9F0F4 solid;*/
+	background-color:#F4F4F4;
+	star:expression(this.readOnly=true);
+}
+
+
+
+
+.x_textarea          ,
+.x_textarea_readonly {	
+	height:60;
+	overflow:auto;
+}
+
+.x_select {
+	star:expression(this.disabled=false);
+}
+
+.x_select_readonly {
+	star:expression(this.disabled=true);
+}
+
+.x_select_container {	
+	width:16;
+	height:18;
+	overflow:hidden;
+	border:1 solid #607BAC;
+	border-left:0;
+}
+
+.x_inner_select {	
+	margin:-2;
+	height:18;
+	color:#415883;
+	font-size:12;
+	font-family:Verdana,Simsun;	
+	margin-left:expression(parseInt(this.width)-18);
+}
+
+.x_text_proxy {
+	width:100%;
+	height:18;	
+	overflow:hidden;	
+	border:1 solid #607BAC;
+	border-right:0;
+	background-color:#FFF;
+}
+
+
+
+
+
+
+.x_text_focus    ,
+.x_select_focus  ,
+.x_textarea_focus{	
+	color:#222E43;
+	font-size:12;
+	border:1 orange solid;
+	background-color:#FFFFF0;
+	font-family:Verdana,Simsun;
+}
+
+
+
+
+
+

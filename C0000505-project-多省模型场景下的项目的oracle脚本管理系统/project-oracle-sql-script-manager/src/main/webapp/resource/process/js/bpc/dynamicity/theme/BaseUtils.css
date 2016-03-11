@@ -1,0 +1,102 @@
+/* BEGIN COPYRIGHT
+ **************************************************************************
+ *
+ * Licensed Materials - Property of IBM
+ * 5655-FLW
+ * (C) Copyright IBM Corporation 2008. All Rights Reserved.
+ * US Government Users Restricted Rights- Use, duplication or disclosure
+ * restricted by GSA ADP Schedule Contract with IBM Corp.
+ *
+ **************************************************************************
+ * END COPYRIGHT */
+
+.shooterCanvas {
+	width: 400px;
+	height: 300px;
+	border: 1px solid black;
+	display: block;
+	position: relative;
+	overflow: hidden;
+}
+
+.shooterStarshipBase {
+    background-image: url(../../bpel/images/htask_default.gif);
+	width: 81px;
+	height: 88px;
+	position: absolute;
+	z-index: 950;
+	cursor: crosshair;
+}
+
+.shooterStone {
+	position: absolute;
+}
+
+.shooterPlanets {
+	position: absolute;
+	z-index: 2;
+}
+
+.shooterBackground {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+}
+
+.shooterFog {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 3;
+	opacity: 0.3;
+	background-color: white;
+}
+
+.shooterHealth {
+	position: relative;
+	display: block;
+	float: left;
+	z-index: 2000;
+	padding: 5px;
+	margin: 3px;
+}
+
+.shooterLife {
+	position: relative;
+	float: left;
+	margin: 3px;
+	width: 21px;
+	height: 22px;
+}
+
+.shooterScore {
+	position: relative;
+	display: block;
+	float: right;
+	min-width: 50px;
+	padding: 5px;
+	margin: 3px;
+	text-align: right;
+	z-index: 2000;
+	background-color: white;
+	border: 3px inset grey;
+	opacity: 0.5;
+	font-size: 20px;
+	color: black;
+	font-family: Helvetica;
+}
+
+.shooterGameOver {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 2000;
+	opacity: 0.3;
+	background-color: white;
+	font-size: 100px;
+	text-align: center;
+	vertical-align: middle;
+	color: black;
+	font-family: Helvetica;
+}

@@ -1,0 +1,166 @@
+
+
+
+
+
+.x_tab_title {	
+	font-size:12;
+	color:#000080;
+	font-weight:bold;
+	font-family:Verdana,Simsun;
+}
+
+.x_tab_container {	
+	height:26;	
+	vertical-align:text-bottom;
+}
+
+.x_tab_separator_container {	
+	height:31;	
+	vertical-align:text-bottom;
+}
+
+.x_tab_container_background {	
+	background-color:#DDE8F8;/*D8E5F7*/
+}
+
+.x_tab_bar {
+	border:0;
+	width:100%;
+	height:23;
+	font-size:12;	
+	font-family:Verdana,Simsun;
+}
+
+
+
+.x_tab {
+	border:0;
+	height:21;
+	border-bottom:1 solid #98C0F4;
+	background:url(../image/xtab/x_tab.gif) right -50 #C3DAF9;
+}
+
+.x_tab_on {
+	border:0;
+	height:23;
+	background:url(../image/xtab/x_tab.gif) right 0 #FFFFFF;
+}
+
+.x_tab_text     ,
+.x_tab_text_on  {
+	border:0;
+	width:80;
+	cursor:pointer;	
+	font-size:12;
+	padding-top:5;
+	padding-left:5;
+	padding-right:5;
+	font-weight:bold;
+	text-align:center;
+	white-space:nowrap;	
+	font-family:Verdana,Simsun;
+}
+
+.x_tab_text {	
+	height:21;
+	color:#595B5D;	
+	background:url(../image/xtab/x_tab.gif) left -150;
+}
+
+.x_tab_text_on {
+	height:23;
+	color:#083772;	
+	background:url(../image/xtab/x_tab.gif) left -100;
+}
+
+
+.x_tab_first {
+	width:15;
+	color:#000080;	
+	font-size:12;
+	/* font-weight:bold; */
+	font-family:Verdana,Simsun;
+	border-bottom:1px solid #98C0F4;
+}
+
+.x_tab_last {
+	width:100%;
+	border-bottom:1px solid #98C0F4;
+}
+
+
+
+.x_tab_separator {
+	width:100%;
+	height:5;
+	background:url(../image/xtab/x_tab_separator.gif) 0 bottom;
+}
+
+
+
+
+
+
+
+
+
+
+
+.v_tab_container {
+	width:84;
+	text-align:right;
+}
+.v_tab_bar {
+	border:0;
+	width:80;
+	height:100%;	
+	font-size:12;	
+	font-family:Verdana,Simsun;
+}
+.v_tab {
+	width:78;
+	border:0;
+	border-right:1 solid #98C0F4;
+	/*background-color:#C3DAF9;*/
+	background:url(../image/xtab/v_tab.gif) 0 0 #C3DAF9;
+}
+
+.v_tab_on {
+	width:80;
+	border:0;	
+	/*background-color:#FFFFFF;*/
+	background:url(../image/xtab/v_tab_on.gif) 0 0 #FFFFFF;
+}
+
+
+
+.v_tab_text     ,
+.v_tab_text_on  {
+	border:0;
+	height:22;
+	cursor:pointer;	
+	font-size:12;
+	padding-top:5;
+	padding-left:15;
+	padding-right:5;
+	font-weight:bold;
+	text-align:right;
+	white-space:nowrap;	
+	font-family:Verdana,Simsun;
+}
+
+.v_tab_text {	
+	width:78;
+	color:#595B5D;	
+	/*background:url(../image/xtab/v_tab.gif) left -150;*/
+}
+
+.v_tab_text_on {
+	width:80;
+	color:#083772;	
+	/*background:url(../image/xtab/v_tab.gif) left -100;*/
+}
+
+
+

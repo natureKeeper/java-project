@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="DictScriptType">
+	<typeAlias alias="dictScriptType" type="com.asb.cdd.scriptmanage.dao.access.model.DictScriptType" />
+	<resultMap id="dictScriptTypeResult" class="dictScriptType">
+		<result property="id" column="ID" javaType="long" jdbcType="NUMERIC" nullValue="0" />
+		<result property="version" column="VERSION" javaType="int" jdbcType="NUMERIC" nullValue="0" />
+		<result property="name" column="NAME" javaType="string" jdbcType="VARCHAR" />
+		<result property="code" column="CODE" javaType="string" jdbcType="VARCHAR" />
+		<result property="ordinal" column="ORDINAL" javaType="int" jdbcType="NUMERIC" nullValue="0" />
+	</resultMap>
+	<sql id="sql_sequence">
+		<![CDATA[
+			SELECT SEQ_DICT_SCRIPT_TYPE.NEXTVAL AS ID FROM DUAL
+		]]>
+	</sql>
+	<select id="sequence">
+		<include refid="sql_sequence" />
+	</select>
+
+	<insert id="create" parameterClass="dictScriptType">
+		<selectKey keyProperty="id" resultClass="int">
+			<include refid="sql_sequence" />
+		</selectKey>
+		<![CDATA[
+			INSERT INTO DICT_SCRIPT_TYPE (
+				ID, VERSION, 
+				NAME, CODE, ORDINAL
+			) VALUES (
+				#id#, #version#, 
+				#name#,	#code#, #ordinal#
+			)
+		]]>
+	</insert>
+		
+	<update id="update" parameterClass="dictScriptType">
+		<![CDATA[
+			UPDATE DICT_SCRIPT_TYPE SET 
+				NAME=#name#,
+				CODE=#code#,
+				ORDINAL=#ordinal#,
+				
+				VERSION=VERSION+1
+			WHERE ID=#id# AND VERSION=#version#
+		]]>
+	</update>
+	
+	<sql id="sql_where">
+		<dynamic prepend="WHERE">
+			<isNotNull property="id">
+				<isGreaterThan prepend="AND" property="id" compareValue="0"> ID=#id#</isGreaterThan>
+			</isNotNull>
+			<isNotNull prepend="AND" property="name"> NAME like upper('%$name$%') </isNotNull>
+			<isNotNull prepend="AND" property="code"> CODE = #code# </isNotNull>
+		</dynamic>
+		ORDER BY ID DESC
+	</sql>
+	
+	<sql id="sql_from">
+		FROM DICT_SCRIPT_TYPE
+		<include refid="sql_where" />
+	</sql>
+	
+	<select id="find" resultMap="dictScriptTypeResult">
+		<isGreaterThan property="_maxResult" compareValue="0">
+			<![CDATA[ SELECT * FROM ( ]]>		
+			<isGreaterThan property="_skipResult" compareValue="0"><![CDATA[ SELECT ROW_.*, ROWNUM ROWNUM_ FROM ( ]]></isGreaterThan>
+		</isGreaterThan>
+		<![CDATA[ SELECT * ]]>
+		<include refid="sql_from" />
+		<isNotNull property="_orderBy"><![CDATA[ ORDER BY $_orderBy$ ]]></isNotNull>
+		<isGreaterThan property="_maxResult" compareValue="0">
+			<isGreaterThan property="_skipResult" compareValue="0"><![CDATA[ ) ROW_ WHERE ROWNUM <= #_maxResult#) WHERE ROWNUM_ > #_skipResult# ]]></isGreaterThan>
+			<isLessEqual property="_skipResult" compareValue="0"><![CDATA[ ) WHERE ROWNUM <= #_maxResult# ]]></isLessEqual>
+		</isGreaterThan>
+	</select>
+	<select id="find_count" parameterClass="java.util.Map" resultClass="int">
+		<![CDATA[ SELECT COUNT(1) ]]>
+		<include refid="sql_from" />
+	</select>
+	
+	<select id="findAll" resultMap="dictScriptTypeResult">
+		<![CDATA[ SELECT * FROM DICT_SCRIPT_TYPE ]]>
+		<isNotNull property="_orderBy"><![CDATA[ ORDER BY $_orderBy$ ]]></isNotNull>
+	</select>
+	
+	<select id="findById" parameterClass="long" resultMap="dictScriptTypeResult">
+		<![CDATA[
+			SELECT * FROM DICT_SCRIPT_TYPE WHERE ID=#value#
+		]]>
+	</select>
+</sqlMap>

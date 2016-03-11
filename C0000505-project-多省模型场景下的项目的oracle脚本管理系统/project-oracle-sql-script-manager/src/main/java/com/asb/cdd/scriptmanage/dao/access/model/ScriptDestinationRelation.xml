@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="ScriptDestinationRelation">
+	<typeAlias alias="scriptDestinationRelation" type="com.asb.cdd.scriptmanage.dao.access.model.ScriptDestinationRelation" />
+	<resultMap id="scriptDestinationRelationResult" class="scriptDestinationRelation">
+		<result property="id" column="ID" javaType="long" jdbcType="NUMERIC" nullValue="0" />
+		<result property="version" column="VERSION" javaType="int" jdbcType="NUMERIC" nullValue="0" />
+		<result property="scriptId" column="SCRIPT_ID" javaType="long" jdbcType="NUMERIC" nullValue="0" />
+		<result property="destinationId" column="DESTINATION_ID" javaType="long" jdbcType="NUMERIC" nullValue="0" />
+	</resultMap>
+	<sql id="sql_sequence">
+		<![CDATA[
+			SELECT SEQ_R_SCRIPT_DESTINATION.NEXTVAL AS ID FROM DUAL
+		]]>
+	</sql>
+	<select id="sequence">
+		<include refid="sql_sequence" />
+	</select>
+
+	<insert id="create" parameterClass="scriptDestinationRelation">
+		<selectKey keyProperty="id" resultClass="int">
+			<include refid="sql_sequence" />
+		</selectKey>
+		<![CDATA[
+			INSERT INTO R_SCRIPT_DESTINATION (
+				ID, VERSION, 
+				SCRIPT_ID, DESTINATION_ID
+			) VALUES (
+				#id#, #version#, 
+				#scriptId#, #destinationId#
+			)
+		]]>
+	</insert>
+		
+	<update id="update" parameterClass="scriptDestinationRelation">
+		<![CDATA[
+			UPDATE R_SCRIPT_DESTINATION SET 
+				SCRIPT_ID=#scriptId#,
+				DESTINATION_ID=#destinationId#,
+				
+				VERSION=VERSION+1
+			WHERE ID=#id# AND VERSION=#version#
+		]]>
+	</update>
+	
+	<sql id="sql_where">
+		<dynamic prepend="WHERE">
+			<isNotNull property="id">
+				<isGreaterThan prepend="AND" property="id" compareValue="0"> ID=#id#</isGreaterThan>
+			</isNotNull>
+			<isNotNull property="scriptId">
+				<isGreaterThan prepend="AND" property="scriptId" compareValue="0"> SCRIPT_ID=#scriptId#</isGreaterThan>
+			</isNotNull>
+			<isNotNull property="destinationId">
+				<isGreaterThan prepend="AND" property="destinationId" compareValue="0"> DESTINATION_ID=#destinationId#</isGreaterThan>
+			</isNotNull>
+		</dynamic>
+		ORDER BY ID DESC
+	</sql>
+	
+	<sql id="sql_from">
+		FROM R_SCRIPT_DESTINATION
+		<include refid="sql_where" />
+	</sql>
+	
+	<select id="find" resultMap="scriptDestinationRelationResult">
+		<isGreaterThan property="_maxResult" compareValue="0">
+			<![CDATA[ SELECT * FROM ( ]]>		
+			<isGreaterThan property="_skipResult" compareValue="0"><![CDATA[ SELECT ROW_.*, ROWNUM ROWNUM_ FROM ( ]]></isGreaterThan>
+		</isGreaterThan>
+		<![CDATA[ SELECT * ]]>
+		<include refid="sql_from" />
+		<isNotNull property="_orderBy"><![CDATA[ ORDER BY $_orderBy$ ]]></isNotNull>
+		<isGreaterThan property="_maxResult" compareValue="0">
+			<isGreaterThan property="_skipResult" compareValue="0"><![CDATA[ ) ROW_ WHERE ROWNUM <= #_maxResult#) WHERE ROWNUM_ > #_skipResult# ]]></isGreaterThan>
+			<isLessEqual property="_skipResult" compareValue="0"><![CDATA[ ) WHERE ROWNUM <= #_maxResult# ]]></isLessEqual>
+		</isGreaterThan>
+	</select>
+	<select id="find_count" parameterClass="java.util.Map" resultClass="int">
+		<![CDATA[ SELECT COUNT(1) ]]>
+		<include refid="sql_from" />
+	</select>
+	
+	<select id="findAll" resultMap="scriptDestinationRelationResult">
+		<![CDATA[ SELECT * FROM R_SCRIPT_DESTINATION ]]>
+		<isNotNull property="_orderBy"><![CDATA[ ORDER BY $_orderBy$ ]]></isNotNull>
+	</select>
+	
+	<select id="findByScriptId" resultMap="scriptDestinationRelationResult">
+		<![CDATA[
+			SELECT 
+				* 
+			FROM 
+				R_SCRIPT_DESTINATION
+			 WHERE
+			 	SCRIPT_ID = #scriptId#
+		]]>
+	</select>
+</sqlMap>

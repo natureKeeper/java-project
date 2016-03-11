@@ -1,0 +1,534 @@
+.button_add {
+    background-image: url(../image/button/add.gif) !important;
+}
+.button_port_jumper {
+    background-image: url(../image/button/connect.gif) !important;
+}
+.button_port_connect {
+    background-image: url(../image/button/link_icon.png) !important;
+}
+.button_online{
+	border:#A8B565 1px solid;
+    background:#9CCF00;
+	width:90px;
+	height:20px;
+	font-size:13px;
+	font-weight:bold;
+	padding:5px;
+	MARGIN-RIGHT: auto;
+	MARGIN-LEFT: auto;
+	vertical-align:middle;
+	text-align: center;
+}
+
+.button_offline{
+	border:#C78D8C 1px solid;
+	background:#9CCF00;
+	width:90px;
+	height:20px;
+	font-size:13px;
+	font-weight:bold;
+	padding:5px;
+	MARGIN-RIGHT: auto;
+	MARGIN-LEFT: auto;
+	vertical-align:middle;
+	text-align: center; 
+}
+.bulkchange{
+	border:#C78D8C 1px solid;
+	background:#FF0000;
+	width:90px;
+	height:20px;
+	font-size:13px;
+	font-weight:bold;
+	padding:5px;
+	MARGIN-RIGHT: auto;
+	MARGIN-LEFT: auto;
+	vertical-align:middle;
+	text-align: center; 
+}
+.button_add_image {
+    background-image:url(../image/button/image_add.png) !important;
+}
+.button_delete {
+    background-image: url(../image/button/delete.gif) !important;
+}
+.button_split {
+    background-image: url(../image/button/split.jpg) !important;
+}
+.button_modify {
+    background-image: url(../image/button/modify.png) !important;
+}
+.button_save {
+    background-image: url(../image/button/save.gif) !important;
+}
+.button_search {
+    background-image: url(../image/button/icon_search_16x16.png) !important;
+}
+.button_refresh {
+    background-image: url(../image/button/refresh.png) !important;
+}
+.button_copy {
+    background-image: url(../image/button/copy.gif) !important;
+}
+
+.button_workflow {
+    background-image: url(../image/button/workflow.png) !important;
+}
+.button_reset {
+    background-image: url(../image/button/reset.png) !important;
+}
+.button_ok {
+    background-image: url(../image/button/icon_confirm_16x16.png) !important;
+}
+.button_cancel {
+    background-image: url(../image/button/icon_cancel_16x16.png) !important;
+}
+.button_empty {
+    background-image: url(../image/button/icon_clear_16x16.gif) !important;
+}
+.button_disable {
+    background-image: url(../image/button/disable.png) !important;
+}
+.button_enable {
+    background-image: url(../image/button/enable.png) !important;
+}
+.button_filter {
+    background-image: url(../image/button/filter.gif) !important;
+}
+.button_view {
+    background-image: url(../image/button/application_view_list.png) !important;
+}
+
+.button_group {
+    background-image: url(../image/button/group_0.png) !important;
+}
+.button_export {
+    background-image: url(../image/button/excel.png) !important;
+}
+.button_import {
+    background-image: url(../image/button/import.png) !important;
+}
+.button_ackclear {
+    background-image: url(../image/button/ackclear.png) !important;
+}
+.button_operation {
+    background-image: url(../image/button/operation.png) !important;
+}
+.button_confirm {
+    background-image: url(../image/button/confirm.gif) !important;
+}
+.button_close {
+    background-image: url(../image/button/close.png) !important;
+}
+.button_open {
+    background-image: url(../image/button/accordian.gif) !important;
+}
+.button_forward {
+    background-image: url(../image/button/forward.gif) !important;
+}
+.button_back {
+    background-image: url(../image/button/back.png) !important;
+}
+.button_node {
+    background-image: url(../image/button/node.png) !important;
+}
+.button_sync {
+    background-image: url(../image/button/sync.gif) !important;
+}
+.button_maintain {
+    background-image: url(../image/button/maintain.png) !important;
+}
+.button_start {
+    background-image: url(../image/button/start.png) !important;
+}
+.button_stop {
+    background-image: url(../image/button/stop.png) !important;
+}
+.button_upload {
+    background-image: url(../image/button/upload.png) !important;
+}
+.button_wrench_orange{
+    background-image: url(../image/button/wrench_orange.png) !important;
+}
+.button_location{
+    background-image: url(../../../../../../context/assets/business/equipment/placemark.16.png) !important;
+}
+
+.button_delete_view {
+	border: solid 0px #DFE8F6;
+	padding:0px;
+	background-image: url(../image/deleteView.jpg);
+	background-repeat: no-repeat;
+	background-position:center center;
+}
+
+.task {
+    background-image:url(../image/button/cog.png) !important;
+}
+.task-folder {
+    background-image:url(../image/button/folder_go.png) !important;
+}
+
+.fam_allocate {
+    background-image:url(../image/button/stop.png) !important;
+}
+.fam_release {
+    background-image:url(../image/button/class.gif) !important;
+}
+.fam_add {
+    background-image:url(../image/button/add.gif) !important;
+}
+.fam_application_go {
+    background-image:url(../image/button/application_go.png) !important;
+}
+.fam_application_view_list {
+    background-image:url(../image/button/application_view_list.png) !important;
+}
+.fam_book {
+    background-image:url(../image/button/book.png) !important;
+}
+.fam_cog {
+    background-image:url(../image/button/cog.png) !important;
+}
+.fam_cog_edit {
+    background-image:url(../image/button/cog_edit.png) !important;
+}
+.fam_connect {
+    background-image:url(../image/button/connect.png) !important;
+}
+.fam_cross {
+    background-image:url(../image/button/cross.gif) !important;
+}
+.fam_refresh {
+    background-image:url(../image/button/refresh.gif) !important;
+}
+.fam_clear {
+    background-image:url(../image/button/clear.gif) !important;
+}
+.fam_feed_delete {
+    background-image:url(../image/button/feed_delete.png) !important;
+}
+.fam_feed_error {
+    background-image:url(../image/button/feed_error.png) !important;
+}
+.fam_folder_go {
+    background-image:url(../image/button/folder_go.png) !important;
+}
+.fam_folder_wrench {
+    background-image:url(../image/button/folder_wrench.png) !important;
+}
+.fam_grid {
+    background-image:url(../image/button/grid.png) !important;
+}
+.fam_image_add {
+    background-image:url(../image/button/image_add.png) !important;
+}
+.fam_plugin {
+    background-image:url(../image/button/plugin.gif) !important;
+}
+.fam_plugin_add {
+    background-image:url(../image/button/plugin_add.gif) !important;
+}
+.fam_rss_go {
+    background-image:url(../image/button/rss_go.png) !important;
+}
+.fam_table_refresh {
+    background-image:url(../image/button/table_refresh.png) !important;
+}
+.fam_user {
+    background-image:url(../image/button/user.png) !important;
+}
+.fam_user_add {
+    background-image:url(../image/button/user_add.png) !important;
+}
+.fam_user_comment {
+    background-image:url(../image/button/user_comment.png) !important;
+}
+.fam_user_delete {
+    background-image:url(../image/button/user_delete.png) !important;
+}
+.fam_user_edit {
+    background-image:url(../image/button/user_edit.png) !important;
+}
+.fam_user_female {
+    background-image:url(../image/button/user_female.png) !important;
+}
+.fam_user_gray {
+    background-image:url(../image/button/user_gray.png) !important;
+}
+.fam_user_green {
+    background-image:url(../image/button/user_green.png) !important;
+}
+.fam_user_orange {
+    background-image:url(../image/button/user_orange.png) !important;
+}
+.fam_user_red {
+    background-image:url(../image/button/user_red.png) !important;
+}
+.fam_user_suit {
+    background-image:url(../image/button/user_suit.png) !important;
+}
+.fam_arrow-down {
+    background-image:url(../image/button/arrow-down.gif) !important;
+}
+.fam_arrow-up {
+    background-image:url(../image/button/arrow-up.gif) !important;
+}
+.fam_save {
+    background-image:url(../image/button/save.gif) !important;
+}
+.fam_excel {
+    background-image:url(../image/button/excel.png) !important;
+}
+.fam_find {
+    background-image:url(../image/button/find.gif) !important;
+}
+.fam_filter {
+    background-image:url(../image/button/filter.gif) !important;
+}
+.fam_print {
+    background-image:url(../image/button/print.png) !important;
+}
+.fam_stat {
+    background-image:url(../image/button/stat.png) !important;
+}
+.fam_asc {
+    background-image:url(../image/button/asc.gif) !important;
+}
+.fam_desc {
+    background-image:url(../image/button/desc.gif) !important;
+}
+.fam_in {
+    background-image:url(../image/button/in.png) !important;
+}
+.fam_out {
+    background-image:url(../image/button/out.png) !important;
+}
+.fam_layers {
+    background-image:url(../image/button/layers.png) !important;
+}
+.fam_property {
+    background-image:url(../image/button/property.png) !important;
+}
+.fam_over {
+    background-image:url(../image/button/over.png) !important;
+}
+.fam_project {
+    background-image:url(../image/button/project.png) !important;
+}
+.fam_pkg {
+    background-image:url(../image/button/pkg.gif) !important;
+}
+.fam_merge {
+    background-image:url(../image/button/merge.gif) !important;
+}
+.fam_process {
+    background-image:url(../image/button/process.png) !important;
+}
+.fam_arrow-down {
+    background-image:url(../image/button/arrow-down.gif) !important;
+}
+.fam_arrow-up {
+    background-image:url(../image/button/arrow-up.gif) !important;
+}
+.fam_save {
+    background-image:url(../image/button/save.gif) !important;
+}
+.fam_query_node {
+    background-image:url(../image/button/query_node.png) !important;
+}
+.fam_port {
+    background-image:url(../image/button/port.png) !important;
+}
+.fam_tree {
+    background-image:url(../image/button/tree.png) !important;
+}
+.fam_link_icon {
+    background-image:url(../image/button/link_icon.png) !important;
+}
+.fam_link_icon2 {
+    background-image:url(../image/button/link_icon2.png) !important;
+}
+.fam_modify {
+    background-image:url(../image/button/modify.png) !important;
+}
+.fam_putsetterm {
+    background-image:url(../image/button/putsetterm.png) !important;
+}
+.fam_user_mgmt {
+    background-image:url(../image/button/user_mgmt.gif) !important;
+}
+.fam_home {
+    background-image:url(../image/button/home.png) !important;
+}
+.fam_users {
+    background-image:url(../image/button/users.png) !important;
+}
+.fam_download {
+    background-image:url(../image/button/down.gif) !important;
+}
+.fam_equip1 {
+    background-image:url(../image/button/equip1.png) !important;
+}
+.fam_equip2 {
+    background-image:url(../image/button/equip2.png) !important;
+}
+.fam_equip3 {
+    background-image:url(../image/button/equip3.png) !important;
+}
+.fam_room {
+    background-image:url(../image/button/toolbar_room.png) !important;
+}
+.fam_site {
+    background-image:url(../image/button/toolbar_site.png) !important;
+}
+.fam_cover {
+    background-image:url(../image/button/toolbar_proCover.png) !important;
+}
+.fam_region {
+    background-image:url(../image/button/toolbar_region.png) !important;
+}
+.fam_site_jieru {
+    background-image:url(../image/button/site_jieru.png) !important;
+}
+.fam_site_yonghu{
+    background-image:url(../image/button/site_yonghu.png) !important;
+}
+.fam_site_juyong {
+    background-image:url(../image/button/site_juyong.png) !important;
+}
+.fam_site_huju {
+    background-image:url(../image/button/site_huju.png) !important;
+}
+.fam_assoc {
+	background-image:url(../image/button/assoc.png) !important;
+}
+.fam_disassoc {
+	background-image:url(../image/button/disassoc.png) !important;
+}
+.fam_ip_search {
+	background-image:url(../image/button/ip_search.png) !important;
+}
+.fam_arrow_redo {
+	background-image:url(../image/button/arrow_redo.png) !important;
+}
+.fam_earth {
+	background-image:url(../image/button/Earth-16.png) !important;
+}
+.fam_telephone {
+	background-image:url(../image/button/telephone.png) !important;
+}
+.fam_sms {
+	background-image:url(../image/button/sms.png) !important;
+}
+.fam_mms {
+	background-image:url(../image/button/mms.png) !important;
+}
+.fam_internet {
+	background-image:url(../image/button/internet.png) !important;
+}
+.fam_gprs {
+	background-image:url(../image/button/gprs.png) !important;
+}
+.fam_trans {
+	background-image:url(../image/button/trans.png) !important;
+}
+.fam_translocal {
+	background-image:url(../image/button/translocal.png) !important;
+}
+.fam_application_home {
+	background-image:url(../image/button/application_home.png) !important;
+}
+.fam_attach {
+	background-image:url(../image/button/attach.png) !important;
+}
+.fam_organisation {
+	background-image:url(../image/button/organisation.png) !important;
+}
+.fam_group_gear {
+	background-image:url(../image/button/group_gear.png) !important;
+}
+.fam_btssite {
+	background-image:url(../image/button/btssite.png) !important;
+}
+.fam_adddevice {
+	background-image:url(../image/button/device_add.png) !important;
+}
+.fam_jump {
+	background-image:url(../image/button/jump.png) !important;
+}
+.x-window-dlg .ext-mb-download {
+    background:transparent url(../image/button/download.gif) no-repeat top left;
+    height:46px;
+}
+/* style rows on mouseover */
+.x-grid3-row-over .x-grid3-cell-inner {
+    font-weight: bold;
+}
+.explorer_folder {
+	background-image:url(../../../../../../resource/business/explorer/folder.gif) !important;
+}
+.explorer_specialtytype {
+	background-image:url(../../../../../../resource/business/explorer/specialtytype.gif) !important;
+}
+.explorer_entitytype {
+	background-image:url(../../../../../../resource/business/explorer/entitytype.gif) !important;
+}
+.explorer_region {
+	background-image:url(../../../../../../resource/business/explorer/region.gif) !important;
+}
+.entitytype_province {
+	background-image:url(../../../../../../resource/business/explorer/region.gif) !important;
+}
+.entitytype_prefecture {
+	background-image:url(../../../../../../resource/business/explorer/region.gif) !important;
+}
+.entitytype_county {
+	background-image:url(../../../../../../resource/business/explorer/region.gif) !important;
+}
+.entitytype_township {
+	background-image:url(../../../../../../resource/business/explorer/region.gif) !important;
+}
+.entitytype_room {
+	background-image:url(../../../../../../resource/business/explorer/room.gif) !important;
+}
+.entitytype_site {
+	background-image:url(../../../../../../resource/business/explorer/site.gif) !important;
+}
+.explorer_device {
+	background-image:url(../../../../../../resource/business/explorer/device.gif) !important;
+}
+.entitytype_rack {
+	background-image:url(../../../../../../resource/business/explorer/rack.png) !important;
+}
+.entitytype_shelf {
+	background-image:url(../../../../../../resource/business/explorer/shelf.png) !important;
+}
+.entitytype_slot {
+	background-image:url(../../../../../../resource/business/explorer/slot.png) !important;
+}
+.entitytype_card {
+	background-image:url(../../../../../../resource/business/explorer/card.png) !important;
+}
+.entitytype_port {
+	background-image:url(../../../../../../resource/business/explorer/port.png) !important;
+}
+.entitytype_bsc {
+	background-image:url(../../../../../../resource/business/explorer/bsc.png) !important;
+}
+.entitytype_bts {
+	background-image:url(../../../../../../resource/business/explorer/bts.png) !important;
+}
+.entitytype_mgc {
+	background-image:url(../../../../../../resource/business/explorer/mgc.png) !important;
+}
+.entitytype_mgw {
+	background-image:url(../../../../../../resource/business/explorer/mgw.png) !important;
+}
+.entitytype_ipaddress {
+	background-image:url(../../../../../../resource/business/explorer/ipaddress.png) !important;
+}
+.entitytype_ipaddressrange {
+	background-image:url(../../../../../../resource/business/explorer/ipaddressrange.png) !important;
+}

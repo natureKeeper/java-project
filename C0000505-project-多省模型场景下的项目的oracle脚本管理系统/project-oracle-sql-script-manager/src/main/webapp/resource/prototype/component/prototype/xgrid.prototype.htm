@@ -1,0 +1,207 @@
+﻿<html>
+<head>
+<title>XList</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+
+<link href="./index.prototype.css" rel="stylesheet" type="text/css"></link>
+<link href="../theme/default/style/index.css" rel="stylesheet" type="text/css"></link>
+
+<script language="JavaScript" type="text/JavaScript" src="../../common/script/prototype.js"></script>
+<script language="JavaScript" type="text/JavaScript" src="../../common/script/commons.js"></script>
+<script language="JavaScript" type="text/JavaScript" src="../script/newxlist.js"></script>
+
+</head>
+
+<body style="margin:0;overflow-x:hidden;" scroll="no">
+
+
+
+
+
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function viewHtml(){
+	$("result").innerHTML = '<xmp>' + $('container').outerHTML + '</xmp>';
+}
+
+function listCell(r, c) {
+	var cell = list.cell(r , c);	
+	if(cell) {
+		$('result').innerHTML = 'cell.innerHTML = ' + cell.innerHTML;
+	} else {
+		$('result').innerHTML = 'cell not found';
+	}
+	
+}
+var row = {id:'id_1', data:['id_1','department1department1department1department1department1','name','sex','birthday','married','salar','title']};
+
+var rows = [
+	{id:'id_10', checked:false, data:['id_10','department1','name','sex','birthday','married','salar','title']},
+	{id:'id_20', checked:false, data:['id_20','department2','name','sex','birthday','married','salar','title']},
+	{id:'id_30', checked:false, data:['id_30','department3','name','sex','birthday','married','salar','title']},
+	{id:'id_40', checked:true, data:['id_40','department4','name','sex','birthday','married','salar','title']},
+	{id:'id_50', checked:false, bgColor:'#00F', data:['id_50','department5','name','sex','birthday','married','salar','title']},
+	{id:'id_60', checked:true, bgColor:'#00F', data:['id_60','department6','name','sex','birthday','married','salar','title']}	
+];
+
+var dimObjects = [
+	{mmeeid:'i1', name:'name1', code:'code1', title:'title1', department:'department1', birthday:'birthday1'},
+	{mmeeid:'i2', name:'name2', code:'code2\n', title:'title2', department:'department2', birthday:'birthday2'},
+	{mmeeid:'i3', name:'name3', code:'code3', title:'title3', department:'department3', birthday:'birthday3'},
+	{mmeeid:'i4', name:'name4', code:'code4', title:'title4', department:'department4', birthday:'birthday4'},
+	{mmeeid:'i5', name:'name5', code:'code5', title:'title5', department:'department5', birthday:'birthday5'},
+	{mmeeid:'i6', name:'name6', code:'code6', title:'title6', department:'department6', birthday:'birthday6'},
+	{mmeeid:'i7', name:'name7', code:'code7', title:'title7', department:'department7', birthday:'birthday7'},
+	{mmeeid:'i8', name:'name8', code:'code8', title:'title8', department:'department8', birthday:'birthday8'},
+	{mmeeid:'i9', name:'name9', code:'code9', title:'title9', department:'department9', birthday:'birthday9'}
+];
+
+var dimObject = 
+	{mmeeid:'_9', name:'name_9', code:'code_9', title:'title_9', department:'department_9', birthday:'birthday_9'};
+
+
+
+
+
+function resizeContainer() {
+	if(parseInt($('containerContainer').style.width) == 480) {
+		$('containerContainer').style.width = 560;
+		$('containerContainer').style.height = 360;
+	} else {	
+		$('containerContainer').style.width = 480;
+		$('containerContainer').style.height = 270;
+	}
+}
+function showResult(the, r) {
+	$('result').innerHTML = r;
+}
+//-->
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table style="width:100%;height:100%;" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td style="height:30;border-bottom:1 solid #CCC;" colspan="2">
+	<strong>XList</strong>
+</td>
+</tr>
+<tr>
+<td style="border-right:1 solid #CCC;padding:2;" align="center">
+
+	
+		
+	<table id="containerContainer" style="width:480;height:270;border:0;" cellspacing="0" cellpadding="0" border="0" align="center">
+	<tr>
+	<td style="width:100%;height:100%;">
+		<div id="container" style="height:100%;width:100%;border:1px solid #00F;"></div>
+	</td>
+	</tr>
+	</table>
+		
+	
+		
+	
+	<script language="JavaScript" type="text/JavaScript">
+	<!--
+	var list = new XList();
+	var columns = [
+		{name:'name',       text:'name中文',       width:'100'},
+		{name:'code',       text:'code中文',       width:'200'},
+		{name:'title',      text:'title中文',      width:'100'},
+		{name:'department', text:'department中文', width:'200'},
+		{name:'birthday',   text:'birthday中文',   width:'200'}
+	];
+	var columns2 = [
+		{name:'id',            text:'id',        width:'120'},
+		{name:'user.birthday', text:'birthday',  width:'120'},
+		{name:'user.married',  text:'married',   width:'120'},
+		{name:'user.salar',    text:'salar',     width:'120'},
+		{name:'user.title',    text:'title',     width:'120'},		
+		{name:'department',    text:'department',width:'120'},
+		{name:'user.name',     text:'name',      width:'120'},
+		{name:'22',            text:'sex',       width:'120'}
+	];
+	function onRowClick(p) {
+		$('result').innerHTML = $H(p).toQueryString();
+		/*
+		for(var i=0; i<p.row.cells.length; i++) {
+			$('result').innerHTML += '<br />' + p.row.cells[i].innerHTML;
+		}*/
+	}
+	var context = {
+		idProperty:'mmeeid',
+		container:'container', 
+		sequenced: true,
+		rowType:'checkbox', 
+		onRowClickHandler: onRowClick,
+		rowId:'testId'
+	};
+	
+
+	list.create(context, columns);
+	//alert($('containerContainer').innerHTML);
+	//-->
+	</script>
+
+
+</td>
+<td style="width:200;" align="center" valign="top">
+	<div class="box" style="padding:2;">
+	
+		<input class="bn" type="button" value="resize  改变大小" onclick="resizeContainer();" />
+		<input class="bn" type="button" value="add  添加一行" onclick="list.add(dimObject, false);" />
+		<input class="bn" type="button" value="addAll  添加多行" onclick="list.addAll(dimObjects);" />
+		<input class="bn" type="button" value="remove  删除选中记录" onclick="list.remove();" />
+		<input class="bn" type="button" value="clear  删除全部记录" onclick="list.clear();" />
+		<input class="bn" type="button" value="size  记录行数" onclick="showResult(this, 'size:<br />' + list.size());" />
+		<input class="bn" type="button" value="value  选中记录值" onclick="showResult(this, 'value:<br />' + list.value());" />
+		<input class="bn" type="button" value="valueAll  全部记录值" onclick="showResult(this, 'valueAll:<br />' + list.valueAll());" />
+		<input class="bn" type="button" value="serialize 序列化选中记录值" onclick="showResult(this, 'serialize:<br />' + list.serialize());" />
+		<input class="bn" type="button" value="serialize('id') 序列化选中记录值" onclick="showResult(this, 'serialize:<br />' + list.serialize('id'));" />
+		<input class="bn" type="button" value="serializeAll 序列化全部记录值" onclick="showResult(this, 'serializeAll:<br />' + list.serializeAll());" />
+		<input class="bn" type="button" value="setOrderByContext 设置排序" onclick="list.setOrderByContext({orderByName:'user.name', orderByType:'asc'});" />
+		<input class="bn" type="button" value="getOrderByContext 获取排序" onclick="showResult(this, 'orderBy:<br />' + $H(list.getOrderByContext()).toQueryString());" />
+		<input class="bn" type="button" value="setColumns 重设置列头" onclick="list.setColumns(columns2);" />		
+		<input class="bn" type="button" value="viewHtml  查看源代码" onclick="viewHtml();" />	
+		<!-- input class="bn" type="button" value="cell 2 , 0 定位单元格" onclick="listCell(2,0);" />
+		<input class="bn" type="button" value="cell 2 , 1 定位单元格" onclick="listCell(2,1);" / -->
+	
+	</div>
+</td>
+</tr>
+<tr>
+<td style="width:100%;height:100;border-top:1 solid #CCC;" colspan="2">
+
+	<table style="width:100%;height:100%;table-layout:fixed;" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+	<td>
+		<div id="result" style="width:100%;height:100%;overflow:auto;padding:2;table-layout:fixed;">result</div>
+	</td>
+	</tr>
+	</table>
+	
+</td>
+</tr>
+</table>
+
+
+
+</body>
+</html>
+
+
+
+

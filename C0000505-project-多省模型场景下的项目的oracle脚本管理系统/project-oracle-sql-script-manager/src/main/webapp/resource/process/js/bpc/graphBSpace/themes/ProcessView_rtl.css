@@ -1,0 +1,28 @@
+/* BEGIN COPYRIGHT
+ **************************************************************************
+ *
+ * Licensed Materials - Property of IBM
+ * 5655-FLW
+ * (C) Copyright IBM Corporation 2008. All Rights Reserved.
+ * US Government Users Restricted Rights- Use, duplication or disclosure
+ * restricted by GSA ADP Schedule Contract with IBM Corp.
+ *
+ **************************************************************************
+ * END COPYRIGHT */
+
+
+.taskTooltipText {
+        margin-right: 20px;
+}			
+
+.iconStateRefresh {
+        float: left;
+        margin-left: 5px;
+}
+
+.iconShowDetails {
+    background-image: url(../images/showDetails.gif);
+        float: left;
+        margin-left: 5px;
+}
+

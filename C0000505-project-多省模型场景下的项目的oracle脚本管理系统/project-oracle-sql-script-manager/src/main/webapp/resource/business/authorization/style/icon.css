@@ -1,0 +1,15 @@
+/**organization*/
+.organization_home { background-image: url(../image/organization_home.16.png) !important; }
+.organization_mobile { background-image: url(../image/organization_mobile.16.png) !important; }
+.organization_design { background-image: url(../image/organization_design.16.png) !important; }
+.organization_maintenence { background-image: url(../image/organization_maintenence.16.png) !important; }
+.organization_construction { background-image: url(../image/organization_construction.16.png) !important; }
+.organization_supply { background-image: url(../image/organization_supply.16.png) !important; }
+.organization_integration { background-image: url(../image/organization_integration.16.png) !important; }
+
+/**permission*/
+.permission_home { background-image: url(../image/permission_home.16.png) !important; }
+.permission_first { background-image: url(../image/permission_first.16.png) !important; }
+.permission_second { background-image: url(../image/permission_second.16.png) !important; }
+.permission_third { background-image: url(../image/permission_third.16.png) !important; }
+.permission_fourth { background-image: url(../image/permission_fourth.16.png) !important; }

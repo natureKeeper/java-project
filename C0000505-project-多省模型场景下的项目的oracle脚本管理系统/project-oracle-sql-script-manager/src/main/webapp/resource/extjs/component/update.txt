@@ -1,0 +1,20 @@
+1.Ext.form.Field
+add by john
+增加html的title属性
+增加setValue()方法触发change事件。
+
+2.Ext.grid.PropertyColumnModel
+add by john
+解决name,value 2列的宽度设置
+nameSortable name列是否排序
+3.Ext.grid.PropertyGrid
+注释掉store.store.sort('name', 'ASC');
+解决默认不排序
+
+4.
+超时更改30000-->300000
+timeout:300000
+一共2处
+
+5.Ext.tree.DefaultSelectionModel select方法
+增加：node.ui!=null&&!Ext.isEmpty(node.ui.wrap)

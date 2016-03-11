@@ -1,0 +1,141 @@
+<!--
+   Licensed Materials - Property of IBM
+   5655-FLW
+   (C) Copyright IBM Corporation 2008. All Rights Reserved.
+   US Government Users Restricted Rights- Use, duplication or disclosure
+   restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+
+<div id="lhtabs" dojoType="dijit.layout.TabContainer" tabPosition="left-h" style="width: 500px; height: 500px">
+    <div id="lhtab1" dojoType="dijit.layout.ContentPane" title="Description">
+        <table class="innerDialog">
+            <tr>
+                <td><label for="name">Name: </label></td>
+                <td><input type="text" size="25" id="name"></td>
+            </tr>
+            <tr>
+                <td><label for="displayName">Display Name: </label></td>
+                <td><input type="text" size="32" id="displayName"></td>
+            </tr>
+            <tr>
+                <td><label for="description">Description: </label></td>
+                <td><input type="text" size="32" id="description"></td>
+            </tr>
+            <tr>
+                <td><label for="documentation">Documentation: </label></td>
+            </tr>
+            <tr>
+                <td colspan="2"><textarea id="documentation" rows=5 cols=50></textarea></td>
+            </tr>
+        </table>
+    </div>
+    <div id="lhtab2" dojoType="dijit.layout.ContentPane" title="Interface">
+        <table class="innerDialog">
+            <tr>
+                <td><label for="portTypes">Interface: </label></td>
+                <td><select id="portTypes"
+                    name="interface"
+                    dojoType="dijit.form.ComboBox"
+                    class="medium"
+                    autocomplete="true"
+                    onChange="dijit.byId('propertiesDialog').propertyManager.setPortType(this.getValue())">
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="operation">Operation: </label></td>
+                <td><select id="operation"
+                    name="operation"
+                    dojoType="dijit.form.ComboBox"
+                    class="medium"
+                    autocomplete="true"
+                    onChange="dijit.byId('propertiesDialog').propertyManager.setOperation(this.getValue())">
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="input">Input: </label></td>
+                <td><select id="input"
+                    name="input"
+                    dojoType="dijit.form.ComboBox"
+                    class="medium"
+                    autocomplete="true"
+                    onChange="dijit.byId('propertiesDialog').propertyManager.setInput(this.getValue())">
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="output">Output: </label></td>
+                <td><select id="output"
+                    name="output"
+                    dojoType="dijit.form.ComboBox"
+                    class="medium"
+                    autocomplete="true"
+                    onChange="dijit.byId('propertiesDialog').propertyManager.setOutput(this.getValue())">
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="lhtab3" dojoType="dijit.layout.ContentPane" title="Details">
+        <table class="innerDialog">
+            <tr>
+                <td><label for="priority">Priority: </label></td>
+                <td><input type="text" id="priority"></td>
+            </tr>
+            <tr><td colspan="2"><input type="checkbox" name="businessRelevance" id="businessRelevance" /><label for="businessRelevance">Enable persistence of business-relevant data </label></td></tr>
+            <tr><td colspan="2"><input type="checkbox" name="autoClaim" id="autoClaim" /><label for="autoClaim">Enable auto claim </label></td></tr>
+            <tr><td colspan="2"><input type="checkbox" name="claimWhenSuspended" id="claimWhenSuspended" /><label for="claimWhenSuspended">Enable claim when suspended</label></td></tr>
+            <tr><td colspan="2"><input type="checkbox" name="readerAuthorization" id="readerAuthorization" /><label for="readerAuthorization">Owner has reader authorization of context</label></td></tr>
+            <tr><td colspan="2"><input type="checkbox" name="subtaskCreation" id="subtaskCreation" checked="checked"/><label for="subtaskCreation">Enable subtask creation </label></td></tr>
+            <tr><td colspan="2"><input type="checkbox" name="followOnCreation" id="followOnCreation" checked="checked"/><label for="followOnCreation">Enable follow-on task creation </label></td></tr>
+            <tr><td colspan="2"><input type="checkbox" name="transferWorkItem" id="transferWorkItem" checked="checked"/><label for="transferWorkItem">Transfer work items </label></td></tr>
+        </table>
+    </div>
+    <div id="lhtab4" dojoType="dijit.layout.ContentPane" title="Authorization">
+        <table class="innerDialog">
+            <tr><td><span><b>Administrator</b></span></td></tr>
+            <tr><td><input type="radio" name="admin" id="admin4" value="nobody" checked="true" dojoType="dijit.form.RadioButton"/>
+            <label for="admin4">Not specified</label></td></tr>
+            <tr><td><input type="radio" name="admin" id="admin1" value="everybody" dojoType="dijit.form.RadioButton"/>
+            <label for="admin1">Everybody</label></td></tr>
+            <tr><td><input type="radio" name="admin" id="admin2" value="users" dojoType="dijit.form.RadioButton"/>
+            <label for="admin2">Users</label></td><td><input type="text" id="adminUsers"></td></tr>
+            <tr><td><input type="radio" name="admin" id="admin3" value="groups" dojoType="dijit.form.RadioButton"/>
+            <label for="admin3">Groups</label></td><td><input type="text" id="adminGroups"></td></tr>
+
+            <tr><td><br><span><b>Potential Owner</b></span></td></tr>
+            <tr><td><input type="radio" name="powner" id="powner4" value="nobody" checked="true" dojoType="dijit.form.RadioButton"/>
+            <label for="powner4">Not specified</label></td></tr>
+            <tr><td><input type="radio" name="powner" id="powner1" value="everybody" dojoType="dijit.form.RadioButton"/>
+            <label for="powner1">Everybody</label></td></tr>
+            <tr><td><input type="radio" name="powner" id="powner2" value="users" dojoType="dijit.form.RadioButton"/>
+            <label for="powner2">Users</label></td><td><input type="text" id="pownerUsers"></td></tr>
+            <tr><td><input type="radio" name="powner" id="powner3" value="groups" dojoType="dijit.form.RadioButton"/>
+            <label for="powner3">Groups</label></td><td><input type="text" id="pownerGroups"></td></tr>
+
+            <tr><td><br><span><b>Editor</b></span></td></tr>
+            <tr><td><input type="radio" name="editor" id="editor4" value="nobody" checked="true" dojoType="dijit.form.RadioButton"/>
+            <label for="editor4">Not specified</label></td></tr>
+            <tr><td><input type="radio" name="editor" id="editor1" value="everybody" dojoType="dijit.form.RadioButton"/>
+            <label for="editor1">Everybody</label></td></tr>
+            <tr><td><input type="radio" name="editor" id="editor2" value="users" dojoType="dijit.form.RadioButton"/>
+            <label for="editor2">Users</label></td><td><input type="text" id="editorUsers"></td></tr>
+            <tr><td><input type="radio" name="editor" id="editor3" value="groups" dojoType="dijit.form.RadioButton"/>
+            <label for="editor3">Groups</label></td><td><input type="text" id="editorGroups"></td></tr>
+
+            <tr><td><br><span><b>Reader</b></span></td></tr>
+            <tr><td><input type="radio" name="reader" id="reader4" value="nobody" checked="true" dojoType="dijit.form.RadioButton"/>
+            <label for="reader4">Not specified</label></td></tr>
+            <tr><td><input type="radio" name="reader" id="reader1" value="everybody" dojoType="dijit.form.RadioButton"/>
+            <label for="reader1">Everybody</label></td></tr>
+            <tr><td><input type="radio" name="reader" id="reader2" value="users" dojoType="dijit.form.RadioButton"/>
+            <label for="reader2">Users</label></td><td><input type="text" id="readerUsers"></td></tr>
+            <tr><td><input type="radio" name="reader" id="reader3" value="groups" dojoType="dijit.form.RadioButton"/>
+            <label for="reader3">Groups</label></td><td><input type="text" id="readerGroups"></td></tr>
+        </table>
+    </div>
+</div>
+<button dojoType="dijit.form.Button" type="submit">OK</button>
+<button dojoType="dijit.form.Button" type="button" onclick="dijit.byId('propertiesDialog').propertyManager.cancel();">Cancel</button>
+

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Destination">
+	<typeAlias alias="destination" type="com.asb.cdd.scriptmanage.dao.access.model.Destination" />
+	<resultMap id="destinationResult" class="destination">
+		<result property="id" column="ID" javaType="long" jdbcType="NUMERIC" nullValue="0" />
+		<result property="version" column="VERSION" javaType="int" jdbcType="NUMERIC" nullValue="0" />
+		<result property="name" column="NAME" javaType="string" jdbcType="VARCHAR" />
+		<result property="code" column="CODE" javaType="string" jdbcType="VARCHAR" />
+		<result property="scriptExecutePathInPlsql" column="SCRIPT_EXEC_PATH_IN_PLSQL" javaType="string" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="sql_sequence">
+		<![CDATA[
+			SELECT SEQ_T_DESTINATION.NEXTVAL AS ID FROM DUAL
+		]]>
+	</sql>
+	<select id="sequence">
+		<include refid="sql_sequence" />
+	</select>
+
+	<insert id="create" parameterClass="destination">
+		<selectKey keyProperty="id" resultClass="int">
+			<include refid="sql_sequence" />
+		</selectKey>
+		<![CDATA[
+			INSERT INTO T_DESTINATION (
+				ID, VERSION, 
+				NAME, CODE, SCRIPT_EXEC_PATH_IN_PLSQL
+			) VALUES (
+				#id#, #version#, 
+				#name#,	#code#, #scriptExecutePathInPlsql#
+			)
+		]]>
+	</insert>
+		
+	<update id="update" parameterClass="destination">
+		<![CDATA[
+			UPDATE T_DESTINATION SET 
+				NAME=#name#,
+				CODE=#code#,
+				SCRIPT_EXEC_PATH_IN_PLSQL = #scriptExecutePathInPlsql#,
+				
+				VERSION=VERSION+1
+			WHERE ID=#id# AND VERSION=#version#
+		]]>
+	</update>
+	
+	<sql id="sql_where">
+		<dynamic prepend="WHERE">
+			<isNotNull property="id">
+				<isGreaterThan prepend="AND" property="id" compareValue="0"> ID=#id#</isGreaterThan>
+			</isNotNull>
+			<isNotNull prepend="AND" property="name"> NAME like upper('%$name$%') </isNotNull>
+		</dynamic>
+		ORDER BY ID DESC
+	</sql>
+	
+	<sql id="sql_from">
+		FROM T_DESTINATION
+		<include refid="sql_where" />
+	</sql>
+	
+	<select id="find" resultMap="destinationResult">
+		<isGreaterThan property="_maxResult" compareValue="0">
+			<![CDATA[ SELECT * FROM ( ]]>		
+			<isGreaterThan property="_skipResult" compareValue="0"><![CDATA[ SELECT ROW_.*, ROWNUM ROWNUM_ FROM ( ]]></isGreaterThan>
+		</isGreaterThan>
+		<![CDATA[ SELECT * ]]>
+		<include refid="sql_from" />
+		<isNotNull property="_orderBy"><![CDATA[ ORDER BY $_orderBy$ ]]></isNotNull>
+		<isGreaterThan property="_maxResult" compareValue="0">
+			<isGreaterThan property="_skipResult" compareValue="0"><![CDATA[ ) ROW_ WHERE ROWNUM <= #_maxResult#) WHERE ROWNUM_ > #_skipResult# ]]></isGreaterThan>
+			<isLessEqual property="_skipResult" compareValue="0"><![CDATA[ ) WHERE ROWNUM <= #_maxResult# ]]></isLessEqual>
+		</isGreaterThan>
+	</select>
+	<select id="find_count" parameterClass="java.util.Map" resultClass="int">
+		<![CDATA[ SELECT COUNT(1) ]]>
+		<include refid="sql_from" />
+	</select>
+	
+	<select id="findAll" resultMap="destinationResult">
+		<![CDATA[ SELECT * FROM T_DESTINATION ]]>
+		<isNotNull property="_orderBy"><![CDATA[ ORDER BY $_orderBy$ ]]></isNotNull>
+	</select>
+	
+	<select id="findById" parameterClass="long" resultMap="destinationResult">
+		<![CDATA[
+			SELECT * FROM T_DESTINATION WHERE ID=#value#
+		]]>
+	</select>
+	
+	<select id="findByIds" parameterClass="java.util.Map" resultMap="destinationResult">
+		<![CDATA[
+			SELECT * FROM T_DESTINATION WHERE ID IN
+		]]>
+		<iterate property="ids" open="(" close=")" conjunction=",">
+			#ids[]#
+		</iterate>
+	</select>
+</sqlMap>

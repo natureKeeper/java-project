@@ -1,0 +1,28 @@
+﻿
+
+.icon16            ,
+.icon16_exchange   ,
+.icon16_address    ,
+.icon16_officedirection    ,
+.icon16_dictionary ,
+.icon16_pstnexchange {
+	width:16;
+	height:16;
+	border:0;	
+}
+
+.icon16_dictionary      { background:url(../image/icon/16/dictionary.png) no-repeat 0 0;}
+.icon16_address         { background:url(../image/icon/16/icon_address.gif) no-repeat 0 0;}
+.icon16_officedirection { background:url(../image/icon/16/icon_officedirection.gif) no-repeat 0 0;}
+.icon16_exchange        { background:url(../image/icon/16/exchange.gif)  no-repeat 0 0;}
+.icon16_pstnexchange    { background:url(../image/icon/16/pstnexchange.gif)  no-repeat 0 0;}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="ScriptEnvironmentRelation">
+	<typeAlias alias="scriptEnvironmentRelation" type="com.asb.cdd.scriptmanage.dao.access.model.ScriptEnvironmentRelation" />
+	<resultMap id="scriptEnvironmentRelationResult" class="scriptEnvironmentRelation">
+		<result property="id" column="ID" javaType="long" jdbcType="NUMERIC" nullValue="0" />
+		<result property="version" column="VERSION" javaType="int" jdbcType="NUMERIC" nullValue="0" />
+		<result property="scriptId" column="SCRIPT_ID" javaType="long" jdbcType="NUMERIC" nullValue="0" />
+		<result property="environmentId" column="ENVIRONMENT_ID" javaType="long" jdbcType="NUMERIC" nullValue="0" />
+		<result property="status" column="STATUS" javaType="int" jdbcType="NUMERIC" nullValue="0" />
+		<result property="executePoint" column="EXECUTE_POINT" javaType="int" jdbcType="NUMERIC" nullValue="0" />
+		<result property="latestLogId" column="LATEST_LOG_ID" javaType="long" jdbcType="NUMERIC" nullValue="0" />
+		<result property="latestExecuteTime" column="LATEST_EXEC_TIME" />
+		<result property="latestElapsedTime" column="LATEST_ELAPSED_TIME" javaType="string" jdbcType="VARCHAR" />
+		<result property="latestExecSeq" column="LATEST_EXEC_SEQ" javaType="long" jdbcType="NUMERIC" nullValue="0" />		
+	</resultMap>
+	<sql id="sql_sequence">
+		<![CDATA[
+			SELECT SEQ_R_SCRIPT_ENVIRONMENT.NEXTVAL AS ID FROM DUAL
+		]]>
+	</sql>
+	<select id="sequence">
+		<include refid="sql_sequence" />
+	</select>
+
+	<insert id="create" parameterClass="scriptEnvironmentRelation">
+		<selectKey keyProperty="id" resultClass="int">
+			<include refid="sql_sequence" />
+		</selectKey>
+		<![CDATA[
+			INSERT INTO R_SCRIPT_ENVIRONMENT (
+				ID, VERSION, 
+				SCRIPT_ID, ENVIRONMENT_ID, STATUS, EXECUTE_POINT, LATEST_LOG_ID, LATEST_EXEC_TIME, LATEST_ELAPSED_TIME, 
+				LATEST_EXEC_SEQ
+			) VALUES (
+				#id#, #version#, 
+				#scriptId#, #environmentId#, #status#, #executePoint#, #latestLogId#, #latestExecuteTime#, #latestElapsedTime#,
+				#latestExecSeq#
+			)
+		]]>
+	</insert>
+		
+	<update id="update" parameterClass="scriptEnvironmentRelation">
+		<![CDATA[
+			UPDATE R_SCRIPT_ENVIRONMENT SET 
+				SCRIPT_ID=#scriptId#,
+				ENVIRONMENT_ID=#environmentId#,
+				STATUS = #status#,
+				EXECUTE_POINT = #executePoint#,
+				LATEST_LOG_ID = #latestLogId#,
+				LATEST_EXEC_TIME = #latestExecuteTime#,
+				LATEST_ELAPSED_TIME = #latestElapsedTime#,
+				LATEST_EXEC_SEQ = #latestExecSeq#,
+				
+				VERSION=VERSION+1
+			WHERE ID=#id# AND VERSION=#version#
+		]]>
+	</update>
+	
+	<sql id="sql_where">
+		<dynamic prepend="WHERE">
+			<isNotNull property="id">
+				<isGreaterThan prepend="AND" property="id" compareValue="0"> ID=#id#</isGreaterThan>
+			</isNotNull>
+			<isNotNull property="status">
+				<isGreaterThan prepend="AND" property="status" compareValue="0"> STATUS=#status#</isGreaterThan>
+			</isNotNull>
+			<isNotNull property="executePoint">
+				<isGreaterThan prepend="AND" property="executePoint" compareValue="0"> EXECUTE_POINT=#executePoint#</isGreaterThan>
+			</isNotNull>
+			<isNotNull property="scriptId">
+				<isGreaterThan prepend="AND" property="scriptId" compareValue="0"> SCRIPT_ID=#scriptId#</isGreaterThan>
+			</isNotNull>
+			<isNotNull property="environmentId">
+				<isGreaterThan prepend="AND" property="environmentId" compareValue="0"> ENVIRONMENT_ID=#environmentId#</isGreaterThan>
+			</isNotNull>
+		</dynamic>
+		ORDER BY ID DESC
+	</sql>
+	
+	<sql id="sql_from">
+		FROM R_SCRIPT_ENVIRONMENT
+		<include refid="sql_where" />
+	</sql>
+	
+	<select id="find" resultMap="scriptEnvironmentRelationResult">
+		<isGreaterThan property="_maxResult" compareValue="0">
+			<![CDATA[ SELECT * FROM ( ]]>		
+			<isGreaterThan property="_skipResult" compareValue="0"><![CDATA[ SELECT ROW_.*, ROWNUM ROWNUM_ FROM ( ]]></isGreaterThan>
+		</isGreaterThan>
+		<![CDATA[ SELECT * ]]>
+		<include refid="sql_from" />
+		<isNotNull property="_orderBy"><![CDATA[ ORDER BY $_orderBy$ ]]></isNotNull>
+		<isGreaterThan property="_maxResult" compareValue="0">
+			<isGreaterThan property="_skipResult" compareValue="0"><![CDATA[ ) ROW_ WHERE ROWNUM <= #_maxResult#) WHERE ROWNUM_ > #_skipResult# ]]></isGreaterThan>
+			<isLessEqual property="_skipResult" compareValue="0"><![CDATA[ ) WHERE ROWNUM <= #_maxResult# ]]></isLessEqual>
+		</isGreaterThan>
+	</select>
+	<select id="find_count" parameterClass="java.util.Map" resultClass="int">
+		<![CDATA[ SELECT COUNT(1) ]]>
+		<include refid="sql_from" />
+	</select>
+	
+	<select id="findAll" resultMap="scriptEnvironmentRelationResult">
+		<![CDATA[ SELECT * FROM R_SCRIPT_ENVIRONMENT ]]>
+		<isNotNull property="_orderBy"><![CDATA[ ORDER BY $_orderBy$ ]]></isNotNull>
+	</select>
+	
+	<select id="findById" parameterClass="long" resultMap="scriptEnvironmentRelationResult">
+		<![CDATA[
+			SELECT * FROM R_SCRIPT_ENVIRONMENT WHERE ID=#value#
+		]]>
+	</select>
+	
+	<select id="findByScriptId" resultMap="scriptEnvironmentRelationResult">
+		<![CDATA[
+			SELECT 
+				* 
+			FROM 
+				R_SCRIPT_ENVIRONMENT
+			 WHERE
+			 	SCRIPT_ID = #scriptId#
+		]]>
+	</select>
+	
+	<select id="findUnSuccessRelationWithScriptIds" parameterClass="java.util.Map" resultMap="scriptEnvironmentRelationResult">
+		<![CDATA[
+			SELECT * FROM R_SCRIPT_ENVIRONMENT WHERE 
+			STATUS != 4
+			AND SCRIPT_ID IN
+		]]>
+		<iterate property="scriptIds" open="(" close=")" conjunction=",">
+			#scriptIds[]#
+		</iterate>
+	</select>
+
+</sqlMap>

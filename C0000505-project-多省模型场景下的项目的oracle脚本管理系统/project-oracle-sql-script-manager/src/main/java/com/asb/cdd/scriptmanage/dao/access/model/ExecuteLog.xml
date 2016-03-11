@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="ExecuteLog">
+	<typeAlias alias="executeLog" type="com.asb.cdd.scriptmanage.dao.access.model.ExecuteLog" />
+	<resultMap id="executeLogResult" class="executeLog">
+		<result property="id" column="ID" javaType="long" jdbcType="NUMERIC" nullValue="0" />
+		<result property="version" column="VERSION" javaType="int" jdbcType="NUMERIC" nullValue="0" />
+		<result property="createTime" column="CREATETIME" javaType="date" jdbcType="DATE" />
+		<result property="taskId" column="TASK_ID" javaType="long" jdbcType="NUMERIC" nullValue="0" />
+		<result property="scriptId" column="SCRIPT_ID" javaType="long" jdbcType="NUMERIC" nullValue="0" />
+		<result property="environmentId" column="ENVIRONMENT_ID" javaType="long" jdbcType="NUMERIC" nullValue="0" />
+		<result property="title" column="TITLE" javaType="string" jdbcType="VARCHAR" />
+		<result property="logFileLocation" column="LOG_FILE_LOCATION" javaType="string" jdbcType="VARCHAR" />
+		<result property="elapsedTime" column="ELAPSED_TIME" javaType="string" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="sql_sequence">
+		<![CDATA[
+			SELECT SEQ_T_EXECUTE_LOG.NEXTVAL AS ID FROM DUAL
+		]]>
+	</sql>
+	<select id="sequence">
+		<include refid="sql_sequence" />
+	</select>
+
+	<insert id="create" parameterClass="executeLog">
+		<selectKey keyProperty="id" resultClass="int">
+			<include refid="sql_sequence" />
+		</selectKey>
+		<![CDATA[
+			INSERT INTO T_EXECUTE_LOG (
+				ID, VERSION, 
+				CREATETIME, TASK_ID, SCRIPT_ID, ENVIRONMENT_ID, TITLE, LOG_FILE_LOCATION, ELAPSED_TIME
+			) VALUES (
+				#id#, #version#, 
+				#createTime#, #taskId#, #scriptId#, #environmentId#, #title#, #logFileLocation#, #elapsedTime#
+			)
+		]]>
+	</insert>
+		
+	<update id="update" parameterClass="executeLog">
+		<![CDATA[
+			UPDATE T_EXECUTE_LOG SET 
+				NAME=#name#,
+				CREATETIME=#createTime#,
+				TASK_ID=#taskId#,
+				SCRIPT_ID=#scriptId#,
+				ENVIRONMENT_ID=#environmentId#,
+				TITLE = #title#,
+				LOG_FILE_LOCATION = #logFileLocation#,
+				ELAPSED_TIME = #elapsedTime#,
+				
+				VERSION=VERSION+1
+			WHERE ID=#id# AND VERSION=#version#
+		]]>
+	</update>
+	
+	<sql id="sql_where">
+		<dynamic prepend="WHERE">
+			<isNotNull property="id">
+				<isGreaterThan prepend="AND" property="id" compareValue="0"> ID=#id#</isGreaterThan>
+			</isNotNull>
+		</dynamic>
+		ORDER BY ID DESC
+	</sql>
+	
+	<sql id="sql_from">
+		FROM T_EXECUTE_LOG
+		<include refid="sql_where" />
+	</sql>
+	
+	<select id="find" resultMap="executeLogResult">
+		<isGreaterThan property="_maxResult" compareValue="0">
+			<![CDATA[ SELECT * FROM ( ]]>		
+			<isGreaterThan property="_skipResult" compareValue="0"><![CDATA[ SELECT ROW_.*, ROWNUM ROWNUM_ FROM ( ]]></isGreaterThan>
+		</isGreaterThan>
+		<![CDATA[ SELECT * ]]>
+		<include refid="sql_from" />
+		<isNotNull property="_orderBy"><![CDATA[ ORDER BY $_orderBy$ ]]></isNotNull>
+		<isGreaterThan property="_maxResult" compareValue="0">
+			<isGreaterThan property="_skipResult" compareValue="0"><![CDATA[ ) ROW_ WHERE ROWNUM <= #_maxResult#) WHERE ROWNUM_ > #_skipResult# ]]></isGreaterThan>
+			<isLessEqual property="_skipResult" compareValue="0"><![CDATA[ ) WHERE ROWNUM <= #_maxResult# ]]></isLessEqual>
+		</isGreaterThan>
+	</select>
+	<select id="find_count" parameterClass="java.util.Map" resultClass="int">
+		<![CDATA[ SELECT COUNT(1) ]]>
+		<include refid="sql_from" />
+	</select>
+
+	<select id="findById" parameterClass="long" resultMap="executeLogResult">
+		<![CDATA[
+			SELECT * FROM T_EXECUTE_LOG WHERE ID=#value#
+		]]>
+	</select>
+	
+	<select id="findByIds" parameterClass="java.util.Map" resultMap="executeLogResult">
+		<![CDATA[
+			SELECT * FROM T_EXECUTE_LOG WHERE ID IN
+		]]>
+		<iterate property="ids" open="(" close=")" conjunction=",">
+			#ids[]#
+		</iterate>
+	</select>
+</sqlMap>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd" default-lazy-init="true">
+
+	<bean id="passwordEncoder" class="common.encrypt.Md5PasswordEncoder" />
+
+	<bean id="userSessionManagementService" class="com.irm.system.usersession.management.impl.UserSessionManagementServiceImpl" parent="abstractDataAccessService" init-method="init" autowire="byName">
+		<!--property name="auditLogManagementService" ref="targetAuditLogManagementService" /-->
+		<property name="passwordEncoder" ref="passwordEncoder" />
+		<!--property name="userSessionLogAccessService" ref="userSessionLogAccessService"/-->
+
+		<property name="cache" ref="cache" />
+		<!--property name="preferenceManagementService" ref="preferenceManagementService"/-->
+		<property name="userSessionAccessService" ref="userSessionAccessService"/>
+	</bean>
+	
+	<bean id="userSessionAccessService" class="com.irm.system.access.namespace.service.impl.UserSessionAccessServiceImpl" parent="abstractNamespaceAccessService">
+	</bean>
+	
+	<bean id="userAccessService" class="com.irm.system.access.namespace.service.impl.UserAccessServiceImpl" parent="abstractNamespaceAccessService">			
+	</bean>
+   
+</beans>

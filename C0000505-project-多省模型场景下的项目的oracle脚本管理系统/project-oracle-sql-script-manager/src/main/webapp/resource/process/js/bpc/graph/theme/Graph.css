@@ -1,0 +1,332 @@
+/* BEGIN COPYRIGHT
+ **************************************************************************
+ *
+ * Licensed Materials - Property of IBM
+ * 5655-FLW
+ * (C) Copyright IBM Corporation 2008, 2009. All Rights Reserved.
+ * US Government Users Restricted Rights- Use, duplication or disclosure
+ * restricted by GSA ADP Schedule Contract with IBM Corp.
+ *
+ **************************************************************************
+ * END COPYRIGHT */
+
+.scrollContainer * {
+	font-family: Arial, Verdana, Helvetica, sans-serif; 
+	font-size: 100%;
+}
+
+.base {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.scrollContainer {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-left: 20px;
+}
+
+.linkSphere {
+	z-Index: 90;
+}
+
+.decorations {
+	z-Index: 80;
+}
+
+.overview {
+	position: absolute;
+	z-Index: 500;
+	//border: 1px solid grey;
+	opacity: 0.5;
+	filter:alpha(opacity=50);
+	background-color: white;
+        //overflow: hidden;
+}
+
+.overviewNode {
+	position: absolute;
+	border: 1px solid grey;
+	background-color: grey;
+        overflow: hidden;
+}
+
+.overviewFrame {
+	position: absolute;
+	border: 1px solid grey;
+        overflow: hidden;
+}
+
+.overViewClip {
+	position: absolute;
+	border: 1px solid red;
+	background-color: yellow;
+	opacity: 0.3;
+	filter:alpha(opacity=30);
+        overflow: hidden;
+}
+
+.simpleNode {
+	display: block;
+	position: absolute;
+	cursor: pointer;
+	border: 1px solid gray;
+	background-color: #EEEEEE;
+	color: black;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+	-moz-border-radius: 0.8em;
+	white-space: nowrap;
+	z-index: 100;
+}
+
+.simpleHead {
+	display: block;
+	position: absolute;
+	cursor: pointer;
+	border: 1px solid gray;
+	background-color: #EEEEEE;
+	color: black;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+	-moz-border-radius: 0.8em;
+	white-space: nowrap;
+	z-index: 100;
+}
+
+.simpleStructuredNode {
+        display: block;
+        position: absolute;
+        border: 1px solid black;
+		-moz-border-radius: 0.8em;
+}
+
+.iconCollapse {
+        display: block;
+        position: absolute;
+		width: 9px;
+		height: 9px;
+	    background-image: url(../images/collapse.gif);
+            background-repeat: no-repeat;
+}
+
+.iconExpand {
+        display: block;
+        position: absolute;
+		width: 9px;
+		height: 9px;
+	    background-image: url(../images/expand.gif);
+            background-repeat: no-repeat;
+}
+
+.resizeIcon {
+        display: block;
+        position: absolute;
+	    background-image: url(../images/resizeHandle.gif);
+		width: 20px;
+		height: 20px;
+}
+
+.linkVGrey {
+        position: absolute;
+		border: none;
+	    background-image: url(../images/linkVGrey.gif);
+		background-position: 0px 0px;
+		width: 10px;
+                overflow: hidden;
+        z-index: 3;
+}
+
+.linkHGrey {
+        position: absolute;
+		border: none;
+	    background-image: url(../images/linkHGrey.gif);
+		background-position: 0px 0px;
+		height: 10px;
+                overflow: hidden;
+        z-index: 3;
+}
+
+.linkVArrowGrey {
+        position: absolute;
+		border: none;
+	    background-image: url(../images/linkVGrey.gif);
+		background-position: 0px bottom;
+		width: 10px;
+                overflow: hidden;
+        z-index: 3;
+}
+
+.linkHArrowGrey {
+        position: absolute;
+		border: none;
+	    background-image: url(../images/linkHGrey.gif);
+		background-position: right 0px;
+		height: 10px;
+                overflow: hidden;
+        z-index: 3;
+}
+
+.linkVPurple {
+        position: absolute;
+		border: none;
+	    background-image: url(../images/linkVPurple.gif);
+		background-position: 0px 0px;
+		width: 10px;
+                overflow: hidden;
+                z-index: 50;
+}
+
+.linkHPurple {
+        position: absolute;
+		border: none;
+	    background-image: url(../images/linkHPurple.gif);
+		background-position: 0px 0px;
+		height: 10px;
+                overflow: hidden;
+                z-index: 50;
+}
+
+.linkVArrowPurple {
+        position: absolute;
+		border: none;
+	    background-image: url(../images/linkVPurple.gif);
+		background-position: 0px bottom;
+		width: 10px;
+                overflow: hidden;
+                z-index: 50;
+}
+
+.linkHArrowPurple {
+        position: absolute;
+		border: none;
+	    background-image: url(../images/linkHPurple.gif);
+		background-position: right 0px;
+		height: 10px;
+                overflow: hidden;
+                z-index: 50;
+}
+
+.linkVFault {
+        position: absolute;
+		border: none;
+	    background-image: url(../images/linkVFault.gif);
+		background-position: 0px 0px;
+		width: 10px;
+                overflow: hidden;
+                z-index: 50;
+}
+
+.linkHFault {
+        position: absolute;
+		border: none;
+	    background-image: url(../images/linkHFault.gif);
+		background-position: 0px 0px;
+		height: 10px;
+                overflow: hidden;
+                z-index: 50;
+}
+
+.linkVArrowFault {
+        position: absolute;
+		border: none;
+	    background-image: url(../images/linkVFault.gif);
+		background-position: 0px bottom;
+		width: 10px;
+                overflow: hidden;
+                z-index: 50;
+}
+
+.linkHArrowFault {
+        position: absolute;
+		border: none;
+	    background-image: url(../images/linkHFault.gif);
+		background-position: right 0px;
+		height: 10px;
+                overflow: hidden;
+                z-index: 50;
+}
+
+.linkHandlePurple {
+        position: absolute;
+		width: 20px;
+		height: 20px;
+	    z-index: 100;
+		border: none;
+	    background-image: url(../images/linkHandlePurple.gif);
+}
+
+.greyOut {
+    display: block;
+    position: absolute;
+	opacity: 0.8;
+	filter:alpha(opacity=80);
+	background-color: #FFFFFF;
+	z-index: 270;
+}
+
+.nodeMenu {
+	position: absolute;
+	display: block;
+        background-image: url(../images/actionBackground.gif);
+	background-position: top left;
+	border: 5px ridge silver;
+	padding: 5px;
+	z-index: 500;
+        cursor: pointer;
+}
+
+.nodeMenuRow {
+	border: 2px solid transparent;
+	padding: 0px;
+	margin: 0px;
+}
+
+.nodeMenuRow td {
+	font-size: 12px;
+	font-weight: bold;
+	color: white;
+	vertical-align: middle;
+}
+
+.bubble {
+        display: block;
+        position: absolute;
+        border: none;
+        z-index: 999;
+}
+
+.bubbleIcon {
+	width: 16px;
+	height: 16px;
+	float: left;	
+    margin: 3px;
+    border: 1px solid white;
+}
+
+.bubbleLeft {
+	padding: 0pt;
+	height: 32px;
+	width: 11px;
+	background-image: url(../images/Bubble_l.gif);
+	float: left;
+}
+
+.bubbleMiddle {
+	padding: 0pt;
+	height: 32px;
+	background-image: url(../images/Bubble_m.gif);
+	float: left;
+}
+
+.bubbleRight {
+	padding: 0pt;
+	height: 32px;
+	width: 7px;
+	background-image: url(../images/Bubble_r.gif);
+	float: left;
+}
+
+
+

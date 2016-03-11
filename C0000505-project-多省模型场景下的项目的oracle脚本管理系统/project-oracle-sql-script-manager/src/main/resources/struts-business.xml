@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	
+	<!-- 
+	struts2.1.8 必须配置namespace
+	在2.0中一切OK，没有问题，但是在2.1中确出现了No result defined for action的异常，郁闷了好半天，经过多方查找，
+	原来是在2.1中有一个插件struts2-convention-plugin-2.1.8.jar，这个插件是2.1版本中新添加的默认核心包，
+	这个插件是实现Struts2的零配置（稍后会详细解释这个插件的使用），但是这样问题就来了，
+	如果引入就必须引入namespace命名空间，否则就会出现刚才的No result defined for action的异常
+	 -->
+	<package name="business" namespace="/"  extends="default-package">
+		<action name="main" class="com.asb.cdd.scriptmanage.web.SystemMainPageAction">
+            <result name="success" type="freemarker">subsystem-scriptmanage/main.ftl</result>
+		</action>
+	
+	    <action name="scriptCreateAction" class="com.asb.cdd.scriptmanage.web.ScriptCreateAction">
+            <interceptor-ref name="defaultFileUploadInterceptorStack"></interceptor-ref>
+            <result name="form" type="freemarker">subsystem-scriptmanage/createTask.ftl</result>
+            <result name="newscriptUpdate" type="freemarker">subsystem-scriptmanage/newCreateTask.ftl</result>
+            <result name="index" type="freemarker">subsystem-scriptmanage/systemIndex.ftl</result>
+            <result name="scriptUpdate" type="freemarker">subsystem-scriptmanage/scriptUpdate.ftl</result>   
+            <result name="success" type="freemarker">subsystem-scriptmanage/createTaskResult.ftl</result>
+            <result name="input" type="freemarker">subsystem-scriptmanage/createTaskResult.ftl</result>
+            <result name="deny" type="freemarker">subsystem-scriptmanage/createTaskDeny.ftl</result>            
+            <result name="resubmitSuccess" type="freemarker">subsystem-scriptmanage/resubmitScriptResult.ftl</result>
+		</action>
+	
+		<action name="scriptCreateAction2" class="com.asb.cdd.scriptmanage.web.ScriptCreateAction2">
+            <interceptor-ref name="defaultFileUploadInterceptorStack"></interceptor-ref>
+            <result name="form" type="freemarker">subsystem-scriptmanage/createTask2.ftl</result>
+            <result name="newscriptUpdate" type="freemarker">subsystem-scriptmanage/newCreateTask.ftl</result>
+            <result name="index" type="freemarker">subsystem-scriptmanage/systemIndex.ftl</result>
+            <result name="scriptUpdate" type="freemarker">subsystem-scriptmanage/scriptUpdate.ftl</result>   
+            <result name="scriptUpload" type="freemarker">subsystem-scriptmanage/scriptUpload.ftl</result>
+            <!--<result name="success" type="freemarker">subsystem-scriptmanage/createTaskResult.ftl</result>-->
+            <result name="input" type="freemarker">subsystem-scriptmanage/createTaskResult.ftl</result>
+            <result name="deny" type="freemarker">subsystem-scriptmanage/createTaskDeny.ftl</result>            
+            <result name="resubmitSuccess" type="freemarker">subsystem-scriptmanage/resubmitScriptResult.ftl</result>
+            <!--<result name="success" type="json">  
+               <param name="root">resultMap</param>  
+            </result>-->
+            <result name="success" type="freemarker">  
+               <param name="location">subsystem-scriptmanage/scriptUpload.ftl</param> 
+            </result>
+             <result name="iframe" type="freemarker">  
+               <param name="location">subsystem-scriptmanage/createTask2.ftl</param> 
+            </result>
+		</action>
+		
+		<action name="scriptManualExecuteAction" class="com.asb.cdd.scriptmanage.web.ScriptManualExecuteAction">
+            <result name="success" type="freemarker">subsystem-scriptmanage/manualExecuteScript.ftl</result>
+			<result name="scriptDetail" type="freemarker">subsystem-scriptmanage/scriptDetail.ftl</result>
+			<result name="scriptEnvironmentDetail" type="freemarker">subsystem-scriptmanage/scriptEnvironmentDetail.ftl</result>
+			<result name="error" type="freemarker">subsystem-scriptmanage/manualExecuteResult.ftl</result>
+			<result name="executeSuccefully" type="freemarker">subsystem-scriptmanage/manualExecuteResult.ftl</result>			
+			<result name="download" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">attachment;filename="${fileName}"</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+		
+		<action name="scriptPlaybackAction" class="com.asb.cdd.scriptmanage.web.ScriptPlaybackAction">
+            <result name="success" type="freemarker">subsystem-scriptmanage/playbackScripts.ftl</result>
+			<result name="playbacked" type="freemarker">subsystem-scriptmanage/playbackScriptsResult.ftl</result>
+		</action>
+		
+		<action name="systemInitAction" class="com.asb.cdd.scriptmanage.web.SystemInitAction">
+            <result name="success" type="freemarker">subsystem-scriptmanage/systemInitResult.ftl</result>
+		</action>
+		
+		<action name="dashboardAction" class="com.asb.cdd.scriptmanage.web.DashboardAction">
+            <result name="success" type="freemarker">subsystem-scriptmanage/dashboard.ftl</result>
+		</action>		
+	</package>
+	
+</struts>

@@ -1,0 +1,27 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>资源维护视图</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<!-- extjs -->
+<link rel="stylesheet" type="text/css"	href="resources/css/ext-all.css" />
+<link rel="stylesheet" type="text/css"	href="../common/theme/default/style/button.css" />
+<script type="text/javascript" src="ext-base.js"></script>
+<script type="text/javascript" src="ext-all.js"></script>
+
+<!-- business -->
+<script type="text/javascript" src="component.extjs.datagrid.prototype.js"></script>
+
+<script>
+Ext.onReady(function(){
+	Ext.QuickTips.init();
+	if(!xxxDataGrid.isInited()){
+		xxxDataGrid.init();
+	}
+	var mainPanel = xxxDataGrid.createMainPanel();
+	new Ext.Viewport({layout:'anchor',items:[mainPanel]});
+});
+</script>
+</head>
+</html>
