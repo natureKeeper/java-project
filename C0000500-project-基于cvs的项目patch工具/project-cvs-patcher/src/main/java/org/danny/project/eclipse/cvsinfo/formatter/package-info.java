@@ -5,9 +5,9 @@
  * @Description 
  * <li></li>
  *
- * @Email wusuirong@dtd365.com
+ * @Email wusuirong@xxx.com
  *
- * www.dtd365.com
+ * www.xxx.com
  * Copyright (c) 2014 All Rights Reserved.
  */
 package org.danny.project.eclipse.cvsinfo.formatter;

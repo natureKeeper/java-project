@@ -4,9 +4,9 @@
  *
  * description 
  *
- * email: wusuirong@dtd365.com
+ * email: wusuirong@xxx.com
  *
- * www.dtd365.com
+ * www.xxx.com
  * Copyright (c) 2014 All Rights Reserved.
  */
 package net.danny.qqmsgagent.service.util;
