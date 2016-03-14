@@ -1,17 +1,58 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.danny.project</groupId>
-	<artifactId>project-qq-robot-windows-oracle</artifactId>
-	<packaging>war</packaging>
-	<version>0.0.1</version>
-	<name>project-qq-robot-windows-oracle</name>
-	<url>http://maven.apache.org</url>
+	<groupId>com.asb.svg.irm</groupId>
+	<artifactId>project-doc2code-generator</artifactId>
+	<name>project-doc2code-generator</name>
+	<version>1.0.0-SNAPSHOT</version>
+
+	<!--parent> <artifactId>irm-parent</artifactId> <groupId>com.asb.svg.irm</groupId> 
+		<version>1</version> <relativePath>../irm-parent/pom.xml</relativePath> </parent -->
 
 	<properties>
+		<project.release.version>0.2.1</project.release.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spring.version>3.0.3.RELEASE</spring.version>
+		<jdk.version>1.7</jdk.version>
+		<slf4j.version>1.7.7</slf4j.version>
+		<logback.version>1.1.2</logback.version>
+		<struts.version>2.3.16.3</struts.version>
+		<activiti.version>5.16.4</activiti.version>
+		<jackson.version>1.9.13</jackson.version>
 	</properties>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>5</source>
+					<target>5</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+				<version>2.0.2</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+				<version>2.4.3</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<repositories>
+	</repositories>
 	<dependencies>
 		<dependency>
 			<groupId>com.shsinceretech.oss.rcmp</groupId>
@@ -29,62 +70,19 @@
 			<version>1.0.0.RCMP-SNAPSHOT</version>
 		</dependency>
 
+		<!-- 代码直接调用java.util.logging会被桥接到slf4j -->
 		<dependency>
-			<groupId>org.apache.struts</groupId>
-			<artifactId>struts2-spring-plugin</artifactId>
-			<version>2.1.8.1</version>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jul-to-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>runtime</scope>
 		</dependency>
+		<!-- slf4j到log4j的桥接 -->
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>3.0.3.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-jdbc</artifactId>
-			<version>3.0.3.RELEASE</version>
-			<type>jar</type>
-		</dependency>
-		<!--dependency> <groupId>com.oracle</groupId> <artifactId>ojdbc14</artifactId> 
-			<version>10.1.0.4</version> </dependency -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.25</version>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.8.1</version>
-			<scope>test</scope>
-		</dependency>
-		<!--dependency> <groupId>org.mortbay.jetty</groupId> <artifactId>jetty</artifactId> 
-			<version>6.1.21</version> <scope>test</scope> </dependency -->
-
-		<dependency>
-			<groupId>commons-dbcp</groupId>
-			<artifactId>commons-dbcp</artifactId>
-			<version>1.2.1</version>
-			<type>jar</type>
-		</dependency>
-
-		<dependency>
-			<groupId>commons-lang</groupId>
-			<artifactId>commons-lang</artifactId>
-			<version>2.4</version>
-			<type>jar</type>
-		</dependency>
-		<dependency>
-			<groupId>commons-httpclient</groupId>
-			<artifactId>commons-httpclient</artifactId>
-			<version>3.1</version>
-			<type>jar</type>
-		</dependency>
-
-		<dependency>
-			<groupId>ant</groupId>
-			<artifactId>ant</artifactId>
-			<version>1.6.5</version>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>
@@ -165,6 +163,18 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>3.0.3.RELEASE</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javaee</groupId>
+			<artifactId>j2ee-api</artifactId>
+			<version>5.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
 			<version>3.0.3.RELEASE</version>
 			<type>jar</type>
@@ -205,8 +215,12 @@
 			<version>1.4.2</version>
 			<type>jar</type>
 		</dependency>
-		<!--dependency> <groupId>org.apache.poi</groupId> <artifactId>poi</artifactId> 
-			<version>3.0.2-FINAL</version> <type>jar</type> </dependency -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.0.2-FINAL</version>
+			<type>jar</type>
+		</dependency>
 		<dependency>
 			<groupId>net.sf.json-lib</groupId>
 			<artifactId>json-lib</artifactId>
@@ -232,17 +246,28 @@
 			<version>1.0.13</version>
 			<type>jar</type>
 		</dependency>
-		<!--dependency> <groupId>com.oracle</groupId> <artifactId>ojdbc14</artifactId> 
-			<version>10.1.0.4</version> </dependency -->
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc14</artifactId>
+			<version>10.1.0.4</version>
+		</dependency>
 		<dependency>
 			<groupId>com.ibatis</groupId>
 			<artifactId>ibatis</artifactId>
 			<version>2.3.4.726</version>
 			<type>jar</type>
 		</dependency>
-		<!--dependency> <groupId>com.oracle</groupId> <artifactId>sdoapi</artifactId> 
-			<version>10.2</version> <type>jar</type> </dependency> <dependency> <groupId>com.oracle</groupId> 
-			<artifactId>weblogic-mini</artifactId> <version>9.2.3.0</version> </dependency -->
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>sdoapi</artifactId>
+			<version>10.2</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>weblogic-mini</artifactId>
+			<version>9.2.3.0</version>
+		</dependency>
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
@@ -272,13 +297,13 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>net.rubyeye.xmemcached</groupId>
+			<groupId>com.googlecode.xmemcached</groupId>
 			<artifactId>xmemcached</artifactId>
-			<version>1.2.4</version>
-			<classifier>bugfix</classifier>
-			<type>jar</type>
-			<scope>compile</scope>
+			<version>1.3.8</version>
 		</dependency>
+		<!--dependency> <groupId>net.rubyeye.xmemcached</groupId> <artifactId>xmemcached</artifactId> 
+			<version>1.2.4</version> <classifier>bugfix</classifier> <type>jar</type> 
+			<scope>compile</scope> </dependency -->
 		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
@@ -286,10 +311,20 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-		<!--dependency> <groupId>adobe.flex</groupId> <artifactId>messaging-core</artifactId> 
-			<version>3.0.190226</version> <type>jar</type> <scope>compile</scope> </dependency> 
-			<dependency> <groupId>adobe.flex</groupId> <artifactId>messaging-common</artifactId> 
-			<version>3.0.190226</version> <type>jar</type> <scope>compile</scope> </dependency -->
+		<dependency>
+			<groupId>adobe.flex</groupId>
+			<artifactId>messaging-core</artifactId>
+			<version>3.0.190226</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>adobe.flex</groupId>
+			<artifactId>messaging-common</artifactId>
+			<version>3.0.190226</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
 		<dependency>
 			<groupId>com.jamonapi</groupId>
 			<artifactId>jamon</artifactId>
@@ -297,8 +332,13 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-		<!--dependency> <groupId>com.oracle.aq</groupId> <artifactId>aqapi</artifactId> 
-			<version>10.2</version> <type>jar</type> <scope>compile</scope> </dependency -->
+		<dependency>
+			<groupId>com.oracle.aq</groupId>
+			<artifactId>aqapi</artifactId>
+			<version>10.2</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.xhtmlrenderer</groupId>
 			<artifactId>core-renderer</artifactId>
@@ -355,8 +395,28 @@
 			<version>2.0.19</version>
 			<scope>test</scope>
 		</dependency>
-		<!--dependency> <groupId>com.sun</groupId> <artifactId>tools</artifactId> 
-			<version>1.5.0</version> <scope>provided</scope> </dependency -->
+		<dependency>
+			<groupId>com.sun</groupId>
+			<artifactId>tools</artifactId>
+			<version>1.5.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<!--dependency> <groupId>net.sf.jxls</groupId> <artifactId>jxls-reader</artifactId> 
+			<version>1.0</version> </dependency> <dependency> <groupId>net.sf.jxls</groupId> 
+			<artifactId>jxls-core</artifactId> <version>1.0</version> </dependency> <dependency> 
+			<groupId>org.apache.poi</groupId> <artifactId>poi-jdk5</artifactId> <version>3.7</version> 
+			</dependency> <dependency> <groupId>org.apache.poi</groupId> <artifactId>poi-ooxml-jdk5</artifactId> 
+			<version>3.7</version> </dependency> <dependency> <groupId>org.apache.poi</groupId> 
+			<artifactId>poi-ooxml-schemas-jdk5</artifactId> <version>3.7</version> </dependency> 
+			<dependency> <groupId>org.apache.poi</groupId> <artifactId>poi-scratchpad-jdk5</artifactId> 
+			<version>3.7</version> </dependency -->
+		<dependency>
+			<groupId>org.easymock</groupId>
+			<artifactId>easymock</artifactId>
+			<version>3.1</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- 开发时debug sql -->
 		<dependency>
 			<groupId>com.p6spy</groupId>
 			<artifactId>p6spy</artifactId>
@@ -370,31 +430,19 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>javaee</groupId>
-			<artifactId>j2ee-api</artifactId>
-			<version>5.0</version>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
 		</dependency>
 	</dependencies>
+	<dependencyManagement>
+		<dependencies>
+		</dependencies>
+	</dependencyManagement>
 
-	<build>
-		<finalName>qqMsgAgent</finalName>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-					<encoding>UTF-8</encoding>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<configuration>
-					<skip>true</skip>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 </project>

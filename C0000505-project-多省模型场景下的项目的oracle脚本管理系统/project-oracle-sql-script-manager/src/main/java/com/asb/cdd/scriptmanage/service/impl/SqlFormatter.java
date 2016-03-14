@@ -39,7 +39,7 @@ public class SqlFormatter {
 	public static String convertFileEncodingToUTF8WithoutBom(String srcFilePath, String destFilePath, String destFileSuffix, boolean justTest) throws IOException {
 		File srcFile = new File(srcFilePath);
 		String sql = FileUtil.readFileAsString(new File(srcFilePath), "UTF-8");
-		sql = Utf8ByteOrderMarkRemover.removeBom(sql);//去bom头
+		sql = Utf8ByteOrderMarkRemover.removeBomHeader(sql);//去bom头
 		String result = destFilePath + srcFile.getName() + "-0" + destFileSuffix;
 		File f = new File(result);
 		if (f.exists()) {

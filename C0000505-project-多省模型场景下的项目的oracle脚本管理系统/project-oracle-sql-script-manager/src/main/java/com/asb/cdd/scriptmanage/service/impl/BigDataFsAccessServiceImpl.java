@@ -3,6 +3,7 @@ package com.asb.cdd.scriptmanage.service.impl;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,6 +14,7 @@ import org.apache.commons.logging.LogFactory;
 import com.asb.cdd.scriptmanage.service.entity.BigDataFsLocator;
 import com.asb.cdd.scriptmanage.service.util.DateUtil;
 import com.irm.system.bigdata.service.BigDataAccessService;
+
 import common.util.FileUtil;
 
 public class BigDataFsAccessServiceImpl implements BigDataAccessService<BigDataFsLocator> {
@@ -118,5 +120,12 @@ public class BigDataFsAccessServiceImpl implements BigDataAccessService<BigDataF
 		
 		return str;
 	}
+
+	@Override
+	public BigDataFsLocator save(String arg0, InputStream arg1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }

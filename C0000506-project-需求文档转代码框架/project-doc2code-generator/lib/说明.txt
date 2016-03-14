@@ -1,0 +1,1 @@
+jcom.dll放在jdk/bin
